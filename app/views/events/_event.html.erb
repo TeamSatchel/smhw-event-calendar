@@ -2,7 +2,7 @@
   <% start_of_week = Time.zone.now.beginning_of_week.to_date %>
   <% for day in 0..6 %>
     <% if  start_of_week + day == event.start_date %>
-      <td>
+      <td class="event">
         <%= event.description %>
       </td>
     <% elsif  start_of_week + day <= event.end_date &&  start_of_week + day >= event.start_date %>
