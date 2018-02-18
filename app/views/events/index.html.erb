@@ -2,6 +2,20 @@
 
 <%= link_to 'Create event' %>
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
-
+<table>
+  <thead>
+    <% start_of_week = Time.zone.now.beginning_of_week.to_date %>
+    <tr>
+      <% for day in 0..6 %>
+      <% date = start_of_week + day %>
+      <th>
+        <%= date.strftime("%A") %>
+        <br>
+        <%= date.strftime("#{date.day.ordinalize} %B") %>
+        </th>
+      <%end  %>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
