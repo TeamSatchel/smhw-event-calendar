@@ -1,0 +1,8 @@
+<div>
+  <%= form_for Event.new, remote: true do |form| %>
+    <%= form.text_field :description %>
+    <%= form.date_field :start_date %>
+    <%= form.date_field :end_date %>
+    <%= form.submit "Create" %>
+  <% end %>
+</div>
