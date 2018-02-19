@@ -1,3 +1,4 @@
 console.log("create.js.erb file", <%= escape_javascript(@event.description) %> );
 
 $("#events").append("<%= escape_javascript(render 'event', event: @event) %>");
+$("#new_event")[0].reset();

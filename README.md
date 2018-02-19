@@ -4,8 +4,10 @@
 - Rails updated to version '4.2.8' - needed to fix an incompatibility with Active Support on my local machine
 - Bootstrap gem added to help with table formating
 
+## Tests:
+- RSpec unit tests
+
 ## To Do:
-### Validate the end_date is >= start_date
 ### Restriction the collection of Events in the index action to the current week
 Currently the table will add an extra row even if the event does not fall within the displayed week
 ### Handle errors gracefully

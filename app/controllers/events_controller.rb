@@ -4,15 +4,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create!(
-      description: event_params['description'],
-      start_date: Date.parse(event_params['start_date']),
-      end_date: Date.parse(event_params['end_date'])
-    )
+    @event = Event.new(event_params)
 
     respond_to do |format|
-      format.html { redirect_to action: :index }
-      format.js {}
+      if @event.save!
+        format.html { redirect_to action: :index }
+        format.js {}
+      else
+        format.html { redirect_to action: :index }
+      end
     end
   end
 
