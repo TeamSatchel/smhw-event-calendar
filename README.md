@@ -19,7 +19,7 @@ Furthermore, the created event should instantly show on the calendar along with 
 Given this requirement, candidates should create an EventsController with these actions: index, create.
 Events should be saved in a backend store without refreshing the page.
 
-![example](app/assets/images/evenst_calendar.png)
+![example](app/assets/images/events_calendar.png)
 
 Candidates may use any gems/plugins when building your solution. However, we will question candidates on their choices of gems/plugins.
 
