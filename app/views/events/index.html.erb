@@ -1,7 +1,26 @@
-<h1>Events calendar</h1>
+<div class="container">
+  <h1>Events calendar</h1>
 
-<%= link_to 'Create event' %>
+  <div>
+    <strong>New Event:</strong>
+    <%= render 'form' %>
+  </div>
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
-
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <% for day in 0..6 %>
+          <% date = start_of_week + day %>
+          <th class="text-center">
+            <%= date.strftime("%A") %>
+            <br>
+            <%= date.strftime("#{date.day.ordinalize} %B") %>
+          </th>
+        <%end  %>
+      </tr>
+    </thead>
+    <tbody id="events">
+      <%= render @events %>
+    </tbody>
+  </table>
+</div>
