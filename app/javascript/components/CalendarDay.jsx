@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import DayHeader from "./DayHeader";
 import DayBody from "./DayBody";
 
-export default class Calendar extends React.Component {
+export default class CalendarDay extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -19,6 +19,15 @@ export default class Calendar extends React.Component {
   }
 }
 
-Calendar.propTypes = {
-  date: PropTypes.object.isRequired,
+const eventType = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  attributes: PropTypes.shape({
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })
+});
+
+CalendarDay.propTypes = {
+  events: PropTypes.arrayOf(eventType).isRequired,
 };

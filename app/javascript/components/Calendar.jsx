@@ -7,37 +7,38 @@ import CalendarDay from "./CalendarDay";
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    let startOfWeek = moment().startOf('isoWeek');
-    this.weekDays = [];
-    for (let dayNumber=0; dayNumber<7; dayNumber++) {
-      let currentDate = moment(startOfWeek).add(dayNumber, 'd');
-      // pass events that correspond to current date
-      this.weekDays.push(<CalendarDay key={currentDate.unix()} date={currentDate}/>);
-    }
+    this.startOfWeek = moment().startOf('isoWeek');
   }
 
   render() {
     return (
       <div>
-        {this.weekDays}
+        {this.computeWeekDays()}
       </div>
     );
   }
+
+  computeWeekDays() {
+    let weekDays = [];
+    for (let dayNumber=0; dayNumber<7; dayNumber++) {
+      const currentDate = moment(this.startOfWeek).add(dayNumber, 'd');
+      const events = this.props.events.filter(event => (
+        currentDate.isBetween(event.attributes.startDate, event.attributes.endDate, 'day', '[]')
+      ));
+      weekDays.push(
+        <CalendarDay key={currentDate.unix()} date={currentDate} events={events}/>
+      );
+    }
+    return weekDays;
+  }
 }
 
-const eventType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  attributes: PropTypes.shape({
-    startDate: PropTypes.string.isRequired,
-    endDate: PropTypes.string.isRequired,
-    description: PropTypes.string,
-  })
-});
+
 
 Calendar.defaultProps = {
   events: [],
 };
 
 Calendar.propTypes = {
-  events: PropTypes.arrayOf(eventType),
+  events: CalendarDay.propTypes.events,
 };
