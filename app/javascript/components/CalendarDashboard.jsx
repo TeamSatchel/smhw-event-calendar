@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 
 import CreateEventLink from "./CreateEventLink";
 import Calendar from "./Calendar";
+import EventsAxios from "../utils/events_axios";
 
 export default class CalendarDashboard extends React.Component {
   constructor(props) {
@@ -11,6 +12,12 @@ export default class CalendarDashboard extends React.Component {
     this.state = {
       events: [],
     };
+  }
+
+  componentDidMount() {
+    EventsAxios.getIndex().then(res => {
+      this.setState({ events: res.data.data });
+    });
   }
 
   render() {

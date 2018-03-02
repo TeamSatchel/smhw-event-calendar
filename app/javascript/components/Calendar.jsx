@@ -11,7 +11,7 @@ export default class Calendar extends React.Component {
     this.weekDays = [];
     for (let dayNumber=0; dayNumber<7; dayNumber++) {
       let currentDate = moment(startOfWeek).add(dayNumber, 'd');
-      console.log(startOfWeek);
+      // pass events that correspond to current date
       this.weekDays.push(<CalendarDay key={currentDate.unix()} date={currentDate}/>);
     }
   }
@@ -26,10 +26,12 @@ export default class Calendar extends React.Component {
 }
 
 const eventType = PropTypes.shape({
-  id: PropTypes.number.isRequired,
-  startDate: PropTypes.number.isRequired,
-  endDate: PropTypes.number.isRequired,
-  description: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  attributes: PropTypes.shape({
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })
 });
 
 Calendar.defaultProps = {
