@@ -14,7 +14,7 @@ export default class CreateEventLink extends React.Component {
 
   render() {
     if (this.state.isFormOpen) {
-      return <NewEventForm />;
+      return <NewEventForm handleSubmit={this.handleFormSubmit}/>;
     } else {
       return <a href="#" onClick={this.openForm}>Create event</a>;
     }
@@ -23,6 +23,12 @@ export default class CreateEventLink extends React.Component {
   openForm() {
     this.setState({
       isFormOpen: true,
+    });
+  }
+
+  handleFormSubmit() {
+    this.setState({
+      isFormOpen: false,
     });
   }
 }

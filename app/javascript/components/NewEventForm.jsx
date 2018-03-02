@@ -1,19 +1,24 @@
 import React from "react";
 import autoBind from 'react-autobind';
 import DatePicker from 'react-datepicker';
+import PropTypes from "prop-types";
 import moment from 'moment';
 
+import EventsAxios from "../utils/events_axios";
+
 import 'react-datepicker/dist/react-datepicker.css';
+
+const initialState = {
+  startDate: moment(),
+  endDate: moment(),
+  description: '',
+};
 
 export default class NewEventForm extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
-    this.state = {
-      startDate: moment(),
-      endDate: moment(),
-      description: '',
-    };
+    this.state = initialState;
   }
 
   render() {
@@ -44,11 +49,19 @@ export default class NewEventForm extends React.Component {
   }
 
   handleStartDateChange(date) {
-    this.updateState('startDate', date);
+    if (date < this.state.endDate) {
+      this.updateState('startDate', date);
+    } else {
+      alert('Start date can\'t be after end date');
+    }
   }
 
   handleEndDateChange(date) {
-    this.updateState('endDate', date);
+    if (date > this.state.startDate) {
+      this.updateState('endDate', date);
+    } else {
+      alert('End date can\'t be before start date');
+    }
   }
 
   handleDescriptionChange(e) {
@@ -56,5 +69,13 @@ export default class NewEventForm extends React.Component {
   }
 
   createEvent() {
+    EventsAxios.postCreate(this.state).then(res => {
+      this.props.handleSubmit();
+      this.setState(initialState);
+    });
   }
 }
+
+NewEventForm.propTypes = {
+  handleSubmit: PropTypes.func,
+};
