@@ -22,6 +22,7 @@ export default class Calendar extends React.Component {
   computeWeekDays() {
     const weekDays = [];
     const eventsByRows = this.groupEventsByRows();
+
     for (let dayNumber=0; dayNumber<7; dayNumber++) {
       const currentDate = moment(this.startOfWeek).add(dayNumber, 'd');
       const eventsOnDayByRows = eventsByRows.map(eventsRow => {
@@ -39,6 +40,7 @@ export default class Calendar extends React.Component {
           events={eventsOnDayByRows} />
       );
     }
+
     return weekDays;
   }
 
@@ -46,11 +48,12 @@ export default class Calendar extends React.Component {
     const eventsOnWeek = this.eventsHappenOnWeek().sort((a, b) => (
       moment(a.attributes.startDate) - moment(b.attributes.startDate)
     ));
+
     return eventsOnWeek.reduce((acc, item) => {
       let rowFound = false;
       acc.map((events) => {
         let lastEventInRow = events[events.length - 1];
-        if (moment(lastEventInRow.attributes.endDate).isBefore(moment(item.attributes.startDate))) {
+        if (moment(lastEventInRow.attributes.endDate).isBefore(moment(item.attributes.startDate)) && !rowFound) {
           rowFound = true;
           events.push(item);
         }
