@@ -1,20 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class Calendar extends React.Component {
+import '../src/day-header.sass';
+
+export default class DayHeader extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div>
-        <p>{this.props.date.format()}</p>
+      <div className="day-header">
+        <span>{this.props.date.format('dddd')}</span>
+        <span>{this.props.date.format('Do MMM')}</span>
       </div>
     );
   }
 }
 
-Calendar.propTypes = {
+DayHeader.propTypes = {
   date: PropTypes.object.isRequired,
 };
