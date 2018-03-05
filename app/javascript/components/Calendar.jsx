@@ -44,6 +44,10 @@ export default class Calendar extends React.Component {
     return weekDays;
   }
 
+
+  // these two methods should be moved out of component if it would grow bigger
+  // to e.g. some service object
+  // I don't think, it makes much sense to move it away now though
   groupEventsByRows() {
     const eventsOnWeek = this.eventsHappenOnWeek().sort((a, b) => (
       moment(a.attributes.startDate) - moment(b.attributes.startDate)
