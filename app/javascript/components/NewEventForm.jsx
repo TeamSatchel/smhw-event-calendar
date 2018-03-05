@@ -49,19 +49,11 @@ export default class NewEventForm extends React.Component {
   }
 
   handleStartDateChange(date) {
-    if (date <= this.state.endDate) {
-      this.updateState('startDate', date);
-    } else {
-      alert('Start date can\'t be after end date');
-    }
+    this.updateState('startDate', date);
   }
 
   handleEndDateChange(date) {
-    if (date >= this.state.startDate) {
-      this.updateState('endDate', date);
-    } else {
-      alert('End date can\'t be before start date');
-    }
+    this.updateState('endDate', date);
   }
 
   handleDescriptionChange(e) {
@@ -69,11 +61,15 @@ export default class NewEventForm extends React.Component {
   }
 
   createEvent() {
-    EventsAxios.postCreate(this.state).then(res => {
-      this.props.handleSubmit(res.data.data);
-    }, () => {
-      alert("Error on creation, please try again");
-    });
+    if (this.state.endDate >= this.state.startDate) {
+      EventsAxios.postCreate(this.state).then(res => {
+        this.props.handleSubmit(res.data.data);
+      }, () => {
+        alert("Error on creation, please try again");
+      });
+    } else {
+      alert('Start date can\'t be after end date');
+    }
   }
 }
 
