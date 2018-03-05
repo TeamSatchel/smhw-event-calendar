@@ -1,5 +1,6 @@
 import React from "react";
 import autoBind from 'react-autobind';
+import PropTypes from "prop-types";
 
 import NewEventForm from './NewEventForm';
 
@@ -26,9 +27,14 @@ export default class CreateEventLink extends React.Component {
     });
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
     this.setState({
       isFormOpen: false,
     });
+    this.props.handleEventCreated(event);
   }
 }
+
+CreateEventLink.propTypes = {
+  handleEventCreated: PropTypes.func,
+};

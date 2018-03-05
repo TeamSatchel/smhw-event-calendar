@@ -21,7 +21,7 @@ export default class DayBody extends React.Component {
 
   renderEventRow(event, i) {
     if (event) {
-      let description = null;
+      let description = '';
       let classNames = "day-event";
       if (this.props.date.isSame(moment(event.attributes.startDate))) {
         description = (
@@ -34,7 +34,7 @@ export default class DayBody extends React.Component {
       if (this.props.date.isSame(moment(event.attributes.endDate))) {
         classNames += " last-day";
       }
-      return <div className={classNames} key={event.id}>
+      return <div className={classNames} key={event.id + i}>
         {description}
       </div>;
     } else {

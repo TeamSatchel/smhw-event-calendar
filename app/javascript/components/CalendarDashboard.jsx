@@ -24,9 +24,13 @@ export default class CalendarDashboard extends React.Component {
     return (
       <div>
         <h1>Events calendar</h1>
-        <CreateEventLink />
-        <Calendar events={this.state.events} />
+        <CreateEventLink handleEventCreated={this.addEvent}/>
+        <Calendar events={this.state.events}/>
       </div>
     );
+  }
+
+  addEvent(event) {
+    this.setState({ events: [...this.state.events, event] });
   }
 }
