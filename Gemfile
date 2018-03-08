@@ -18,11 +18,20 @@ gem 'coffee-rails', '~> 4.2.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-modal-rails', git: 'https://github.com/ozasuke/jquery-modal-rails'
+
+gem 'simple_form'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+# Calendar commons
+gem 'fullcalendar-rails', '~> 3.4.0'
+gem 'momentjs-rails', '~> 2.17.1'
+
 # API common
-gem 'active_model_serializers', '~> 0.10.7'
+gem 'jbuilder', '~> 2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
