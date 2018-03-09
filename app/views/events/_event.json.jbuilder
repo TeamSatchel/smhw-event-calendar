@@ -6,7 +6,7 @@ json.desc event.desc
 json.start event.start.strftime(date_format)
 json.end event.end.strftime(date_format)
 
-json.allDay event.all_day ? true : false
+json.allDay event.all_day
 
 json.update_url event_path(event, method: :patch)
 json.edit_url edit_event_path(event)

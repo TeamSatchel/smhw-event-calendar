@@ -51,6 +51,11 @@ gem 'nokogiri','~> 1.8.2'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
+
+  gem 'rspec-rails'
+  # gem 'selenium-webdriver', '2.53.4'
+  gem 'poltergeist'
+  gem 'capybara'
 end
 
 group :development do
@@ -60,3 +65,6 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
