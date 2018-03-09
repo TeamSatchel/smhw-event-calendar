@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
 gem 'puma', '~> 3.11.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
@@ -49,6 +48,9 @@ gem 'nokogiri','~> 1.8.2'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   gem 'pry-rails'
   gem 'pry-byebug'
 
@@ -67,4 +69,9 @@ end
 
 group :test do
   gem 'database_cleaner'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
