@@ -1,0 +1,35 @@
+<%= simple_form_for(event, remote: true) do |form| %>
+  <%= form.error_notification %>
+
+  <div class="form-inputs">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :event_title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :desc %>
+      <%= form.text_area :desc, id: :event_desc %>
+    </div>
+
+    <div class="field">
+      <%= form.label :start %>
+      <%= form.datetime_select :start, id: :event_start %>
+    </div>
+
+    <div class="field">
+      <%= form.label :end %>
+      <%= form.datetime_select :end, id: :event_end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :all_day %>
+      <%= form.check_box :all_day, id: :event_all_day %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
+
