@@ -1,0 +1,23 @@
+.container
+  h1
+   | Events calendar
+
+  = link_to 'Create event', class: 'btn'
+  .container
+    .row
+      - @week.each do |day|
+        .col-lg-1.bordered
+          = day.strftime("%A %d %h")
+      .col-lg-5
+    .row
+      - @events.each do |event|
+        - present(event) do |event_presenter|
+          .row
+            .div class="col-lg-#{event_presenter.settings[:left_offset]}"
+            .bordered class="col-lg-#{event_presenter.settings[:length]}" style="background-color: yellow"
+              strong
+                | Description: 
+              = event_presenter.event.description
+            .div class="col-lg-#{event_presenter.settings[:right_offset]}"
+              |
+            .col-lg-5
