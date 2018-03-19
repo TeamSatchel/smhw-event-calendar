@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+  validates_presence_of :start_date, :end_date
+
   scope :actual, -> {
     where("start_date BETWEEN :beginning_of_week
       AND :end_of_week
