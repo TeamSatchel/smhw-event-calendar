@@ -13,4 +13,39 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+$( document ).ready(function() {
+
+  $("#new_event").on("submit", function(event){
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        $('#messages').addClass("bg-success")
+        $('#messages').text(response.notice)
+      },
+      error: function(response){
+        $('#messages').addClass("bg-danger")
+        $('#messages').text(response.responseText)
+      }
+    });
+    event.preventDefault();
+  });
+
+
+  $(function () {
+    $('#datetimepicker1').datetimepicker({
+      defaultDate: new Date(),
+      format: 'DD-MM-YYYY'
+    });
+    $('#datetimepicker2').datetimepicker({
+      defaultDate: new Date(),
+      format: 'DD-MM-YYYY'
+    });
+  });
+
+});
