@@ -23,4 +23,22 @@ describe EventsController do
       expect(response).to render_template("index")
     end
   end
+
+  context "POST create" do
+    let(:event_params) {
+      { event: { description: "hello world", start_date: Date.current, end_date: Date.current + 1.days } }
+    }
+    let(:wrong_event_params){
+      { event: { description: "hello world", start_date: "", end_date: "" } }
+    }
+    it "creates new event with right params" do
+      post :create, event_params
+      expect(Event.count).to eq(1)
+    end
+
+    it "creates new event with right params" do
+      post :create, wrong_event_params
+      expect(Event.count).to eq(0)
+    end
+  end
 end
