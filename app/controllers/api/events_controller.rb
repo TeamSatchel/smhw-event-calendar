@@ -22,7 +22,7 @@ class Api::EventsController < ApiController
     event = Event.new(event_params)
 
     if event.save
-      render json: { event: event }, status: 200
+      render json: { event: event, message: 'Event created successfully!' }, status: 200
     else
       render json: { errors: event.errors }, status: 400
     end
