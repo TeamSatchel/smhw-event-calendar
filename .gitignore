@@ -19,3 +19,10 @@
 
 # Ignore debug history
 .byebug_history
+yarn-debug.log*
+
+# Ignore webpacker dependencies
+/public/packs
+/public/packs-test
+/node_modules
+.yarn-integrity
