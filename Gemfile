@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'coffee-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'jquery-rails'
 gem 'listen'
 gem 'rails', '5.1.4'
 gem 'sass-rails', '~> 5.0'
