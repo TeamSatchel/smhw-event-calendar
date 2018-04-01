@@ -1,3 +1,33 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.week {
+  width: 100%;
+  padding: 1pt;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  width: 33%;
+}
+
+td.header {
+  text-align: center;
+}
+
+.main-container {
+  width: 300%;
+}
+
+.event {
+  position: relative;
+  background-color: orange;
+}
+
+.event-one {
+  margin-left: 1%;
+  width: 55%;
+}
+
+.event-two {
+  margin-left: 32%;
+  width: 30%;
+}
