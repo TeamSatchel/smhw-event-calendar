@@ -1,7 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Event.delete_all
+
+Event.create!(
+  [
+    {
+      description: 'The last day on earth',
+      start_date: Date.today,
+      length_days: 5
+    },
+    {
+      description: 'Judgement day',
+      start_date: Date.today.prev_week,
+      length_days: 1
+    },
+    {
+      description: 'The first day of the rest of your life',
+      start_date: Date.today.next_month,
+      length_days: 1
+    },
+    {
+      description: 'Genesis',
+      start_date: Date.today,
+      length_days: 2
+    }
+  ]
+)
+
+puts 'Events seeded'
