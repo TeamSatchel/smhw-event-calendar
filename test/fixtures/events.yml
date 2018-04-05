@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  title: Test event
+  start_date: 2018-03-01
+  end_date: 2018-03-01
+
+two:
+  title: Event two
+  start_date: 2018-03-02
+  end_date: 2018-03-03
