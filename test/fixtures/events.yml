@@ -2,10 +2,10 @@
 
 valid:
   title: Test event
-  start_date: 2018-03-01
-  end_date: 2018-03-01
+  start_date: <%= Date.current %>
+  end_date: <%= Date.current %>
 
 two:
   title: Event two
-  start_date: 2018-03-02
-  end_date: 2018-03-03
+  start_date: <%= Date.current %>
+  end_date: <%= Date.current + 2.days %>

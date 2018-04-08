@@ -1,0 +1,5 @@
+<% if @event.new_record? %>
+    alert("<%= @event.error_messages %>");
+<% else %>
+    $('#event_body').val('');
+<% end %>

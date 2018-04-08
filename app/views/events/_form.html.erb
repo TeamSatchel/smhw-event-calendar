@@ -1,0 +1,14 @@
+<%= form_for @event, remote: true do |f| %>
+    <%= f.label :title, 'event title:' %>
+    <%= f.text_field :title, required: true, maxlength: 60 %>
+    <br>
+    <br>
+
+    <%= f.label :start_date, 'start at:' %>
+    <%= f.text_field :start_date, required: true, maxlength: 15 %>
+
+    <%= f.label :end_date, 'finish at:' %>
+    <%= f.text_field :end_date, required: true, maxlength: 15 %>
+
+    <%= f.submit 'create' %>
+<% end %>

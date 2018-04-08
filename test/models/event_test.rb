@@ -21,21 +21,9 @@ class EventTest < ActiveSupport::TestCase
     assert_not_nil @event.errors[:start_date]
   end
 
-  test 'start at should be valid date' do
-    @event.start_date = '234/23/4234/23423'
-    refute @event.valid?, 'saved event with invalid start at'
-    assert_not_nil @event.errors[:start_date]
-  end
-
   test 'invalid without end at' do
     @event.end_date = nil
     refute @event.valid?, 'saved event without finish at'
-    assert_not_nil @event.errors[:end_date]
-  end
-
-  test 'finish at should be valid date' do
-    @event.end_date = '234/23/4234/23423'
-    refute @event.valid?, 'saved event with invalid finish at'
     assert_not_nil @event.errors[:end_date]
   end
 
