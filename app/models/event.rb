@@ -12,4 +12,8 @@ class Event < ActiveRecord::Base
   def end_not_before_start
     errors.add(:end_date, 'end date should follow after start') if self.end_date && self.start_date && self.end_date < self.start_date
   end
+
+  def self.default_form_data
+    new(title: 'test event', start_date: Date.current, end_date: Date.current)
+  end
 end

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.new(title: 'some test event', start_date: Date.current, end_date: Date.current)
+    @event = Event.default_form_data
 
     @events = Event.current_week_events
 
