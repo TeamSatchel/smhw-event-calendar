@@ -19,12 +19,12 @@
   <tr>
     <td>
       <div class="main-container">
-        <div class="event event-one">
-          visit shop
-        </div>
-        <div class="event event-two">
-          study english
-        </div>
+        <% @events.each do |event| %>
+            <div class="event"
+                 style="<%= EventPositionStyleService.new(event, @week_start, @week_end).perform %>">
+              <%= event.title %>
+            </div>
+        <% end %>
       </div>
     </td>
     <% (7-1).times do %>

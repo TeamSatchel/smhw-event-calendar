@@ -1,9 +1,11 @@
 class EventsController < ApplicationController
   def index
     @event = Event.new(title: 'some test event', start_date: Date.current, end_date: Date.current)
-    @events = Event.order(:start_date)
+
+    @events = Event.current_week_events
 
     @week_start = Date.today.at_beginning_of_week
+    @week_end = @week_start + 6.days
   end
 
   def create
