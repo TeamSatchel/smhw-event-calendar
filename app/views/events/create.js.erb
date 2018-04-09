@@ -1,5 +1,5 @@
 <% if @event.new_record? %>
-    alert("<%= @event.error_messages %>");
+    alert("<%= @event.errors.messages.keys.map{ |key| "#{key} - #{@event.errors.messages[key].join('; ')}" }.join('; ').html_safe %>");
 <% else %>
-    $('#event_body').val('');
+    $('#event_title').val('');
 <% end %>
