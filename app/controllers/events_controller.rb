@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
-  def index
-    @event = Event.default_form_data
-
-    @events = Event.current_week_events
-
+  before_filter do
     @week_start = Date.today.at_beginning_of_week
     @week_end = @week_start + 6.days
+  end
+
+  def index
+    @event = Event.default_form_data
+    @events = Event.current_week_events
   end
 
   def create

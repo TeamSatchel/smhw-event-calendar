@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 
   scope :current_week_events, -> {
     where('start_date BETWEEN ? AND ?', Date.today.at_beginning_of_week, Date.today.at_end_of_week).
-        order(:start_date)
+        order(id: :desc)
   }
 
   def end_not_before_start

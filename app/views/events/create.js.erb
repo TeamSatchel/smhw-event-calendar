@@ -2,4 +2,5 @@
     alert("<%= @event.errors.messages.keys.map{ |key| "#{key} - #{@event.errors.messages[key].join('; ')}" }.join('; ').html_safe %>");
 <% else %>
     $('#event_title').val('');
+    $('.main-container').prepend('<%= j render @event %>');
 <% end %>
