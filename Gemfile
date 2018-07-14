@@ -34,4 +34,7 @@ end
 group :test do
   # Test helpers
   gem 'shoulda-matchers'
+
+  # Factory models for tests
+  gem 'factory_bot_rails'
 end
