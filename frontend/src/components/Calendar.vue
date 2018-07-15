@@ -11,6 +11,8 @@
 <script>
 import moment from 'moment'
 
+const dateFormat = 'YYYY-MM-DD'
+
 export default {
   name: 'Calendar',
 
@@ -19,6 +21,37 @@ export default {
       events: [],
       error: null,
       today: moment().format(dateFormat)
+    }
+  },
+
+  computed: {
+    firstDay () {
+      const earliestEventStartDate =
+        this.events.map(event => event.start_date).sort()[0]
+
+      return earliestEventStartDate || this.today
+    },
+
+    lastDay () {
+      const latestEventEndDate =
+        this.events.map(event => event.end_date).sort().reverse()[0]
+
+      return latestEventEndDate || this.today
+    },
+
+    days () {
+      const daysArray = []
+
+      for (let i = 0; i < this.daysCount; i++) {
+        const day = moment(this.firstDay).add(i, 'days').format(dateFormat)
+        daysArray.push(day)
+      }
+
+      return daysArray
+    },
+
+    daysCount () {
+      return moment(this.lastDay).diff(this.firstDay, 'days') + 1
     }
   },
 
