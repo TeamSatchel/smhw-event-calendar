@@ -18,37 +18,64 @@ describe('Calendar.vue', () => {
     }
   })
 
-  beforeEach(() => {
-    moxios.install()
+  context('when API responds with success', () => {
+    beforeEach(() => {
+      moxios.install()
 
-    moxios.stubRequest('/api/events', {
-      status: 200,
-      response: events
+      moxios.stubRequest('/api/events', {
+        status: 200,
+        response: events
+      })
+    })
+
+    afterEach(() => {
+      moxios.uninstall()
+    })
+
+    it('initially holds empty events collection', () => {
+      const wrapper = getComponent()
+      expect(wrapper.vm.events).to.eql([])
+    })
+
+    it('shows the title', () => {
+      const wrapper = getComponent()
+      expect(wrapper.text()).to.include('Events Calendar')
+    })
+
+    it('shows the events fetched from the backend API', async () => {
+      const wrapper = getComponent()
+
+      // first "tick" for http, second for `Promise.resolve()`
+      await wrapper.vm.$nextTick()
+      await wrapper.vm.$nextTick()
+
+      expect(wrapper.text()).to.include(events[0].title)
+      expect(wrapper.text()).to.include(events[1].title)
     })
   })
 
-  afterEach(() => {
-    moxios.uninstall()
-  })
+  context('when API responds with an error', () => {
+    beforeEach(() => {
+      moxios.install()
 
-  it('initially holds empty events collection', () => {
-    const wrapper = getComponent()
-    expect(wrapper.vm.events).to.eql([])
-  })
+      moxios.stubRequest('/api/events', {
+        status: 404
+      })
+    })
 
-  it('shows the title', () => {
-    const wrapper = getComponent()
-    expect(wrapper.text()).to.include('Events Calendar')
-  })
+    afterEach(() => {
+      moxios.uninstall()
+    })
 
-  it('shows the events fetched from the backend API', async () => {
-    const wrapper = getComponent()
+    it('shows error message when events could not be fetched', async () => {
+      const wrapper = getComponent()
 
-    // first "tick" for http, second for `Promise.resolve()`
-    await wrapper.vm.$nextTick()
-    await wrapper.vm.$nextTick()
+      // first "tick" for http, second for `Promise.resolve()`, third to display error
+      await wrapper.vm.$nextTick()
+      await wrapper.vm.$nextTick()
+      await wrapper.vm.$nextTick()
 
-    expect(wrapper.text()).to.include(events[0].title)
-    expect(wrapper.text()).to.include(events[1].title)
+      expect(wrapper.text()).to.include('error while fetching the events')
+    })
   })
 })

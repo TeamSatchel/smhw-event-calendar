@@ -1,6 +1,9 @@
 <template>
   <div class="calendar">
     <h1>Events Calendar</h1>
+
+    <p v-if="error" class="error">{{ error }}</p>
+
     <p>{{ events }}</p>
   </div>
 </template>
@@ -11,7 +14,8 @@ export default {
 
   data () {
     return {
-      events: []
+      events: [],
+      error: null
     }
   },
 
@@ -23,8 +27,9 @@ export default {
     fetchEvents () {
       this.$http.get('/api/events').then(response => {
         this.events = response.data
+        this.error = null
       }, response => {
-        // handle error
+        this.error = 'There was an error while fetching the events.'
       })
     }
   }
@@ -32,4 +37,10 @@ export default {
 </script>
 
 <style>
+.error {
+  background: #fee;
+  border: 1px solid #700;
+  color: #700;
+  padding: 1rem;
+}
 </style>
