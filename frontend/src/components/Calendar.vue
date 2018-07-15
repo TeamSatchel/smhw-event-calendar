@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: 'Calendar'
+  name: 'Calendar',
+
+  data () {
+    return {
+      events: []
+    }
+  }
 }
 </script>
 

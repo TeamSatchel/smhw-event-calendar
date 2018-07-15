@@ -7,4 +7,9 @@ describe('Calendar.vue', () => {
     const wrapper = shallowMount(Calendar)
     expect(wrapper.text()).to.include('Events Calendar')
   })
+
+  it('initially holds empty events collection', () => {
+    const wrapper = shallowMount(Calendar)
+    expect(wrapper.vm.events).to.eql([])
+  })
 })
