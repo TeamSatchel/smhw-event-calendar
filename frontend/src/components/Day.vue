@@ -29,3 +29,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.date {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-width: 1px 0 1px 1px;
+  padding: 1rem;
+  text-align: center;
+  width: 7rem;
+}
+
+.date:last-child {
+  border-width: 1px
+}
+
+.date strong {
+  display: block
+}
+</style>

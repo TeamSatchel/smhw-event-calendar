@@ -5,16 +5,27 @@
     <p v-if="error" class="error">{{ error }}</p>
 
     <p>{{ events }}</p>
+
+    <section class="header">
+      <template v-for="day in days">
+        <Day :value="day" />
+      </template>
+    </section>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import Day from '@/components/Day'
 
 const dateFormat = 'YYYY-MM-DD'
 
 export default {
   name: 'Calendar',
+
+  components: {
+    Day
+  },
 
   data () {
     return {
@@ -73,6 +84,10 @@ export default {
 </script>
 
 <style>
+.header {
+  display: flex;
+}
+
 .error {
   background: #fee;
   border: 1px solid #700;
