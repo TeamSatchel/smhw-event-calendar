@@ -1,15 +1,54 @@
-import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
+import axios from 'axios'
+import moxios from 'moxios'
+
 import Calendar from '@/components/Calendar.vue'
 
+import { expect } from 'chai'
+import { shallowMount } from '@vue/test-utils'
+
 describe('Calendar.vue', () => {
-  it('renders title', () => {
-    const wrapper = shallowMount(Calendar)
-    expect(wrapper.text()).to.include('Events Calendar')
+  const events = [
+    { title: 'Event 1' },
+    { title: 'Event 2' }
+  ]
+
+  const getComponent = () => shallowMount(Calendar, {
+    mocks: {
+      $http: axios
+    }
+  })
+
+  beforeEach(() => {
+    moxios.install()
+
+    moxios.stubRequest('/api/events', {
+      status: 200,
+      response: events
+    })
+  })
+
+  afterEach(() => {
+    moxios.uninstall()
   })
 
   it('initially holds empty events collection', () => {
-    const wrapper = shallowMount(Calendar)
+    const wrapper = getComponent()
     expect(wrapper.vm.events).to.eql([])
+  })
+
+  it('shows the title', () => {
+    const wrapper = getComponent()
+    expect(wrapper.text()).to.include('Events Calendar')
+  })
+
+  it('shows the events fetched from the backend API', async () => {
+    const wrapper = getComponent()
+
+    // first "tick" for http, second for `Promise.resolve()`
+    await wrapper.vm.$nextTick()
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.text()).to.include(events[0].title)
+    expect(wrapper.text()).to.include(events[1].title)
   })
 })

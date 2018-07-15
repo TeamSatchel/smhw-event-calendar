@@ -1,6 +1,7 @@
 <template>
   <div class="calendar">
     <h1>Events Calendar</h1>
+    <p>{{ events }}</p>
   </div>
 </template>
 
@@ -11,6 +12,20 @@ export default {
   data () {
     return {
       events: []
+    }
+  },
+
+  created () {
+    this.fetchEvents()
+  },
+
+  methods: {
+    fetchEvents () {
+      this.$http.get('/api/events').then(response => {
+        this.events = response.data
+      }, response => {
+        // handle error
+      })
     }
   }
 }
