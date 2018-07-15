@@ -1,10 +1,11 @@
-import axios from 'axios'
-import moxios from 'moxios'
-
 import Calendar from '@/components/Calendar.vue'
 
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
+
+import flushPromises from 'flush-promises'
+import axios from 'axios'
+import moxios from 'moxios'
 
 describe('Calendar.vue', () => {
   const events = [
@@ -50,9 +51,7 @@ describe('Calendar.vue', () => {
     it('shows the events fetched from the backend API', async () => {
       const wrapper = getComponent()
 
-      // first "tick" for http, second for `Promise.resolve()`
-      await wrapper.vm.$nextTick()
-      await wrapper.vm.$nextTick()
+      await flushPromises()
 
       expect(wrapper.text()).to.include(events[0].title)
       expect(wrapper.text()).to.include(events[1].title)
@@ -75,10 +74,7 @@ describe('Calendar.vue', () => {
     it('shows error message when events could not be fetched', async () => {
       const wrapper = getComponent()
 
-      // first "tick" for http, second for `Promise.resolve()`, third to display error
-      await wrapper.vm.$nextTick()
-      await wrapper.vm.$nextTick()
-      await wrapper.vm.$nextTick()
+      await flushPromises()
 
       expect(wrapper.text()).to.include('error while fetching the events')
     })
