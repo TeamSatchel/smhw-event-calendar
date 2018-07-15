@@ -33,13 +33,18 @@ describe('Calendar.vue', () => {
     })
 
     it('initially holds empty events collection', () => {
+      expect(getComponent().vm.events).to.eql([])
+    })
+
+    it('holds todays date', () => {
       const wrapper = getComponent()
-      expect(wrapper.vm.events).to.eql([])
+      const today = new Date()
+
+      expect(today.toISOString()).to.include(wrapper.vm.today)
     })
 
     it('shows the title', () => {
-      const wrapper = getComponent()
-      expect(wrapper.text()).to.include('Events Calendar')
+      expect(getComponent().text()).to.include('Events Calendar')
     })
 
     it('shows the events fetched from the backend API', async () => {

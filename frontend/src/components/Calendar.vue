@@ -9,13 +9,16 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'Calendar',
 
   data () {
     return {
       events: [],
-      error: null
+      error: null,
+      today: moment().format(dateFormat)
     }
   },
 
