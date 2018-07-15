@@ -1,13 +1,10 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import Calendar from '@/components/Calendar.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
+describe('Calendar.vue', () => {
+  it('renders title', () => {
+    const wrapper = shallowMount(Calendar)
+    expect(wrapper.text()).to.include('Events Calendar')
   })
 })
