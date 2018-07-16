@@ -103,6 +103,18 @@ describe('Calendar.vue', () => {
 
       expect(wrapper.html()).to.include('<event-stub>')
     })
+
+    it('displays `EventNew` component when the button is clicked', async () => {
+      const wrapper = getComponent()
+
+      expect(wrapper.html()).not.to.include('<eventnew-stub>')
+
+      wrapper.find('.actions button').trigger('click')
+
+      await flushPromises()
+
+      expect(wrapper.html()).to.include('<eventnew-stub>')
+    })
   })
 
   context('when API responds with an error', () => {

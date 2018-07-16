@@ -15,6 +15,18 @@
         <Event :value="event" :firstDay="firstDay" />
       </template>
     </section>
+
+    <section class="actions">
+      <button @click="toggleNewEventForm">
+        Add new Event
+      </button>
+    </section>
+
+    <section
+      class="event-new"
+      v-if="displayNewEventForm">
+      <EventNew />
+    </section>
   </div>
 </template>
 
@@ -22,6 +34,7 @@
 import moment from 'moment'
 import Day from '@/components/Day'
 import Event from '@/components/Event'
+import EventNew from '@/components/EventNew'
 
 const dateFormat = 'YYYY-MM-DD'
 
@@ -30,11 +43,13 @@ export default {
 
   components: {
     Day,
-    Event
+    Event,
+    EventNew
   },
 
   data () {
     return {
+      displayNewEventForm: false,
       events: [],
       error: null,
       today: moment().format(dateFormat)
@@ -84,6 +99,10 @@ export default {
       }, response => {
         this.error = 'There was an error while fetching the events.'
       })
+    },
+
+    toggleNewEventForm () {
+      this.displayNewEventForm = !this.displayNewEventForm
     }
   }
 }
@@ -108,5 +127,14 @@ export default {
   border: 1px solid #700;
   color: #700;
   padding: 1rem;
+}
+
+.actions {
+  margin-top: 3rem;
+}
+
+.actions button {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
 }
 </style>
