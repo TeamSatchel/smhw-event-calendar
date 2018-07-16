@@ -1,5 +1,7 @@
 <template>
-  <div class="event">
+  <div
+    class="event"
+    v-bind:style="style">
     {{ value.title }}
   </div>
 </template>
@@ -28,6 +30,13 @@ export default {
 
     daysOffset () {
       return moment(this.value.start_date).diff(this.firstDay, 'days')
+    },
+
+    style () {
+      return {
+        gridColumnStart: this.daysOffset + 1,
+        gridColumnEnd: this.daysOffset + this.daysCount + 1
+      }
     }
   }
 }

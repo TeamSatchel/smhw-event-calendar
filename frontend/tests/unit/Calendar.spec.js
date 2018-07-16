@@ -96,6 +96,14 @@ describe('Calendar.vue', () => {
       expect(getComponent().html()).to.include('<day-stub>')
     })
 
+    it('shows Event components', async () => {
+      const wrapper = getComponent()
+
+      await flushPromises()
+
+      expect(wrapper.html()).to.include('<event-stub>')
+    })
+
     it('shows the events fetched from the backend API', async () => {
       const wrapper = getComponent()
 

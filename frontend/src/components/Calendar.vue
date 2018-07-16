@@ -11,12 +11,19 @@
         <Day :value="day" />
       </template>
     </section>
+
+    <section class="events">
+      <template v-for="event in events">
+        <Event :value="event" :firstDay="firstDay" />
+      </template>
+    </section>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
 import Day from '@/components/Day'
+import Event from '@/components/Event'
 
 const dateFormat = 'YYYY-MM-DD'
 
@@ -24,7 +31,8 @@ export default {
   name: 'Calendar',
 
   components: {
-    Day
+    Day,
+    Event
   },
 
   data () {
@@ -86,6 +94,13 @@ export default {
 <style>
 .header {
   display: flex;
+}
+
+.events {
+  display: grid;
+  grid-gap: 0;
+  grid-auto-flow: dense;
+  grid-auto-columns: 9rem;
 }
 
 .error {

@@ -26,4 +26,11 @@ describe('Event.vue', () => {
   it('has #daysOffset as the number of days between firstDay and event start', () => {
     expect(getComponent().vm.daysOffset).to.eql(0)
   })
+
+  it('has dynamic #style', () => {
+    const wrapper = getComponent()
+
+    expect(wrapper.vm.style.gridColumnStart).to.eql(1)
+    expect(wrapper.vm.style.gridColumnEnd).to.eql(4)
+  })
 })
