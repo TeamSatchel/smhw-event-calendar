@@ -103,15 +103,6 @@ describe('Calendar.vue', () => {
 
       expect(wrapper.html()).to.include('<event-stub>')
     })
-
-    it('shows the events fetched from the backend API', async () => {
-      const wrapper = getComponent()
-
-      await flushPromises()
-
-      expect(wrapper.text()).to.include(events[0].title)
-      expect(wrapper.text()).to.include(events[1].title)
-    })
   })
 
   context('when API responds with an error', () => {

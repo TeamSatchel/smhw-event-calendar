@@ -4,8 +4,6 @@
 
     <p v-if="error" class="error">{{ error }}</p>
 
-    <p>{{ events }}</p>
-
     <section class="header">
       <template v-for="day in days">
         <Day :value="day" />
@@ -94,14 +92,15 @@ export default {
 <style>
 .header {
   display: grid;
-  grid-auto-columns: 9rem;
+  grid-auto-columns: calc(9rem + 10px);
 }
 
 .events {
   display: grid;
-  grid-gap: 0;
+  grid-gap: 10px;
   grid-auto-flow: dense;
   grid-auto-columns: 9rem;
+  padding: 0 5px;
 }
 
 .error {

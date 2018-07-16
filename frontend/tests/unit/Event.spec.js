@@ -32,5 +32,6 @@ describe('Event.vue', () => {
 
     expect(wrapper.vm.style.gridColumnStart).to.eql(1)
     expect(wrapper.vm.style.gridColumnEnd).to.eql(4)
+    expect(wrapper.vm.style.backgroundColor).to.include('#')
   })
 })

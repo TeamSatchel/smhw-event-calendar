@@ -2,7 +2,15 @@
   <div
     class="event"
     v-bind:style="style">
-    {{ value.title }}
+    <p class="title">
+      {{ value.title }}
+    </p>
+    <p class="location">
+      {{ value.location }}
+    </p>
+    <p class="description">
+      {{ value.description }}
+    </p>
   </div>
 </template>
 
@@ -33,7 +41,10 @@ export default {
     },
 
     style () {
+      const backgroundColors = ['#50EBEE', '#F8F861', '#BEA5EB', '#6EEB53']
+
       return {
+        backgroundColor: backgroundColors[this.daysOffset % backgroundColors.length],
         gridColumnStart: this.daysOffset + 1,
         gridColumnEnd: this.daysOffset + this.daysCount + 1
       }
@@ -44,12 +55,23 @@ export default {
 
 <style>
 .event {
-  background: #EEF;
-  border: 1px solid #CCC;
+  border: 1px solid #888;
   border-radius: 5px;
   box-sizing: border-box;
   height: 5rem;
   padding: 0.5rem;
   font-size: 0.9rem;
+}
+
+.event p {
+  margin: 0;
+}
+
+.event .location {
+  font-weight: 700;
+}
+
+.event .description {
+  font-size: 85%;
 }
 </style>
