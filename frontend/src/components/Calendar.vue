@@ -93,7 +93,8 @@ export default {
 
 <style>
 .header {
-  display: flex;
+  display: grid;
+  grid-auto-columns: 9rem;
 }
 
 .events {
