@@ -1,5 +1,5 @@
 <template>
-  <p class="date">
+  <p class="day">
     <strong>{{ name }}</strong>
     {{ date }}
   </p>
@@ -31,20 +31,21 @@ export default {
 </script>
 
 <style>
-.date {
+.day {
   border: 1px solid #ccc;
   border-collapse: collapse;
   border-width: 1px 0 1px 1px;
+  box-sizing: border-box;
   padding: 1rem;
   text-align: center;
-  width: 7rem;
+  width: calc(9rem);
 }
 
-.date:last-child {
+.day:last-child {
   border-width: 1px
 }
 
-.date strong {
+.day strong {
   display: block
 }
 </style>
