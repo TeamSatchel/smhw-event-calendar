@@ -1,5 +1,7 @@
 <template>
   <fieldset>
+    <p v-if="error" class="error">{{ error }}</p>
+
     <h1>Add new Event</h1>
 
     <p>
@@ -76,6 +78,7 @@ export default {
 
   data () {
     return {
+      error: null,
       title: '',
       location: '',
       description: '',
@@ -96,6 +99,9 @@ export default {
         }
       }).then(response => {
         this.$emit('add-event', response.data)
+        this.error = null
+      }, response => {
+        this.error = 'There was an error when adding the event'
       })
     }
   }

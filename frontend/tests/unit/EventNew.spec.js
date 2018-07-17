@@ -79,5 +79,30 @@ describe('EventNew.vue', () => {
         expect(wrapper.emitted()['add-event'][0]).to.include(event)
       })
     })
+
+    context('when unsuccessful', () => {
+      beforeEach(() => {
+        moxios.install()
+
+        moxios.stubRequest('/api/events', {
+          status: 422
+        })
+      })
+
+      afterEach(() => {
+        moxios.uninstall()
+      })
+
+      it('shows error message', async () => {
+        const wrapper = getComponent()
+
+        wrapper.find('.actions button').trigger('click')
+
+        await flushPromises()
+
+        expect(wrapper.text()).to.include('error when adding the event')
+      })
+
+    })
   })
 })
