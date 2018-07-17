@@ -35,8 +35,7 @@ import moment from 'moment'
 import Day from '@/components/Day'
 import Event from '@/components/Event'
 import EventNew from '@/components/EventNew'
-
-const dateFormat = 'YYYY-MM-DD'
+import { dateFormat } from '@/constants'
 
 export default {
   name: 'Calendar',
