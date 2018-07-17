@@ -26,4 +26,39 @@ describe 'Events requests' do
       end
     end
   end
+
+  describe 'POST create' do
+    context 'when correct event params are submitted' do
+      it 'returns created event with 201 http response' do
+        date = '2018-07-17'
+        params = {
+          title: 'Event 1',
+          location: 'Gdańsk',
+          start_date: date,
+          end_date: date
+        }
+
+        post events_path, params: { event: params }
+
+        expect(response).to be_successful
+        expect(response.code).to eql '201'
+        expect(body['title']).to eql params[:title]
+      end
+    end
+
+    context 'when incorrect event params are submitted' do
+      it 'returns 422 http response with error details in body' do
+        params = {
+          title: 'Event 1',
+        }
+
+        post events_path, params: { event: params }
+
+        expect(response).not_to be_successful
+        expect(response.code).to eql '422'
+        expect(body['errors']).to include 'Start date can\'t be blank'
+        expect(body['errors']).to include 'End date can\'t be blank'
+      end
+    end
+  end
 end
