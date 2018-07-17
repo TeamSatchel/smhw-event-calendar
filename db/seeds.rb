@@ -29,5 +29,5 @@ Event.create title: 'Meeting 7', location: 'Madrit',
   end_date: 2.days.from_now
 
 Event.create title: 'Meeting 8', location: 'Barcelona',
-  description: 'Meeting 8', start_date: 1.day.ago,
+  description: 'Meeting 8', start_date: 2.days.ago,
   end_date: 1.day.ago
