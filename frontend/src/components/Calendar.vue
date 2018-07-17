@@ -27,7 +27,8 @@
       v-if="displayNewEventForm">
       <EventNew
         :min="firstDay"
-        :max="lastDay" />
+        :max="lastDay"
+        v-on:add-event="addEvent" />
     </section>
   </div>
 </template>
@@ -100,6 +101,10 @@ export default {
       }, response => {
         this.error = 'There was an error while fetching the events.'
       })
+    },
+
+    addEvent (event) {
+      this.events.push(event)
     },
 
     toggleNewEventForm () {

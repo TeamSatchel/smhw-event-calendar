@@ -76,7 +76,6 @@ export default {
 
   data () {
     return {
-      event: null,
       title: '',
       location: '',
       description: '',
@@ -96,7 +95,7 @@ export default {
           end_date: this.end_date
         }
       }).then(response => {
-        this.event = response.data
+        this.$emit('add-event', response.data)
       })
     }
   }
@@ -106,6 +105,7 @@ export default {
 <style>
 fieldset {
   border: 1px solid #ccc;
+  margin: 0.5rem 0 0;
   padding: 0.5rem 1.5rem;
   width: 20rem;
 }

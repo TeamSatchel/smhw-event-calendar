@@ -69,14 +69,14 @@ describe('EventNew.vue', () => {
         moxios.uninstall()
       })
 
-      it('sends API request to the backend and sets event', async () => {
+      it('sends API request to the backend and emits the `add-event` event', async () => {
         const wrapper = getComponent()
 
         wrapper.find('.actions button').trigger('click')
 
         await flushPromises()
 
-        expect(wrapper.vm.event).to.eql(event)
+        expect(wrapper.emitted()['add-event'][0]).to.include(event)
       })
     })
   })

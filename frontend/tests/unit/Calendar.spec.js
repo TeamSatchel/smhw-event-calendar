@@ -77,6 +77,20 @@ describe('Calendar.vue', () => {
       })
     })
 
+    describe('#addEvent', () => {
+      it('adds event to the collection of events', async () => {
+        const event = {
+          title: 'Event'
+        }
+
+        const wrapper = getComponent()
+
+        wrapper.vm.addEvent(event)
+
+        expect(wrapper.vm.events).to.include(event)
+      })
+    })
+
     it('initially holds empty events collection', () => {
       expect(getComponent().vm.events).to.eql([])
     })
