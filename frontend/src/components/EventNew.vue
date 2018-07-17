@@ -7,6 +7,7 @@
     <p>
       <input
         v-model.trim="title"
+        v-on:keyup="validate"
         type="text"
         name="title"
         maxlength="25"
@@ -33,6 +34,7 @@
       Start date:
       <input
         v-model="start_date"
+        v-on:change="validate"
         type="date"
         name="start_date"
         :min="min"
@@ -42,6 +44,7 @@
       End date:
       <input
         v-model="end_date"
+        v-on:change="validate"
         type="date"
         name="end_date"
         :min="min"
@@ -49,7 +52,9 @@
     </p>
 
     <p class="actions">
-      <button @click="createEvent">
+      <button
+        v-bind:disabled="!valid"
+        @click="createEvent">
         Create Event
       </button>
     </p>
@@ -79,6 +84,7 @@ export default {
   data () {
     return {
       error: null,
+      valid: false,
       title: '',
       location: '',
       description: '',
@@ -103,6 +109,13 @@ export default {
       }, response => {
         this.error = 'There was an error when adding the event'
       })
+    },
+
+    validate () {
+      this.valid =
+        this.title.length > 0 &&
+        this.start_date.length > 0 &&
+        this.end_date.length > 0
     }
   }
 }

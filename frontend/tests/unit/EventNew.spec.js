@@ -49,6 +49,18 @@ describe('EventNew.vue', () => {
       }
     })
 
+    it('does not allow to add an event without a title', () => {
+      const wrapper = getComponent()
+
+      expect(wrapper.find('.actions button').attributes()['disabled']).to.eql('disabled')
+
+      const titleInput = wrapper.find('input[name=title]')
+      titleInput.setValue('Event')
+      titleInput.trigger('keyup')
+
+      expect(wrapper.find('.actions button').attributes()['disabled']).to.be.undefined
+    })
+
     context('when successful', () => {
       const event = {
         title: 'Event 1',
@@ -71,6 +83,10 @@ describe('EventNew.vue', () => {
 
       it('sends API request to the backend and emits the `add-event` event', async () => {
         const wrapper = getComponent()
+
+        const titleInput = wrapper.find('input[name=title]')
+        titleInput.setValue('Event')
+        titleInput.trigger('keyup')
 
         wrapper.find('.actions button').trigger('click')
 
@@ -95,6 +111,10 @@ describe('EventNew.vue', () => {
 
       it('shows error message', async () => {
         const wrapper = getComponent()
+
+        const titleInput = wrapper.find('input[name=title]')
+        titleInput.setValue('Event')
+        titleInput.trigger('keyup')
 
         wrapper.find('.actions button').trigger('click')
 
