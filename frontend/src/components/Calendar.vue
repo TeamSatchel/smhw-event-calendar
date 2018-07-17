@@ -25,7 +25,9 @@
     <section
       class="event-new"
       v-if="displayNewEventForm">
-      <EventNew />
+      <EventNew
+        :min="firstDay"
+        :max="lastDay" />
     </section>
   </div>
 </template>
