@@ -22,7 +22,9 @@
     </section>
 
     <section class="actions">
-      <button @click="toggleNewEventForm">
+      <button
+        @click="toggleNewEventForm"
+        class="new-event">
         Add new Event
       </button>
     </section>

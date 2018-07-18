@@ -54,7 +54,8 @@
     <p class="actions">
       <button
         v-bind:disabled="!valid"
-        @click="createEvent">
+        @click="createEvent"
+        class="create-event">
         Create Event
       </button>
     </p>
