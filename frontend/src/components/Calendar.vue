@@ -12,7 +12,9 @@
       </template>
     </section>
 
-    <section class="events">
+    <section
+      v-bind:style="style"
+      class="events">
       <template v-for="event in events">
         <Event
           v-bind:key="event.id"
@@ -93,6 +95,12 @@ export default {
 
     daysCount () {
       return moment(this.lastDay).diff(this.firstDay, 'days') + 1
+    },
+
+    style () {
+      return {
+        width: `calc(9rem * ${this.daysCount} + 11px * ${this.daysCount - 1} - 1px)`
+      }
     }
   },
 
@@ -124,15 +132,26 @@ export default {
 <style>
 .header {
   display: grid;
-  grid-auto-columns: calc(9rem + 10px);
+  grid-auto-columns: calc(9rem + 11px);
 }
 
 .events {
+  border: 1px solid #ccc;
+  border-width: 0 1px 1px;
+  border-sizing: border-box;
+
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 7px 11px;
   grid-auto-flow: dense;
   grid-auto-columns: 9rem;
-  padding: 0 5px;
+  padding: 5px 5px;
+
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(9rem + 10px),
+    #ccc calc(9rem + 10px + 1px)
+  );
 }
 
 .error {

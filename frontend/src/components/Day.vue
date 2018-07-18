@@ -48,6 +48,7 @@ export default {
   border-width: 1px 0 1px 1px;
   box-sizing: border-box;
   grid-row-start: 1;
+  margin: 0;
   padding: 1rem;
   text-align: center;
 }
