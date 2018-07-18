@@ -1,5 +1,5 @@
 <template>
-  <p class="day">
+  <p class="day" v-bind:class="{ today: isToday }">
     <strong>{{ name }}</strong>
     {{ date }}
   </p>
@@ -7,6 +7,7 @@
 
 <script>
 import moment from 'moment'
+import { dateFormat } from '@/constants'
 
 export default {
   name: 'Day',
@@ -18,6 +19,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      today: moment().format(dateFormat)
+    }
+  },
+
   computed: {
     name () {
       return moment(this.value).format('dddd')
@@ -25,6 +32,10 @@ export default {
 
     date () {
       return moment(this.value).format('Do MMM')
+    },
+
+    isToday () {
+      return this.today == moment(this.value).format(dateFormat)
     }
   }
 }
@@ -39,6 +50,10 @@ export default {
   grid-row-start: 1;
   padding: 1rem;
   text-align: center;
+}
+
+.day.today {
+  background: #eee;
 }
 
 .day:last-child {
