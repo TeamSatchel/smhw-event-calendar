@@ -5,6 +5,10 @@ Team Satchel's recruitment coding task. The task is about:
 * displaying events in the calendar as continuous blocks spanning multiple days
 * having the ability to add new event, which would be instantly displayed on the page (no reload)
 
+Finished application looks like this:
+
+![Application screenshot](https://raw.githubusercontent.com/pjg/smhw-event-calendar/master/doc/application.png)
+
 
 ## Installation
 
