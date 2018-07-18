@@ -36,3 +36,24 @@ npm run serve
 ```
 
 Then visit http://localhost:8080 to see the app running.
+
+
+## Running specs
+
+Backend specs:
+
+```bash
+bin/rspec spec
+```
+
+Frontend unit specs:
+
+```bash
+cd frontend && npm run test:unit
+```
+
+Frontend e2e specs:
+
+```bash
+cd frontend && npm run test:e2e
+```
