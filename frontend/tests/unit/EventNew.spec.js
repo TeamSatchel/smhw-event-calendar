@@ -58,7 +58,7 @@ describe('EventNew.vue', () => {
       titleInput.setValue('Event')
       titleInput.trigger('keyup')
 
-      expect(wrapper.find('.actions button').attributes()['disabled']).to.be.undefined
+      expect(wrapper.find('.actions button').attributes()['disabled']).to.eql(undefined)
     })
 
     context('when successful', () => {
@@ -122,7 +122,6 @@ describe('EventNew.vue', () => {
 
         expect(wrapper.text()).to.include('error when adding the event')
       })
-
     })
   })
 })

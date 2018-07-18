@@ -35,7 +35,7 @@ export default {
     },
 
     isToday () {
-      return this.today == moment(this.value).format(dateFormat)
+      return this.today === moment(this.value).format(dateFormat)
     }
   }
 }

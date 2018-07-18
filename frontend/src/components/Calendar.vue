@@ -6,13 +6,18 @@
 
     <section class="header">
       <template v-for="day in days">
-        <Day :value="day" />
+        <Day
+          v-bind:key="day"
+          :value="day" />
       </template>
     </section>
 
     <section class="events">
       <template v-for="event in events">
-        <Event :value="event" :firstDay="firstDay" />
+        <Event
+          v-bind:key="event.id"
+          :value="event"
+          :firstDay="firstDay" />
       </template>
     </section>
 

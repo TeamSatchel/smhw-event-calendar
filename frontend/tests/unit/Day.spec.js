@@ -32,20 +32,20 @@ describe('Day.vue', () => {
   describe('#isToday', () => {
     it('is true if it is todays date', () => {
       const wrapper = getComponent()
-
       const today = new Date().toISOString().slice(0, 10)
+
       wrapper.setProps({ value: today })
 
-      expect(wrapper.vm.isToday).to.be.true
+      expect(wrapper.vm.isToday).to.eql(true)
     })
 
     it('is false if it is not todays date', () => {
       const wrapper = getComponent()
-
       const date = '2018-07-16'
+
       wrapper.setProps({ value: date })
 
-      expect(wrapper.vm.isToday).to.be.false
+      expect(wrapper.vm.isToday).to.eql(false)
     })
   })
 })
