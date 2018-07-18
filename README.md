@@ -1,6 +1,9 @@
 # Events Calendar
 
-Team Satchel's recruitment coding task.
+Team Satchel's recruitment coding task. The task is about:
+* displaying a calendar view with current day highlighted
+* displaying events in the calendar as continuous blocks spanning multiple days
+* having the ability to add new event, which would be instantly displayed on the page (no reload)
 
 
 ## Installation
