@@ -1,0 +1,6 @@
+<%= form_for @event, remote: true  do |f| %>
+  <%= f.text_field :description, value: "Test event" %>
+  <%= f.text_field :start_at, value: Date.today %>
+  <%= f.text_field :end_at, value: Date.today + 1.day %>
+  <%= f.submit %>
+<% end %>
