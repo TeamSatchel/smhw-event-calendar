@@ -6,7 +6,7 @@
   <%= date %>
 
   <% events.each do |event| %>
-    <div>
+    <div style="background-color: <%= colorize(event) %>">
       <%= event.description %>
     </div>
   <% end %>
