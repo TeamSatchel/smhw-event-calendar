@@ -1,0 +1,13 @@
+<h1>Events calendar</h1>
+
+<%= link_to "Create event", new_event_path, id: "new_link", remote: true %>
+
+<%= week_calendar(events: @events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link) do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.description %>
+    </div>
+  <% end %>
+<% end %>
