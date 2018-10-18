@@ -3,11 +3,11 @@ class EventsController < ApplicationController
     @events = Event.all
 
     if params[:start].present?
-      @events = @events.where('starts_at >= ?', params[:start])
+      @events = @events.where('ends_at >= ?', params[:start])
     end
 
     if params[:end].present?
-      @events = @events.where('ends_at >= ?', params[:end])
+      @events = @events.where('starts_at <= ?', params[:end])
     end
   end
 
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @record = Event.new(event_params)
 
     if @record.save
-      render json: @record
+      render json: @record, status: :ok
     else
       render json: @record.errors, status: :unprocessable_entity
     end
