@@ -27,6 +27,7 @@ gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 
 gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap-datepicker-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
