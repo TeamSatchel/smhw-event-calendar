@@ -1,5 +1,10 @@
-<h1>Events calendar</h1>
+<h2>Events calendar</h2>
 
-<%= link_to 'Create event' %>
+<button type="button" class="btn btn-success create-event-button" data-toggle="modal" data-target="#new-event-modal">
+  Create Event
+</button>
 
 <div id="calendar"></div>
+
+
+<%= render partial: 'new.modal' %>
