@@ -1,7 +1,10 @@
-<h1>Events calendar</h1>
+<h2>Events calendar</h2>
 
-<%= link_to 'Create event' %>
+<button type="button" class="btn btn-success create-event-button" data-toggle="modal" data-target="#new-event-modal">
+  Create Event
+</button>
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
+<div id="calendar"></div>
 
+
+<%= render partial: 'new.modal' %>

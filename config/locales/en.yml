@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  events:
+    new:
+      title: Create Event
+      fields:
+        title: Title
+        starts_at: Starts At
+        ends_at: Ends At

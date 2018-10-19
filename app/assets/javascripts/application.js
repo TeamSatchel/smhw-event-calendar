@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require popper
+//= require bootstrap
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/locale-all
+//= require bootstrap-datepicker
 //= require_tree .

@@ -23,6 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+
+gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap-datepicker-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot'
 end
 
 group :development do
@@ -45,3 +53,6 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
