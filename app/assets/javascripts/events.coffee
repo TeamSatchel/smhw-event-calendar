@@ -24,6 +24,8 @@
         $('#event-title').val('')
         $('#event-starts-at').val('')
         $('#event-ends-at').val('')
+        $('#event-starts-at').datepicker('setEndDate', Infinity)
+        $('#event-ends-at').datepicker('setStartDate', -Infinity)
 
         $('#new-event-modal').modal('hide')
         $('#calendar').fullCalendar('refetchEvents')
