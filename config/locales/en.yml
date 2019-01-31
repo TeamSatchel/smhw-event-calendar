@@ -3,6 +3,7 @@ en:
     new:
       create_new_event: Create new event
       title: Title
+      description: Description
       start_at: Start at
       end_at: End at
       create: Create

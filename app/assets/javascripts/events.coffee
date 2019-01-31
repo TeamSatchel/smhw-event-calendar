@@ -1,13 +1,18 @@
 $ ->
   $('#calendar').fullCalendar(
-    defaultView: 'basicWeek',
     events: '/events.json',
+    defaultView: 'basicWeek',
     titleFormat: 'MMMM D YYYY',
+    displayEventTime: false,
     columnHeaderFormat: 'dddd\nMMM D',
     contentHeight: 550,
     eventBackgroundColor: '#f4b642'
     eventBorderColor: '#d69535',
     eventTextColor: '#595550',
+    defaultDate: moment().format('YYYY-MM-DD'),
+    eventRender: (event, element) ->
+      element.find('.fc-title').append '<div class="hr-line-solid-no-margin"></div><span style="font-size: 10px">' + event.description + '</span></div>'
+      return
   );
 
   $('.datepicker').datepicker(

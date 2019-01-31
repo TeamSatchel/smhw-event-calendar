@@ -28,14 +28,16 @@ gem 'slim-rails'
 gem 'record_tag_helper', '~> 1.0'
 
 group :development, :test do
+  gem 'faker'
+  gem 'pry'
   gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'webmock'
 end
 
 group :development do
 	gem 'awesome_print'
-  gem 'pry'
   # Access an IRB console on exception pages or by using <%= console %> in views
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
