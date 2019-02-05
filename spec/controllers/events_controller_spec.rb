@@ -11,7 +11,7 @@ describe EventsController, type: :controller do
     WebMock.disable_net_connect!
   end
 
-  context '#index' do
+  describe '#index' do
     let!(:event) { FactoryBot.create :event }
     let(:send_request) {  get :index, format: :json }
 
@@ -29,7 +29,7 @@ describe EventsController, type: :controller do
       expect(response_body['title']).to eq(event.title)
       expect(response_body['description']).to eq(event.description)
       expect(response_body['start'].to_date).to eq(event.start_at.to_date)
-      expect(response_body['end'].to_date).to eq(event.end_at.to_date)
+      expect(response_body['end'].to_date).to eq((event.end_at + 1.day).to_date)
     end
   end
 
