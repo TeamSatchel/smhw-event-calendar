@@ -28,11 +28,13 @@ gem 'slim-rails'
 gem 'record_tag_helper', '~> 1.0'
 
 group :development, :test do
+  gem 'capybara'
   gem 'faker'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
   gem 'webmock'
 end
 
