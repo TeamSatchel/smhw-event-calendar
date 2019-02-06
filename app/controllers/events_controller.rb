@@ -20,6 +20,6 @@ class EventsController < ApplicationController
   end
 
   def events_with_inclusive_and_at
-    Event.all.each{|e| e[:end_at] = (e[:end_at] + 1.day)}
+    Event.all.each{ |e| e[:end_at] = (e[:end_at] + 1.day) }
   end
 end
