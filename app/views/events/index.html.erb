@@ -4,4 +4,22 @@
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
 <%= image_tag 'events_calendar', width: '100%' %>
+<table>
+  <tr>
+    <% @days_of_week.each do |dow| %>
+      <th>
+        <%= dow.strftime("<strong>%A</strong><br>#{dow.day.ordinalize} %b").html_safe %>
+      </th>
+    <% end %>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 

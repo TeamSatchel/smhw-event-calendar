@@ -1,3 +1,18 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  width: 100%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 7pt;
+  table-layout: fixed;
+  td {
+    height: 100px;
+    min-height: 100px;
+  }
+  th {
+    font-weight: normal;
+  }
+}
+
+table, th, td { border: 1px solid #dfe2e7; border-collapse: collapse; }
