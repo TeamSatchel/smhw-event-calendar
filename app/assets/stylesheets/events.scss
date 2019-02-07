@@ -16,3 +16,17 @@ table {
 }
 
 table, th, td { border: 1px solid #dfe2e7; border-collapse: collapse; }
+
+input[type="text"] {
+  padding: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #9b9b9b;
+  outline: -webkit-focus-ring-color auto 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 10pt;
+}
+
+.hidden { display: none; }
