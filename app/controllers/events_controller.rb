@@ -17,6 +17,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-     params.require(:event).permit!
-   end
+    [:begins, :ends].each do |date_attr|
+      next unless params.key?(:event)
+      date_str = params[:event].fetch(date_attr, Date.current.strftime('%m/%d/%Y'))
+      params[:event][date_attr] = Date.strptime(date_str, '%m/%d/%Y')
+    end
+    params.require(:event).permit!
+  end
 end
