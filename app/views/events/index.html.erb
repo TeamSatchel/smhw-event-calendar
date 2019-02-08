@@ -1,38 +1,31 @@
-<h1>Events calendar</h1>
-
-<%= link_to 'Create event' %>
-
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
-
 <%= link_to 'Create event', '#', id: 'event-wizard-start' %>
 <div id="summary"></div>
 <div id="errors" style="color:red;"></div>
 <%= form_with model: @event, format: :json, local: false do |f| %>
-  <div class="hidden" id="begins">When event will begin? <%= f.text_field :begins, placeholder: 'MM/DD/YYYY' %></div>
-  <div class="hidden" id="ends">When event will end? <%= f.text_field :ends, placeholder: 'MM/DD/YYYY' %></div>
-  <div class="hidden" id="title">What is the title of the event? <%= f.text_field :title %></div>
-  <div class="hidden" id="description">Describe your event:<br><%= f.text_area :description %></div>
-  <div class="hidden" id="create"><%= f.submit 'Save Event' %></div>
+  <div class="hidden mx-15" id="begins">When event will begin? <%= f.text_field :begins, placeholder: 'MM/DD/YYYY' %></div>
+  <div class="hidden mx-15" id="ends">When event will end? <%= f.text_field :ends, placeholder: 'MM/DD/YYYY' %></div>
+  <div class="hidden mx-15" id="title">What is the title of the event? <%= f.text_field :title %></div>
+  <div class="hidden mx-15" id="description">Describe your event:<br><%= f.text_area :description %></div>
+  <div class="hidden mx-15" id="create"><%= f.submit 'Save Event' %></div>
 <% end %>
+<div id="overlay">
 <table>
-  <tr>
-    <% @days_of_week.each do |dow| %>
-      <th>
-        <%= dow.strftime("<strong>%A</strong><br>#{dow.day.ordinalize} %b").html_safe %>
-      </th>
-    <% end %>
-  </tr>
-  <tbody data-events="<%= @events.to_json %>">
+  <thead>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <% @days_of_week.each do |dow| %>
+        <th>
+          <%= dow.strftime("<strong>%A</strong><br>#{dow.day.ordinalize} %b").html_safe %>
+        </th>
+      <% end %>
     </tr>
+  </thead>
+  <tbody data-events="<%= @events.to_json %>">
+      <tr>
+        <% @days_of_week.each do |dow| %>
+          <td id="<%= dow.to_s %>"></td>
+        <% end %>
+      </tr>
   </tbody>
 </table>
+</div>
 
