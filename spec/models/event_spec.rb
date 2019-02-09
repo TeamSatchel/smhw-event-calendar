@@ -28,7 +28,7 @@ RSpec.describe Event, type: :model do
       it 'returns correct error message' do
         event.valid?
 
-        event.errors.messages[:date_range_validity].should include(I18n.t('errors.date_range_validity_error'))
+        expect(event.errors.messages[:date_range_validity]).to include(I18n.t('errors.date_range_validity_error'))
       end
     end
   end

@@ -31,15 +31,6 @@ describe EventsController, type: :controller do
       expect(response_body['start'].to_date).to eq(event.start_at.to_date)
       expect(response_body['end'].to_date).to eq((event.end_at + 1.day).to_date)
     end
-
-    context 'when testing index page' do
-      it 'shows calendar with \'Create Event\' button' do
-        visit '/events'
-
-        expect(page).to have_css('div#calendar')
-        expect(page).to have_content(I18n.t('events.index.create_event'))
-      end
-    end
   end
 
   describe '#create' do
