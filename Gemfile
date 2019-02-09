@@ -26,6 +26,7 @@ gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'record_tag_helper', '~> 1.0'
+gem 'puma'
 
 group :development, :test do
   gem 'capybara'
@@ -40,7 +41,7 @@ group :development, :test do
 end
 
 group :development do
-	gem 'awesome_print'
+  gem 'awesome_print'
   # Access an IRB console on exception pages or by using <%= console %> in views
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
