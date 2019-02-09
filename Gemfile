@@ -40,6 +40,10 @@ group :development, :test do
   gem 'webmock'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :development do
   gem 'awesome_print'
   # Access an IRB console on exception pages or by using <%= console %> in views
