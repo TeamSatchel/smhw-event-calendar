@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-		@events = events_with_inclusive_and_at
+    @events = Event.all
   end
 
   def create
@@ -17,9 +17,5 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :start_at, :end_at)
-  end
-
-  def events_with_inclusive_and_at
-    Event.all.each{ |e| e[:end_at] = (e[:end_at] + 1.day) }
   end
 end
