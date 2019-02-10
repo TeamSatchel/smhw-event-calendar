@@ -1,0 +1,43 @@
+<div class="calendar-wrap">
+  <h3>Events calendar</h3>
+
+  <table class="my-table">
+    <tr class="table-header">
+      <% (@beginning_of_week..@end_of_week).each do |day| %>
+        <th>
+          <strong><%= day.strftime("%A") %></strong>
+          <div>
+            <%= day.day.ordinalize %>
+            <%= I18n.t("date.abbr_month_names")[day.month] %>
+          </div>
+        </th>
+      <% end %>
+    </tr>
+
+  </table>
+</div>
+
+<div class="my-form">
+  <h4>Create new event</h4>
+  <div class="alert alert-danger show error hidden" role="alert">
+  </div>
+  <%= form_for :event, html: {id: 'create-event'} do |f| %>
+
+    <div class="form-group">
+      <%= f.label :title, 'Event title:' %>
+      <%= f.text_field :title, required: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :start, 'Start:' %>
+      <%= f.text_field :start_at, required: true, autocomplete: "off", maxlength: 15, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end, 'Finish:' %>
+      <%= f.text_field :end_at, required: true, autocomplete: "off", maxlength: 15, class: "form-control" %>
+    </div>
+
+    <%= f.button 'Create', class: "btn btn-create" %>
+  <% end %>
+</div>
