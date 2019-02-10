@@ -1,3 +1,58 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding: 20px;
+}
+
+.calendar-wrap {
+  .my-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #7c848f;
+
+    th {
+      border: 1px solid #7c848f;
+      width: 100px;
+      font-weight: 100;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    td {
+      vertical-align: top;
+      border-left: 1px solid #7c848f;
+      padding: 5px;
+      max-width: 100px;
+    }
+
+    td:first-child{
+      border: none;
+    }
+  }
+
+  .event {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.67);
+    border-radius: 7px;
+    padding: 5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    pre {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    &:hover {
+      filter: brightness(75%);
+    }
+  }
+}
+
+.my-form {
+  width: 80%;
+  padding-top: 20px;
+}
+
+.table-header, .btn-create {
+  background: #580a8ab8;
+  color: snow;
+}
