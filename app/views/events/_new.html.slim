@@ -1,0 +1,31 @@
+#data-modal.modal.fade aria-hidden="true" aria-labelledby="modal-title" role="dialog" tabindex="-1"
+  .modal-dialog.modal-dialog-centered role="document"
+    .modal-content
+      .modal-header
+        h5#modal-title.modal-title= t('.create_new_event')
+        button.close aria-label="close" data-dismiss="modal" type="button"
+          span aria-hidden="true" &times;
+      .modal-body
+        #event-error.alert.alert-danger role="alert"
+          span#errors
+        .form-group
+          label.col-form-label for="title"
+            = t('.title')
+          input#title.form-control name='title' type='text' required=true placeholder=t('.title_placeholder')
+        .form-group
+          label.col-form-label for="description"
+            = t('.description')
+          input#description.form-control name='description' type='text' required=true placeholder=t('.description_placeholder')
+        .form-group
+          label.col-form-label for="start-at"
+            = t('.start_at')
+          input#start-at.form-control.datepicker name='start-at' type='text' required=true placeholder=t('.start_at_placeholder')
+        .form-group
+          label.col-form-label for="end-at"
+            = t('.end_at')
+          input#end-at.form-control.datepicker name='end-at' type='text' required=true placeholder=t('.end_at_placeholder')
+      .modal-footer
+        button#create-event.btn.btn-primary type="button"
+          = t('.create')
+        button#cancel-event.btn.btn-secondary data-dismiss="modal" type="button"
+          = t('.close')
