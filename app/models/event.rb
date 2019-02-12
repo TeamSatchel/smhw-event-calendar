@@ -41,7 +41,9 @@ class Event < ActiveRecord::Base
   private
 
   def date_range_correct?
-    errors.add(:end_date, 'Start date have to be less than end date') if start_at > end_at
+    if start_at && end_at && start_at > end_at
+      errors.add(:end_date, 'Start date have to be less than end date')
+    end
   end
 
 end
