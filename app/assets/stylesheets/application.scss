@@ -12,4 +12,13 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'alerts';
+
+// LAYOUT
+.line-height-34 {
+  line-height: 34px;
+}
