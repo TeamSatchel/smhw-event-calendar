@@ -1,0 +1,27 @@
+AllCops:
+  TargetRubyVersion: 2.5.2
+  Exclude:
+  - 'bin/*'
+  - 'config/**/*'
+  - 'config.ru'
+  - 'db/**/*'
+  - 'vendor/**/*'
+  - 'Gemfile.lock'
+  - 'Rakefile'
+  - 'spec/*'
+Documentation:
+  Enabled: false
+Rails:
+  Enabled: true
+Rails/ApplicationRecord:
+  Enabled: false
+Rails/Date:
+  Exclude:
+  - 'spec/**/*'
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+  EnforcedLastArgumentHashStyle: always_ignore
+Metrics/BlockLength:
+  Exclude:
+  - 'spec/**/*'

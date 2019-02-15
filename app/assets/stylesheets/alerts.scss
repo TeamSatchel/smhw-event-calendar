@@ -1,0 +1,26 @@
+.alerts-pop-up {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 2.5;
+  overflow: hidden;
+  box-shadow: 0 0 5px #000;
+
+  p {
+    margin: 0;
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.error-alert {
+  background: #ff0800;
+}
+
+.notice-alert {
+  background: #008012;
+}
