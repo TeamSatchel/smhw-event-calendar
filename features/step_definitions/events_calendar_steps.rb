@@ -22,10 +22,8 @@ And(/\Ahe click the button "(.+)"\z/) do |button|
   page.find('button', text: button).click
 end
 
-Then(/\Ahe see related event on the weekly calendar:/) do |fields_table|
-  fields_table.column_names.each do |event_field|
-    within('#calendar') do
-      expect(page).to have_content(event_field)
-    end
+Then(/\Ahe see related event on the weekly calendar: "(.+)"/) do |event|
+  within('#calendar') do
+    expect(page).to have_content(event)
   end
 end

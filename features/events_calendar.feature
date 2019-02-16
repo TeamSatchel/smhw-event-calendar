@@ -16,5 +16,4 @@ Feature: Show me events calendar
       | start_date | end_date   | description           |
       | 2019-02-16 | 2019-02-17 | Rails club conference |
     And he click the button "Add event"
-    Then he see related event on the weekly calendar:
-      | 2019-02-16 | 2019-02-17 | Rails club conference |
+    Then he see related event on the weekly calendar: "Rails club conference"
