@@ -6,6 +6,7 @@ AllCops:
   - Rakefile
   - Gemfile
   - node_modules/**/*.*
+  - db
 Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:

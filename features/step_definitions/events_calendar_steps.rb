@@ -1,4 +1,4 @@
-When(/\Ahe visit the events-calendar page\z/) do
+When(/\AUser visit the events-calendar page\z/) do
   visit events_path
 end
 

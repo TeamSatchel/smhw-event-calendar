@@ -32,6 +32,9 @@ group :development, :test do
   gem 'guard-cucumber'
   # Code style checker
   gem 'rubocop', require: false
+  # Create models
+  gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :development do
