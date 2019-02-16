@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_216_085_455) do
+ActiveRecord::Schema.define(version: 20_190_216_185_326) do
   create_table 'events', force: :cascade do |t|
     t.date 'start_date', null: false
     t.date 'end_date', null: false
     t.text 'description', default: '', null: false
+    t.string 'title'
+    t.string 'signature'
   end
 end

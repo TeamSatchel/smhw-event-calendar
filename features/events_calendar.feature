@@ -12,6 +12,9 @@ Feature: Show me events calendar
     And he see the related calendar
 
   Scenario: User can create new event
-    When he fill_in the "description" of new event with: "Rails club conference"
+    When he fill_in the form fields with the follow values:
+      | title           | description   | signature  |
+      | This is a title | 01A Maths     | Mr N Gohil |
     And he click the button "Add event"
-    Then he see related event on the weekly calendar: "Rails club conference"
+    Then he see related event on the weekly calendar:
+      | This is a title | 01A Maths     | Mr N Gohil |

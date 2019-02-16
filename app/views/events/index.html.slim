@@ -3,7 +3,9 @@ h1 Events calendar
 form#add_event_form action=events_path method="post" data-remote="true"
   input#start_date title="Start date" name="start_date" value=Date.current
   input#end_date title="End date" name="end_date" value=Date.current
+  input#title name="title" placeholder="Event title"
   input#description name="description" placeholder="Event description"
+  input#signature name="signature" placeholder="Signature"
   button#add_event Add event
 
 #calendar data-events=events

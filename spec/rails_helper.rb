@@ -1,5 +1,6 @@
 require 'simplecov'
 SimpleCov.start 'rails'
+SimpleCov.command_name 'rspec'
 SimpleCov.minimum_coverage 100
 SimpleCov.refuse_coverage_drop
 

@@ -8,7 +8,9 @@ class EventsService
       event = Event.new(
         start_date: params[:start_date],
         end_date: params[:end_date],
-        description: params[:description]
+        title: params[:title],
+        description: params[:description],
+        signature: params[:signature]
       )
       event.save
       event
