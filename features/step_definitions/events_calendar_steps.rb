@@ -10,11 +10,9 @@ And(/\Ahe see the related calendar\z/) do
   expect(page).to have_css('#calendar')
 end
 
-When(/\Ahe fill_in the form fields with the follow values:/) do |fields_table|
-  fields_table.hashes.first.each do |input_name, value|
-    within('#add_event_form') do
-      fill_in(input_name, with: value)
-    end
+When(/\Ahe fill_in the "(.+)" of new event with: "(.+)"\z/) do |name, value|
+  within('#add_event_form') do
+    fill_in(name, with: value)
   end
 end
 
