@@ -44,14 +44,18 @@ function renderEventCalendar() {
     height: 500,
     columnFormat: "dddd\nDo MMM",
     eventColor: 'orange',
-    viewRender: function( view, element ) {
-      element.find('th.fc-day-header').each(function () {
-        let date = moment($(this).data('date'));
-        $(this).html('<strong>' + date.format('dddd') + '</strong><br><span>' + date.format('Do MMM') + '</span>');
-      })
-    },
-    eventAfterRender: function (event, element, view) {
-      $(element.find('.fc-title')).html(event.title + '<br><strong>' + event.desc + '</strong><br>' + event.signature);
-    }
+    viewRender: customViewRender,
+    eventAfterRender: customAfterRender
   });
+}
+
+function customViewRender( view, element ) {
+  element.find('th.fc-day-header').each(function () {
+    let date = moment($(this).data('date'));
+    $(this).html('<strong>' + date.format('dddd') + '</strong><br><span>' + date.format('Do MMM') + '</span>');
+  });
+}
+
+function customAfterRender(event, element, view) {
+  $(element.find('.fc-title')).html(event.title + '<br><strong>' + event.desc + '</strong><br>' + event.signature);
 }

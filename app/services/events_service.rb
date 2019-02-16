@@ -20,7 +20,7 @@ class EventsService
 
     def parse_date(date)
       Date.parse(date.to_s)
-    rescue StandardError
+    rescue ArgumentError
       nil
     end
   end

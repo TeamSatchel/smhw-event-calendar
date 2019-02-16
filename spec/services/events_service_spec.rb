@@ -27,13 +27,21 @@ RSpec.describe EventsService, type: :service do
       end
     end
 
-    context 'invalid params' do
-      let(:params) { {} }
-
-      it 'returns model with errors' do
-        subject
+    context 'invalid params returns model with errors' do
+      it 'blank params' do
+        params = {}
+        event  = described_class.new_event(params)
         expect(Event.count).to eq(0)
-        expect(subject.errors).not_to be_empty
+        expect(event.errors).not_to be_empty
+      end
+
+      it 'start date cannot be before the start date' do
+        new_params = params.merge(
+          start_date: Date.current + 1,
+          end_date: Date.current
+        )
+        event = described_class.new_event(new_params)
+        expect(event.errors).not_to be_empty
       end
     end
   end
