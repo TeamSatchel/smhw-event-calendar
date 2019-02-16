@@ -5,6 +5,7 @@ AllCops:
   - Guardfile
   - Rakefile
   - Gemfile
+  - node_modules/**/*.*
 Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
