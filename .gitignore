@@ -17,4 +17,6 @@
 /tmp
 /public/packs
 /public/packs-test
+/public/assets
 /node_modules
+/coverage

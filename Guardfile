@@ -108,7 +108,7 @@ guard :rubocop, all_on_start: false, cli: '-a' do
   watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
 end
 
-guard "cucumber" do
+guard "cucumber", notification: false do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { "features" }
 
