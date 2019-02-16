@@ -20,3 +20,4 @@
 /public/assets
 /node_modules
 /coverage
+.byebug_history

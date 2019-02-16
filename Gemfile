@@ -14,8 +14,6 @@ gem 'slim', '~> 4.0.1'
 gem 'slim-rails', '~> 3.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2.2'
 
 # ES6 for JS
 gem 'webpacker', '~> 3.0.2'
@@ -30,6 +28,7 @@ group :development, :test do
   gem 'guard-migrate'
   gem 'guard-rubocop'
   gem 'guard-cucumber'
+  gem 'guard-webpack'
   # Code style checker
   gem 'rubocop', require: false
   # Create models

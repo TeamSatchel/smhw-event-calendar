@@ -1,4 +1,9 @@
 h1 Events calendar
 
-#event_calendar
-  | Hello world!
+form#add_event_form action=events_path method="post"
+  input#start_date  name="start_date"  placeholder="Event start date"
+  input#end_date    name="end_date"    placeholder="Event end date"
+  input#description name="description" placeholder="Event description"
+  button#add_event Add event
+
+#calendar

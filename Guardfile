@@ -116,3 +116,5 @@ guard "cucumber", notification: false do
     Dir[File.join("**/#{m[1]}.feature")][0] || "features"
   end
 end
+
+guard :webpack, colors: false, config: './config/webpack/development.js'
