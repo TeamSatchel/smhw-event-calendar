@@ -29,3 +29,11 @@ Then(/\Ahe see related event on the weekly calendar:/) do |fields_table|
     end
   end
 end
+
+Then(/\Ahe see the alert message with follow message:/) do |fields_table|
+  wait_for_alert
+  alert = page.driver.browser.switch_to.alert.text
+  fields_table.column_names.each do |field|
+    expect(alert).to have_content(field)
+  end
+end
