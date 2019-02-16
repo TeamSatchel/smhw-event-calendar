@@ -29,6 +29,7 @@ group :development, :test do
   gem 'guard-rails'
   gem 'guard-migrate'
   gem 'guard-rubocop'
+  gem 'guard-cucumber'
   # Code style checker
   gem 'rubocop', require: false
 end
