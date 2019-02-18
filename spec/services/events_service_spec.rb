@@ -1,14 +1,17 @@
 RSpec.describe EventsService, type: :service do
+  let(:start_date) { Date.current }
+  let(:end_date)   { Date.current + 1 }
+
   it '#events' do
-    events = create_list(:event, 3, start_date: Date.current)
+    events = create_list(:event, 3, start_date: start_date)
     expect(described_class.events).to eq(events)
   end
 
   describe '#new_event' do
     let(:params) do
       {
-        start_date: Date.current,
-        end_date: Date.current + 1,
+        start_date: start_date,
+        end_date: end_date,
         title: 'This is a title',
         description: '01A Maths',
         signature: 'Mr N Gohil'
@@ -16,6 +19,11 @@ RSpec.describe EventsService, type: :service do
     end
 
     subject { described_class.new_event(params) }
+
+    it 'date format' do
+      expect(subject.start_date).to eq(Date.iso8601(start_date.to_s))
+      expect(subject.end_date).to   eq(Date.iso8601(end_date.to_s))
+    end
 
     context 'valid params' do
       it 'create new event' do

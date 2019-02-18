@@ -9,7 +9,7 @@ function bindEventCalendarForm() {
   form.bind('ajax:success', function(e, data, status, xhr) {
     createNewEvent({
       start: data.start_date,
-      end: data.end_date,
+      end: data.end_date + 'T23:59:59',
       title: data.title,
       desc: data.description,
       signature: data.signature,
@@ -30,7 +30,7 @@ function renderEventCalendar() {
   let data_events = JSON.parse(calendar.attr('data-events'));
   let events      = data_events.map(e => ({
     start:     e.start_date,
-    end:       e.end_date,
+    end:       e.end_date + 'T23:59:59',
     title:     e.title,
     desc:      e.description,
     signature: e.signature

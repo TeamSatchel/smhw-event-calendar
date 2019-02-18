@@ -15,7 +15,7 @@ RSpec.describe EventsController, type: :controller do
         { start_date: Date.current, end_date: Date.current + 1, description: 'New event' }
       end
 
-      it 'response with status: Create' do
+      it 'response with status: Created' do
         expect(response.status).to eq(201)
       end
 
