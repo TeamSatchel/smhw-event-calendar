@@ -37,3 +37,7 @@ Then(/\Ahe see the alert message with follow message:/) do |fields_table|
     expect(alert).to have_content(field)
   end
 end
+
+And(/\Afill_in "(.+)" with boundary value\z/) do |field_name|
+  fill_in(field_name, with: (Date.current.beginning_of_week - 1).iso8601)
+end

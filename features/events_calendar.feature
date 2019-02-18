@@ -26,3 +26,12 @@ Feature: Show me events calendar
     And he click the button "Add event"
     Then he see the alert message with follow message:
       | Start date can't be blank | End date can't be blank | Description can't be blank |
+
+  Scenario: User can create event with start_date boundary value
+    When he fill_in the form fields with the follow values:
+      | title  | description     | signature  |
+      | Event  | boundary values | Mr N Gohil |
+    And fill_in "start_date" with boundary value
+    And he click the button "Add event"
+    Then he see related event on the weekly calendar:
+      | Event | boundary values | Mr N Gohil |
