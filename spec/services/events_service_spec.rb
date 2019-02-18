@@ -1,14 +1,14 @@
 RSpec.describe EventsService, type: :service do
   it '#events' do
-    events = create_list(:event, 3)
+    events = create_list(:event, 3, start_date: Date.current)
     expect(described_class.events).to eq(events)
   end
 
   describe '#new_event' do
     let(:params) do
       {
-        start_date: Date.parse('2019-02-17'),
-        end_date: Date.parse('2019-02-18'),
+        start_date: Date.current,
+        end_date: Date.current + 1,
         title: 'This is a title',
         description: '01A Maths',
         signature: 'Mr N Gohil'
