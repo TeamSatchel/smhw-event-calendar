@@ -7,6 +7,7 @@ AllCops:
   - Gemfile
   - node_modules/**/*.*
   - db
+  - bin/bundle
 Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
