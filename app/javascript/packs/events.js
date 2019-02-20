@@ -23,6 +23,7 @@ function bindEventCalendarForm() {
 
 function createNewEvent(source) {
   $('#calendar').fullCalendar('addEventSource', [source] )
+  $('#description').val('')
 }
 
 function renderEventCalendar() {
@@ -41,7 +42,7 @@ function renderEventCalendar() {
     firstDay: 1,
     header: false,
     events: events,
-    height: 500,
+    displayEventTime : false,
     columnFormat: "dddd\nDo MMM",
     eventColor: 'orange',
     viewRender: customViewRender,

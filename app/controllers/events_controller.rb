@@ -16,10 +16,19 @@ class EventsController < ApplicationController
     render json: content, status: status
   end
 
+  def update
+    event = Event.find(params[:id])
+    event.update(permit_attributes)
+  end
+
   private
 
   def event_errors(event)
     errors = event.errors
     errors.full_messages.join(', ') unless errors.empty?
+  end
+
+  def permit_attributes
+    params.permit(:start_date, :end_date, :title, :description, :signature)
   end
 end

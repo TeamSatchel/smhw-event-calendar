@@ -36,4 +36,13 @@ RSpec.describe EventsController, type: :controller do
       end
     end
   end
+
+  describe '#update' do
+    it 'update some event' do
+      title = 'some best Event'
+      event = create(:event, title: 'some cool Event')
+      put :update, params: { id: event, title: title }
+      expect(Event.first.title).to eq(title)
+    end
+  end
 end
