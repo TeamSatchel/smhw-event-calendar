@@ -1,5 +1,5 @@
 module Events
-  class Creator
+  class CreatorService
     def self.new_event(params)
       new(params).call
     end

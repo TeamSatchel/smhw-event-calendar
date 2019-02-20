@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = EventsService.events
+    @events = Events::PresenterService.events
   end
 
   def create
-    new_event = Events::Creator.new_event(params)
+    new_event = Events::CreatorService.new_event(params)
     if new_event.errors.empty?
       content = new_event
       status  = :created
