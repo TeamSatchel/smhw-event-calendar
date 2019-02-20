@@ -1,4 +1,4 @@
-RSpec.describe Events::CreatorService, type: :service do
+RSpec.describe Events::BaseService, type: :service do
   let(:start_date) { Date.current }
   let(:end_date)   { Date.current + 1 }
 
@@ -27,6 +27,14 @@ RSpec.describe Events::CreatorService, type: :service do
 
       it 'contains related values' do
         is_expected.to have_attributes(params)
+      end
+
+      it '#update_event' do
+        title = 'some best Event'
+        event = create(:event, title: 'some cool Event')
+        params = ActionController::Parameters.new(id: event.id, title: title)
+        described_class.update_event(params)
+        expect(Event.first.title).to eq(title)
       end
     end
 

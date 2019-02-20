@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    new_event = Events::CreatorService.new_event(params)
+    new_event = Events::BaseService.new_event(params)
     if new_event.errors.empty?
       content = new_event
       status  = :created
@@ -16,13 +16,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
-    event.update(permit_attributes)
-  end
-
-  private
-
-  def permit_attributes
-    params.permit(:start_date, :end_date, :title, :description, :signature)
+    Events::BaseService.update_event(params)
   end
 end

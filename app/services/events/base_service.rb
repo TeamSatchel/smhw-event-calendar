@@ -1,27 +1,36 @@
 module Events
-  class CreatorService
-    def self.new_event(params)
-      new(params).call
+  class BaseService
+    class << self
+      def new_event(params)
+        new(params: params).call
+      end
+
+      def update_event(params)
+        event = Event.find_by(id: params[:id])
+        new(event, params: params).call
+      end
     end
 
-    def initialize(params)
+    def initialize(event = nil, params:)
+      @event  = event
       @params = params
     end
 
     def call
-      create_new_event!
+      event.assign_attributes(permit_attributes) if @event
+      save_event_attributes!
       event
     end
 
     def errors
-      @errors ||= event_errors
+      event_errors
     end
 
     private
 
     attr_reader :params
 
-    def create_new_event!
+    def save_event_attributes!
       event.save
     end
 
@@ -44,6 +53,10 @@ module Events
     def event_errors
       errors = event.errors
       errors.full_messages.join(', ') unless errors.empty?
+    end
+
+    def permit_attributes
+      params.permit(:start_date, :end_date, :title, :description, :signature)
     end
   end
 end
