@@ -4,13 +4,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    new_event = EventsService.new_event(params)
-    errors    = event_errors(new_event)
-    if !errors
+    new_event = Events::Creator.new_event(params)
+    if new_event.errors.empty?
       content = new_event
       status  = :created
     else
-      content = { errors: errors }
+      content = { errors: new_event.errors }
       status  = :bad_request
     end
     render json: content, status: status
@@ -22,11 +21,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  def event_errors(event)
-    errors = event.errors
-    errors.full_messages.join(', ') unless errors.empty?
-  end
 
   def permit_attributes
     params.permit(:start_date, :end_date, :title, :description, :signature)
