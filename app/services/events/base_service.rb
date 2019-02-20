@@ -11,19 +11,25 @@ module Events
       end
     end
 
+    attr_reader :event
+
     def initialize(event = nil, params:)
       @event  = event
       @params = params
     end
 
     def call
-      event.assign_attributes(permit_attributes) if @event
+      event&.assign_attributes(permit_attributes)
       save_event_attributes!
-      event
+      self
     end
 
-    def errors
-      event_errors
+    def errors?
+      !event.errors.empty?
+    end
+
+    def error_messages
+      event.errors.full_messages.join(', ')
     end
 
     private
@@ -31,11 +37,11 @@ module Events
     attr_reader :params
 
     def save_event_attributes!
-      event.save
+      (event || build_new_event).save
     end
 
-    def event
-      @event ||= Event.new(
+    def build_new_event
+      @event = Event.new(
         start_date: parse_date(params[:start_date]),
         end_date: parse_date(params[:end_date]),
         title: params[:title],
@@ -48,11 +54,6 @@ module Events
       Date.iso8601(date.to_s)
     rescue ArgumentError
       nil
-    end
-
-    def event_errors
-      errors = event.errors
-      errors.full_messages.join(', ') unless errors.empty?
     end
 
     def permit_attributes

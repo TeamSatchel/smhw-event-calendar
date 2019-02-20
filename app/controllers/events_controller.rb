@@ -4,12 +4,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    new_event = Events::BaseService.new_event(params)
-    if new_event.errors.empty?
-      content = new_event
+    event_service = Events::BaseService.new_event(params)
+    if !event_service.errors?
+      content = event_service.event
       status  = :created
     else
-      content = { errors: new_event.errors }
+      content = { errors: event_service.error_messages }
       status  = :bad_request
     end
     render json: content, status: status

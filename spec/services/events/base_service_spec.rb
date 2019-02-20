@@ -13,7 +13,7 @@ RSpec.describe Events::BaseService, type: :service do
       }
     end
 
-    subject { described_class.new_event(params) }
+    subject { described_class.new_event(params).event }
 
     it 'date format' do
       expect(subject.start_date).to eq(Date.iso8601(start_date.to_s))
@@ -41,9 +41,9 @@ RSpec.describe Events::BaseService, type: :service do
     context 'invalid params returns model with errors' do
       it 'blank params' do
         params = {}
-        event  = described_class.new_event(params)
+        event_service = described_class.new_event(params)
         expect(Event.count).to eq(0)
-        expect(event.errors).not_to be_empty
+        expect(event_service.errors?).to be_truthy
       end
 
       it 'start date cannot be before the start date' do
@@ -51,8 +51,8 @@ RSpec.describe Events::BaseService, type: :service do
           start_date: Date.current + 1,
           end_date: Date.current
         )
-        event = described_class.new_event(new_params)
-        expect(event.errors).not_to be_empty
+        event_service = described_class.new_event(new_params)
+        expect(event_service.error_messages).not_to be_empty
       end
     end
   end
