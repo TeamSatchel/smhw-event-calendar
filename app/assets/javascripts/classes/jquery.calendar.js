@@ -95,9 +95,7 @@
     },
 
     formError: function(event, data) {
-      console.log(data);
       if (data.status == 422) {
-        console.log(data.responseJSON);
         for (var key in data.responseJSON) {
           var input = this.$form.find('input[name="event[' + key + ']"]');
 
