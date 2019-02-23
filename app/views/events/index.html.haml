@@ -1,0 +1,14 @@
+%h1= I18n.t('events.title')
+
+.js-calendar
+
+  #event-form{ title: I18n.t('events.modal.title') }
+    = simple_form_for @event, remote: true do |f|
+      = f.input :title
+      = f.input :subject
+      = f.input :description
+      = f.input :start_date, as: :string, input_html: { class: 'date_picker', value: Date.today.strftime("%d/%m/%Y") }
+      = f.input :end_date, as: :string, input_html: { class: 'date_picker', value: Date.today.strftime("%d/%m/%Y") }
+
+  = link_to I18n.t('events.create_event_link_text'), '#',class: 'js-create-event'
+  .js-calendar-view
