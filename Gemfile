@@ -23,6 +23,10 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+# an asset gem containing Adam Shaw's excellent fullcalendar jquery plugin
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 # front-end formbuild framework
 gem 'simple_form'
 
