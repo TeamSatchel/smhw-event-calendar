@@ -58,12 +58,8 @@
         width: 350,
         modal: true,
         buttons: {
-          'Create an event': function() {
-            $(this).find('#new_event').submit();
-          },
-          Cancel: function() {
-            $(this).dialog('close');
-          }
+          'Create an event': $.proxy(this, 'createEvent'),
+          Cancel: $.proxy(this, 'cancelForm')
         }
       });
     },
@@ -78,6 +74,15 @@
     showCreateForm:  function(e) {
       e.preventDefault();
       this.dialog.dialog('open');
+    },
+
+    createEvent: function() {
+      this.$form.submit();
+    },
+
+    cancelForm: function() {
+      this.dialog.dialog('close');
+      this.clearForm();
     },
 
     formSuccess: function(event, data) {
