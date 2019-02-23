@@ -13,6 +13,9 @@ $(document).ready(function($) {
         textColor: 'black'
       }
     ],
+    columnHeaderHtml: function(mom) {
+      return '<strong>'+mom.format('dddd')+'</strong><br><span>'+mom.format('Do MMM')+'</span>';
+    },
     eventRender: function(event, element) {
       if (!!event.subject)
         element.find('.fc-content').append('<br><span><strong>' + event.subject + '</strong></span>');
