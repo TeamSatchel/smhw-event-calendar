@@ -22,21 +22,7 @@
   Plugin.prototype = {
     init: function() {
       this.loadFullCalendar();
-
-      this.dialog = $( "#event-form" ).dialog({
-        autoOpen: false,
-        height: 400,
-        width: 350,
-        modal: true,
-        buttons: {
-          'Create an event': function() {
-            $(this).find('#new_event').submit();
-          },
-          Cancel: function() {
-            $(this).dialog('close');
-          }
-        }
-      });
+      this.loadDialog();
 
       this.bindEvents();
     },
@@ -65,13 +51,71 @@
       });
     },
 
+    loadDialog: function() {
+      this.dialog = $( "#event-form" ).dialog({
+        autoOpen: false,
+        height: 400,
+        width: 350,
+        modal: true,
+        buttons: {
+          'Create an event': function() {
+            $(this).find('#new_event').submit();
+          },
+          Cancel: function() {
+            $(this).dialog('close');
+          }
+        }
+      });
+    },
+
     bindEvents: function() {
       this.$element.on('click', '.js-create-event', $.proxy(this, 'showCreateForm'));
+      this.$form.on('submit', $.proxy(this, 'clearFormErrors'));
+      this.$form.on('ajax:success', $.proxy(this, 'formSuccess'))
+        .on("ajax:error", $.proxy(this, 'formError'));
     },
 
     showCreateForm:  function(e) {
       e.preventDefault();
-      this.dialog.dialog( "open" );
+      this.dialog.dialog('open');
+    },
+
+    formSuccess: function(event, data) {
+      data.color = 'red';
+      data.textColor = 'white';
+
+      this.clearForm();
+
+      $('.js-calendar-view').fullCalendar('renderEvent', data);
+    },
+
+    formError: function(event, data) {
+      console.log(data);
+      if (data.status == 422) {
+        console.log(data.responseJSON);
+        for (var key in data.responseJSON) {
+          var input = this.$form.find('input[name="event[' + key + ']"]');
+
+          if (input) {
+            var inputWrapper = input.closest('.input');
+            inputWrapper.addClass('with-error');
+            if (inputWrapper.find('.error').length == 0) {
+              inputWrapper.append('<span class="error">' + data.responseJSON[key][0] + '</span>');
+            }
+          }
+        }
+      }
+    },
+
+    clearForm: function() {
+      this.$form.trigger('reset');
+      this.clearFormErrors();
+      this.dialog.dialog('close');
+    },
+
+    clearFormErrors: function() {
+      this.$form.find('.input').removeClass('with-error');
+      this.$form.find('.input .error').remove();
     },
 
   };

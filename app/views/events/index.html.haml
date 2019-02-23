@@ -3,7 +3,7 @@
 .js-calendar
 
   #event-form{ title: 'Create new event' }
-    = simple_form_for @event do |f|
+    = simple_form_for @event, remote: true do |f|
       = f.input :title
       = f.input :subject
       = f.input :description

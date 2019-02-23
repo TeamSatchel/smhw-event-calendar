@@ -4,17 +4,17 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        @events = Event.between_dates(params[:start], params[:end])
+        render json: Event.between_dates(params[:start], params[:end])
       end
     end
   end
 
   def create
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to action: :index
+    event = Event.new(event_params)
+    if event.save
+      render json: event, status: :created
     else
-      render :index
+      render json: event.errors.messages, status: :unprocessable_entity
     end
   end
 
