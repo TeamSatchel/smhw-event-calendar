@@ -110,6 +110,9 @@
           }
         }
       }
+      else {
+        alert('Something went wrong');
+      }
     },
 
     clearForm: function() {
