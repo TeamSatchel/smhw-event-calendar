@@ -5,3 +5,13 @@
 .fc-day-header {
   font-weight: normal;
 }
+
+.input.with-error {
+  input {
+    border: 1px solid red;
+  }
+
+  .error {
+    color: red;
+  }
+}
