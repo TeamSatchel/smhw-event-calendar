@@ -4,7 +4,13 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: Event.between_dates(params[:start], params[:end])
+        start_date = parse_date(params[:start])
+        end_date = parse_date(params[:end])
+
+        events = []
+        events = Event.between_dates(start_date, end_date) if end_date.present? && end_date.present?
+
+        render json: events
       end
     end
   end
@@ -22,5 +28,13 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:title, :subject, :description, :start_date, :end_date)
+    end
+
+    def parse_date(date)
+      begin
+        Date.parse(date)
+      rescue e
+        nil
+      end
     end
 end

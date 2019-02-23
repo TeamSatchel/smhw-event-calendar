@@ -52,7 +52,7 @@
     },
 
     loadDialog: function() {
-      this.dialog = $( "#event-form" ).dialog({
+      this.dialog = $('#event-form').dialog({
         autoOpen: false,
         height: 400,
         width: 350,
@@ -72,7 +72,7 @@
       this.$element.on('click', '.js-create-event', $.proxy(this, 'showCreateForm'));
       this.$form.on('submit', $.proxy(this, 'clearFormErrors'));
       this.$form.on('ajax:success', $.proxy(this, 'formSuccess'))
-        .on("ajax:error", $.proxy(this, 'formError'));
+        .on('ajax:error', $.proxy(this, 'formError'));
     },
 
     showCreateForm:  function(e) {
