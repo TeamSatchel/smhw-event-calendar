@@ -1,6 +1,6 @@
 # smhw-event-calendar
 
-##Install
+## Install
 
 Ensure you have rbenv or rvm installed or install ruby 2.6.1.
 
