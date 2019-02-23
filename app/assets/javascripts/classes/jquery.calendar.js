@@ -11,6 +11,8 @@
     this.$element = $(element);
     this.$target = this.$element.find(options && options.target || defaults.target);
 
+    this.$form = this.$element.find('#new_event');
+
     this._defaults = defaults;
     this._name = pluginName;
 
@@ -20,6 +22,21 @@
   Plugin.prototype = {
     init: function() {
       this.loadFullCalendar();
+
+      this.dialog = $( "#event-form" ).dialog({
+        autoOpen: false,
+        height: 400,
+        width: 350,
+        modal: true,
+        buttons: {
+          'Create an event': function() {
+            $(this).find('#new_event').submit();
+          },
+          Cancel: function() {
+            $(this).dialog('close');
+          }
+        }
+      });
 
       this.bindEvents();
     },
@@ -49,7 +66,12 @@
     },
 
     bindEvents: function() {
+      this.$element.on('click', '.js-create-event', $.proxy(this, 'showCreateForm'));
+    },
 
+    showCreateForm:  function(e) {
+      e.preventDefault();
+      this.dialog.dialog( "open" );
     },
 
   };

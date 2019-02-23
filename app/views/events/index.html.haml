@@ -1,8 +1,17 @@
 %h1= 'Events calendar'
 
-= link_to 'Create event'
+.js-calendar
 
-#calendar
+  #event-form{ title: 'Create new event' }
+    = simple_form_for @event do |f|
+      = f.input :title
+      = f.input :subject
+      = f.input :description
+      = f.input :start_date, as: :string, input_html: { class: 'date_picker' }
+      = f.input :end_date, as: :string, input_html: { class: 'date_picker' }
+
+  = link_to 'Create event', '#',class: 'js-create-event'
+  .js-calendar-view
 
   -# Remove the following image tag and add the markup to create a basic weekly calendar
 = image_tag 'events_calendar', width: '100%'
