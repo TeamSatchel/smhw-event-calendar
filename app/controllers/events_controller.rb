@@ -7,4 +7,7 @@ class EventsController < ApplicationController
       end
     end
   end
+
+  def create
+  end
 end
