@@ -1,0 +1,46 @@
+<div class="ui container">
+  <div class="ui segments">
+    <div class="ui segment">
+      <button class="ui primary button" {{action "showAddEventForm"}}>
+        Add New Event
+      </button>
+    </div>
+    <div class="ui segment">
+      {{full-calendar events = ( array model.events )
+        viewName = 'basicWeek'
+        height = 400
+      }}
+    </div>
+  </div>
+</div>
+
+<div class="ui large modal" closable=false>
+  <div class="header">
+    Create New Event
+  </div>
+  <div class="ui form error" hidden='true'>
+    <div class="ui error message">
+      <div class="header">Input is not valid!</div>
+      <p>Please, make sure that all the fields are correctly fullfiled</p>
+    </div>
+  </div>
+  <div class="content">
+    <form class="ui form">
+      <div class="field">
+        <label>Description</label>
+        {{input type="text" value=model.newEvent.description required=true size="50"}}
+        <label>Start</label>
+        {{ember-flatpickr
+          onChange=(action (mut model.newEvent.startTime))
+        }}
+        <label>End</label>
+        {{ember-flatpickr
+          onChange=(action (mut model.newEvent.endTime))
+        }}
+      </div>
+      <button class="ui primary button" type="submit" {{action 'createNew'}}>Submit</button>
+      <button class="ui button" {{action 'cancel'}}>Cancel</button>
+      <div class="ui error message"></div>
+    </form>
+  </div>
+</div>
