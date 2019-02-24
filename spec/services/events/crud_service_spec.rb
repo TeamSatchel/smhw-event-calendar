@@ -1,4 +1,4 @@
-RSpec.describe Events::BaseService, type: :service do
+RSpec.describe Events::CrudService, type: :service do
   let(:start_date) { Date.current }
   let(:end_date)   { Date.current + 1 }
 

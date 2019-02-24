@@ -1,5 +1,5 @@
 module Events
-  class BaseService
+  class CrudService
     class << self
       def new_event(params)
         new(params: params).call

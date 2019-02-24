@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_service = Events::BaseService.new_event(params)
+    event_service = Events::CrudService.new_event(params)
     if !event_service.errors?
       content = event_service.event
       status  = :created
@@ -16,6 +16,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    Events::BaseService.update_event(params)
+    Events::CrudService.update_event(params)
   end
 end
