@@ -18,8 +18,8 @@ When(/\Ahe fill_in the form fields with the follow values:/) do |fields_table|
   end
 end
 
-And(/\Ahe click the button "(.+)"\z/) do |button|
-  page.find('button', text: button).click
+And(/\Ahe click the button "(.+)"\z/) do |button_id|
+  page.find("##{button_id}").click
 end
 
 Then(/\Ahe see related event on the weekly calendar:/) do |fields_table|

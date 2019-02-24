@@ -1,11 +1,11 @@
 h1 Events calendar
 
-form#add_event_form action=events_path method="post" data-remote="true"
-  input#start_date title="Start date" name="start_date" value=Date.current.iso8601
-  input#end_date title="End date" name="end_date" value=Date.current.iso8601
-  input#title name="title" placeholder="Event title"
-  input#description name="description" placeholder="Event description"
-  input#signature name="signature" placeholder="Signature"
-  button#add_event Add event
+= form_for :event, remote: true, html: { id: 'add_event_form' } do |f|
+  input.form-control#start_date name="start_date" placeholder="Start date" value=Date.current.iso8601
+  input.form-control#end_date name="end_date" placeholder="End date" value=Date.current.iso8601
+  input.form-control#title type="text" name="title" placeholder="Title"
+  input.form-control#description type="text" name="description" placeholder="Description"
+  input.form-control#signature type="text" name="signature" placeholder="Signature"
+  = f.submit 'Add event', id: 'add_event', class: 'btn'
 
 #calendar data-events=events

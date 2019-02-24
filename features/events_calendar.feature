@@ -15,7 +15,7 @@ Feature: Show me events calendar
     When he fill_in the form fields with the follow values:
       | title           | description   | signature  |
       | This is a title | 01A Maths     | Mr N Gohil |
-    And he click the button "Add event"
+    And he click the button "add_event"
     Then he see related event on the weekly calendar:
       | This is a title | 01A Maths     | Mr N Gohil |
 
@@ -23,7 +23,7 @@ Feature: Show me events calendar
     When he fill_in the form fields with the follow values:
       | start_date           | end_date | title  | description | signature |
       |                      |          |        |             |           |
-    And he click the button "Add event"
+    And he click the button "add_event"
     Then he see the alert message with follow message:
       | Start date can't be blank | End date can't be blank | Description can't be blank |
 
@@ -32,6 +32,6 @@ Feature: Show me events calendar
       | title  | description     | signature  |
       | Event  | boundary values | Mr N Gohil |
     And fill_in "start_date" with boundary value
-    And he click the button "Add event"
+    And he click the button "add_event"
     Then he see related event on the weekly calendar:
       | Event | boundary values | Mr N Gohil |
