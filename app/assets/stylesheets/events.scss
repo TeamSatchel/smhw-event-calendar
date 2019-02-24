@@ -1,3 +1,62 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$border-color--grey: rgb(215, 197, 183);
+$title-color--light-dark: rgb(89, 90, 96);
+$event-bg-color: rgb(243, 147, 0);
+
+.week-calendar {
+  border: 1px solid $border-color--grey;
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.week-calendar__date-title {
+  text-align: center;
+  border: 1px solid $border-color--grey;
+  width: 14%;
+  color: $title-color--light-dark;
+  padding: 5px;
+}
+
+.week-calendar__week-date {
+  font-weight: normal;
+}
+
+.week-calendar__cell {
+  border: 1px solid $border-color--grey;
+  height: 160px;
+}
+
+.week-calendar__event {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  height: 65px;
+  background-color: $event-bg-color;
+  position: absolute;
+  border: 1px solid $border-color--grey;
+  border-radius: 5px;
+  margin-left: 1%;
+  margin-right: 1%
+}
+
+.week-calendar__next-week {
+  right: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-right: 0%;
+}
+
+.week-calendar__last-week {
+  left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left: 0%;
+}
+
+.week-calendar__more {
+  position: absolute;
+  bottom: 0;
+}
