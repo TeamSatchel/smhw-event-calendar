@@ -1,0 +1,16 @@
+<% data = JSON.parse(data) %>
+<% if data.present? %>
+  <% if data['position'] == 1 || data['position'] == 2 %>
+    var html = "";
+    html += "<div style='width: <%= (100.0/7 * data['duration']).round(2) - (data['from_last_week'] ? 0 : 1) - (data['to_next_week'] ? 0 : 1) %>%; top: <%= 70 * data['position'] - 15 %>px;' class='week-calendar__event <%= data['to_next_week'] ? "week-calendar__next-week" : "" %> <%= data['from_last_week'] ? "week-calendar__last-week" : "" %>'>"
+    html += "<div><%= data['title'].truncate(12, omission: '...') if data['title'].present? %><div>"
+    html += "<div><b><%= data['description'].truncate(12, omission: '...') if data['description'].present? %></b></div>"
+    html += "<div><%= data['signature'].truncate(12, omission: '...') if data['signature'].present? %></div></div>"
+    $(".week-calendar__cell:eq(<%= week_day_start.to_i %>)").append(html);
+  <% elsif data['position'] == 3 %>
+    html = "<div class='week-calendar__more'>more</div>"
+    $(".week-calendar__cell:eq(<%= %>)").append(html);
+  <% end %>
+<% elsif error.present? %>
+  alert('Something went wrong')
+<% end %>

@@ -1,8 +1,4 @@
 <h1>Events calendar</h1>
-
-<div id='add-event'>
-  Add event
-</div>
 <table class='week-calendar'>
   <thead>
     <tr>
@@ -42,3 +38,31 @@
     </tr>
   </tbody>
 </table>
+<div id='new-event__button' class='custom-link-btn'>
+  Add event
+</div>
+<div class="new-event__form">
+  <%= form_for(:event, remote: true) do |f| %>
+    <div class='new-event__field'>
+      <label class='new-event__label' for="event_title">Title:</label>
+      <%= f.text_field :title, :required => true %>
+    </div>
+    <div class='new-event__field'>
+      <label class='new-event__label' for="event_description">Description:</label>
+      <%= f.text_field :description %>
+    </div>
+    <div class='new-event__field'>
+      <label class='new-event__label' for="event_signature">Signature:</label>
+      <%= f.text_field :signature %>
+    </div>
+    <div class='new-event__field'>
+      <label class='new-event__label' for="event_start_date">Start date:</label>
+      <%= f.date_field :start_date, :value => Date.today, :required => true %>
+    </div>
+    <div class='new-event__field'>
+      <label class='new-event__label' for="event_end_date">End date:</label>
+      <%= f.date_field :end_date, :value => Date.today, :required => true %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

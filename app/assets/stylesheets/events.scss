@@ -60,3 +60,23 @@ $event-bg-color: rgb(243, 147, 0);
   position: absolute;
   bottom: 0;
 }
+
+.new-event__form {
+  display: none;
+}
+
+.new-event__field {
+  margin: 10px;
+}
+
+.new-event__label {
+  font-weight: bold;
+  display: block;
+  color: $title-color--light-dark;
+}
+
+.custom-link-btn {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
