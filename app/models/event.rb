@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
+  MAX_DESCRIPTION_LENGTH = 500
+
   validates :description, :start_time, :end_time, presence: true
-  validates :description, length: { maximum: 500 }
+  validates :description, length: { maximum: MAX_DESCRIPTION_LENGTH }
   validate  :end_time_is_bigger
 
   private
