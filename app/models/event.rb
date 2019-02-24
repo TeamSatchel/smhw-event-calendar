@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   private
 
   def end_time_is_bigger
-    return if (end_time && start_time) && (end_time > start_time)
+    return if (end_time && start_time) && (end_time >= start_time)
     errors.add(:end_time, 'must be after the start time')
   end
 end
