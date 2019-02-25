@@ -15,4 +15,11 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
+  *= require daterangepicker
+
+
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+

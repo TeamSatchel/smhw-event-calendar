@@ -13,7 +13,15 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery
+
 //= require_tree .
+//= require bootstrap-sprockets
 //= require moment
+//= require daterangepicker
 //= require fullcalendar
-$('#calendar').fullCalendar();
+
+
+
+
+
