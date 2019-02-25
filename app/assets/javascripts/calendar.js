@@ -18,6 +18,7 @@ var calendar_init = function calendar_init() {
             displayEventTime: false,
             events: '/events.json',
 
+
             // select callback which recieves start/end date.
             // when user clicks and drags the date a modal will appear to create
             // used a date range picker
@@ -32,14 +33,14 @@ var calendar_init = function calendar_init() {
                 calendar.fullCalendar('unselect');
             },
 
+
             eventDrop: function eventDrop(event) {
-                console.log(event.update_url);
                 // event_data contains event params we are passing as PATCH to update
                 event_data = {
                     event: {
                         id: event.id,
-                        start: event.start.format(),
-                        end: event.end.format()
+                        start_date: event.start.format(),
+                        end_date: event.end.format()
                     }
                 };
                 $.ajax({
