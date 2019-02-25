@@ -7,9 +7,9 @@
     html += "<div><b><%= data['description'].truncate(12, omission: '...') if data['description'].present? %></b></div>"
     html += "<div><%= data['signature'].truncate(12, omission: '...') if data['signature'].present? %></div></div>"
     $(".week-calendar__cell:eq(<%= week_day_start.to_i %>)").append(html);
-  <% elsif data['position'] == 3 %>
-    html = "<div class='week-calendar__more'>more</div>"
-    $(".week-calendar__cell:eq(<%= %>)").append(html);
+  <% elsif data['position'] >= 3 %>
+    html = "<div class='week-calendar__more'><a href='#'>more</a></div>"
+    $(".week-calendar__cell:eq(<%= week_day_start.to_i %>)").append(html);
   <% end %>
 <% elsif error.present? %>
   alert('Something went wrong')
