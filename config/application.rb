@@ -24,3 +24,7 @@ module EventCalendar
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+module EventCalendar
+  WEEKDAYS  = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
+end

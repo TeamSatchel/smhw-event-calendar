@@ -15,5 +15,4 @@
 //= require turbolinks
 //= require_tree .
 
-//= require events-calendar/js/calendar-starting-monday
 //= require calendar

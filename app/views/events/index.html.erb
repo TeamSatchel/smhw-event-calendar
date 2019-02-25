@@ -1,18 +1,11 @@
 <h1>Events calendar</h1>
 
-
-<div id="calendar"></div>
-
+<div id="week_sheet_container">
+  <%= render 'event_calendar_header' %>
+  <%= render 'event_calendar_body' %>
+</div>
 
 
 <p/>
 
 <%= link_to 'Create event' %>
-
-
-
-
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<!--
-<%= image_tag 'events_calendar', width: '100%' %>
--->
