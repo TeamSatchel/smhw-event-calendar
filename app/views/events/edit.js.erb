@@ -1,0 +1,4 @@
+// renders edit partial modal inside remote container div
+// form has remote true so will call update action
+$('#remote_container').html('<%= j render "edit" %>');
+$('#edit_event').modal('show');
