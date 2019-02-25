@@ -2,12 +2,12 @@ class EventsController < ApplicationController
   helper_method :events
 
   def index
-    json_response(events: events)
+    json_response(events)
   end
 
   def create
     event = Event.create!(event_params)
-    json_response({ event: event }, :created)
+    json_response(event, :created)
   end
 
   private
