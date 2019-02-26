@@ -1,13 +1,9 @@
 <h1>Events calendar</h1>
 
 <div id="week_sheet_container">
-  <table class="week_sheet">
-    <%= render 'event_calendar_header' %>
-    <%= render 'event_calendar_body' %>
-  </table>
 </div>
-
 
 <p/>
 
-<%= link_to 'Create event' %>
+<%= link_to 'Create event' %> | <%= link_to 'Remove all events', 'javascript:void(0)', :onclick => 'remove_all_events()' %> | <%= link_to 'Reload Sheet', 'javascript:void(0)', :onclick => 'load_sheet()' %>
+
