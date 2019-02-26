@@ -1,15 +1,26 @@
 .week_sheet  {
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .week_sheet_header  {
     background-color: #DCDCDC;
 }
+
+.week_sheet td {
+    height: 70px;
+    width: 200px;
+}
+
 .week_sheet tr, td {
     border: 1px solid grey;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding: 0px;
+}
+
+.event_cell {
+    background-color: #f5a200;
 }
 
 #week_sheet_container {

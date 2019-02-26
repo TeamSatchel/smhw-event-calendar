@@ -1,11 +1,9 @@
-<table class="week_sheet">
   <tr class="week_sheet_header">
     <% for i in 0..6 %>
       <td>
         <b><%= EventCalendar::WEEKDAYS[i] %></b>
         <br/>
-        <%= Date.today + i %>
+        <%= EventCalendar::WEEK_START_DATE + i %>
       </td>
     <% end %>
   </tr>
-</table>

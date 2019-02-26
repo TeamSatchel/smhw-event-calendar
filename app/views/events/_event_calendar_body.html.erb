@@ -1,0 +1,20 @@
+<% events = Event.get_events %>
+<tr>
+  <% i = 0 %>
+  <% while i <= 6 %>
+    <% current_date = EventCalendar::WEEK_START_DATE + i %>
+     <% if events[current_date] %>
+      <td colspan="<%= events[current_date].duration %>" class="event_cell">
+        <%= events[current_date].description  %>
+      </td>
+      <% i += events[current_date].duration %>
+    <% else %>
+      <td>hello</td>
+      <% i += 1 %>
+    <% end %>
+  <% end %>
+</tr>
+
+
+
+
