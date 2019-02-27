@@ -1,0 +1,19 @@
+<% if !@event.errors.empty? %>
+  The following erros occurred:
+  <ul>
+  <% @event.errors.each do |attr, msg| %>
+    <li><%= "#{attr} #{msg}"  %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @event, :url => {:action => 'create'} do |f| %>
+  <%= f.text_field :start_date %> YYYY-MM-DD
+  <br/>
+  <%= f.text_field :end_date %> YYYY-MM-DD
+  <br/>
+  <%= f.text_area :description, :size => '40x5' %>
+  <br/>
+  <%= f.button "Create", :onclick => 'create_event()', :type => 'button' %>
+<% end %>

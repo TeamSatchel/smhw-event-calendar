@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :events
   get 'sheet' =>  'events#sheet'
+  get 'create' =>  'events#create'
   get 'removeall' => 'events#removeall'
   
   # The priority is based upon order of creation: first created -> highest priority.

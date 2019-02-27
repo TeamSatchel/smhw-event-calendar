@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
 
+  validates :start_date, :presence => true
+  validates :end_date, :presence => true
+
   # Returns Event duration in days
   def duration
     (self.end_date.to_date - self.start_date.to_date).to_i + 1

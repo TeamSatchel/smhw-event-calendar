@@ -5,5 +5,13 @@
 
 <p/>
 
-<%= link_to 'Create event' %> | <%= link_to 'Remove all events', 'javascript:void(0)', :onclick => 'remove_all_events()' %> | <%= link_to 'Reload Sheet', 'javascript:void(0)', :onclick => 'load_sheet()' %>
+<%= link_to 'Create event', 'javascript:void(0)', :onclick => 'show_event_form()' %> |
+<%= link_to 'Remove all events', 'javascript:void(0)', :onclick => 'remove_all_events()' %> |
+<%= link_to 'Reload Sheet', 'javascript:void(0)', :onclick => 'load_sheet()' %>
 
+<p/>
+<hr/>
+<p/>
+
+<div id="event_form_container">
+</div>
