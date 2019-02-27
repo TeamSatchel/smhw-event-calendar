@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+  $.fn.datepicker.defaults.autoclose = true;
+  $.fn.datepicker.defaults.orientation = 'bottom';
+
 });
 
 function show_event_form() {

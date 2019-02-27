@@ -1,3 +1,14 @@
+input {
+    background: url(/assets/calendar-icon.png) no-repeat;
+    background-size: 25px 25px;
+    background-position: right;
+    color: lightgray;
+}
+
+textarea{
+    color: dimgrey;
+}
+
 .week_sheet  {
     /*width: 100%;*/
 }
@@ -22,6 +33,5 @@
 .event_cell {
     background-color: #f5a200;
 }
-
 #week_sheet_container {
 }
