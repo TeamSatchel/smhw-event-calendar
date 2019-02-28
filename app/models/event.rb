@@ -24,7 +24,10 @@ class Event < ActiveRecord::Base
   end
 
   def events_dont_overlap
-    overlap = Event.where("(start_date >= ? AND end_date <= ?) OR (start_date <= ? AND end_date >= ?)", start_date, end_date, start_date, end_date)
+    overlap = Event.where(
+      "(start_date <= ? AND end_date >= ?)",
+      end_date, start_date
+    )
     !overlap.empty?
   end
 
