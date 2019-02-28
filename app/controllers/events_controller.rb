@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     if request.post?
       @event.update_attributes params[:event]
       if @event.save
+        @event_saved = true
       end
     end
     render :layout => 'ajax'

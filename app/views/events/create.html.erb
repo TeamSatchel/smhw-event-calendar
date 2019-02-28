@@ -1,10 +1,5 @@
-<%= form_for @event, :url => {:action => 'create'} do |f| %>
-  <%= f.text_field :start_date, 'data-provide' => 'datepicker', :value => Date.today %>
-  <br/>
-  <%= f.text_field :end_date, 'data-provide' => 'datepicker', :value => Date.today %>
-  <br/>
-  <%= f.text_area :description, :size => '40x5' %>
-  <br/>
-  <%= f.button "Create", :onclick => 'create_event()', :type => 'button' %>
+<% if @event_saved %>
+  Event has been addded.
+<% else %>
+  <%= render 'event_form', :event => @event %>
 <% end %>
-

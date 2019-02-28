@@ -33,5 +33,10 @@ textarea{
 .event_cell {
     background-color: #f5a200;
 }
+
+#validation_errors {
+    color: red;
+}
+
 #week_sheet_container {
 }
