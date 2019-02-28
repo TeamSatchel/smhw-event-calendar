@@ -28,4 +28,5 @@ end
 module EventCalendar
   WEEKDAYS  = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] 
   WEEK_START_DATE = (Date.today - (Date.today.wday - 1) % 7)
+  WEEK_END_DATE = (Date.today - (Date.today.wday - 1) % 7) + 6
 end
