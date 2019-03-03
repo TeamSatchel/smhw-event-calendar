@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$min-width: 320px;
+$number-of-days: 7;
+$column-width: percentage(1/$number-of-days);
+
+@import "events";
+
+.grid-calendar {
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-radius: 0.2em;
+  min-width: $min-width;
+  .row {
+    margin: 0;
+  }
+
+  .calendar-week {
+    position: relative;
+  }
+
+  .calendar-week .grid-cell {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 12px;
+    min-height: 100px;
+  }
+
+  .calendar-week-header .grid-cell {
+    font-size: 12px;
+    border-right: 1px solid #eee;
+  }
+
+  .calendar-week-header .grid-cell > div {
+    padding: 10px;
+  }
+
+  .calendar-week-header .grid-cell > div > div {
+    height: auto;
+    text-align: center;
+  }
+
+  .grid-cell {
+    display: inline-block;
+    float: left;
+    min-height: 1px;
+    padding: 0;
+    position: relative;
+    width: $column-width;
+  }
+}
+
+#create-event-modal-window {
+  .d-flex {
+    display: flex;
+  }
+  .mx-1 {
+    margin-right: 0.25rem;
+  }
+}
