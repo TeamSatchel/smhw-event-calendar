@@ -1,3 +1,36 @@
 // Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid-calendar {
+  .event {
+    position: absolute;
+    background-color: orange;
+    font-size: 12px;
+    border-radius: 0.2em;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin-top: 1px;
+
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .past {
+    background-color: #ffdfb4;
+  }
+
+  .calendar-week {
+    @for $i from 1 to $number-of-days + 1 {
+      .event.col-width-day-#{$i} {
+        width: ($column-width - 0.2) * $i
+      }
+      @if $i < $number-of-days {
+        .event.offset-left-day-#{$i + 1} {
+          left: $column-width * $i
+        }
+      }
+    }
+  }
+}

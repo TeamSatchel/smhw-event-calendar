@@ -1,0 +1,31 @@
+<div class="modal fade" id="create-event-modal-window" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <%= simple_form_for @event, remote: true do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Create event</h4>
+        </div>
+        <div class="modal-body">
+
+            <%= f.input :title, required: true, class: 'form-control' %>
+
+            <%= f.input :start_at, as: :date, required: true, start_year: Date.today.year,
+                        end_year: Date.today.year + 1,
+                        order: [:month, :day, :year] %>
+
+            <%= f.input :end_at, as: :date, required: true, start_year: Date.today.year,
+                        end_year: Date.today.year + 1,
+                        order: [:month, :day, :year] %>
+
+            <%= f.input :description, as: :text %>
+
+        </div>
+        <div class="modal-footer">
+          <%= f.button :button, 'Cancel', data: { dismiss: 'modal' }, class: 'btn btn-default' %>
+          <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

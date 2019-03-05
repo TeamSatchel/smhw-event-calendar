@@ -1,7 +1,12 @@
-<h1>Events calendar</h1>
+<div class="container-fluid calendar">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Events calendar</h1>
 
-<%= link_to 'Create event' %>
+      <%= link_to 'Create event', events_path, data: {remote: true, toggle: 'modal', target: '#create-event-modal-window'} %>
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
-
+      <%= render partial: 'modal_form' %>
+      <%= render @calendar, object: @calendar %>
+    </div>
+  </div>
+</div>

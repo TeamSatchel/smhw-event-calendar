@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="grid-calendar">
+      <div class="row calendar-week-header">
+        <% @calendar.calendar_type.date_range.each do |day| %>
+          <div class="col-xs-1 grid-cell">
+            <div>
+              <div>
+                <strong><%= day.strftime('%A') %></strong>
+              </div>
+              <div>
+                <span<% if day.today? %> class="label label-primary"<% end %>>
+                  <%= day.strftime('%b %d, %Y') %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row calendar-week calendar-body">
+        <% @calendar.calendar_type.date_range.each do |day| %>
+          <div class="col-xs-1 grid-cell"></div>
+        <% end %>
+        <%= render partial: 'event_list', locals: { events: @calendar.events } %>
+      </div>
+    </div>
+  </div>
+</div>
