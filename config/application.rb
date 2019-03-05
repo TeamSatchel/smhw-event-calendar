@@ -25,5 +25,11 @@ module EventCalendar
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    config.generators do |g|
+      g.test_framework :rspec
+      g.factory_bot dir: 'spec/support/factories'
+      g.factory_bot suffix: 'factory'
+    end
   end
 end
