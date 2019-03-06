@@ -1,0 +1,9 @@
+var sources = {
+      url: '/events', // use the `url` property
+      type: 'GET',
+      data: {
+ 		date: '<%=Time.zone.now.to_datetime%>'
+      }
+    };
+$('#calendar').fullCalendar('refetchEventSources', sources);
+console.log("Refreshing events from sources");
