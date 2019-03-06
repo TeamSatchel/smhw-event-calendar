@@ -23,16 +23,16 @@ class EventsController < ApplicationController
       if @form.valid?
         CreateEvent.call(@form) do 
           on(:ok) do
-            format.html {redirect_to index_path}
+            format.html {redirect_to index}
             format.json {render json: @form}
           end 
           on(:invalid) do
-            format.html {redirect_to index_path, notice: "We could not create new event"}
+            format.html {redirect_to index, notice: "We could not create new event"}
             format.json {render json: {success: "false", message: "We could not create new event"}}
           end 
         end  
       else
-        format.html {redirect_to index_path, notice: "We could not create new event"}
+        format.html {redirect_to index, notice: "We could not create new event"}
         format.json {render json: {success: "false", message: "We could not create new event"}}
       end
     end

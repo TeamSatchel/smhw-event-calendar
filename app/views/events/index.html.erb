@@ -1,6 +1,7 @@
 <h1>Events calendar</h1>
 
-<%= link_to 'Create event' %>
+<% link_to 'Create event' %>
+<%= link_to 'Create event', "#event-management", data: {toggle: "modal", target: "#modal"} %>
 
 <%if nil%>
     <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
@@ -42,7 +43,7 @@
 			var timelineInterval;
 			
 			$('#calendar').fullCalendar({
-				height: 1350,
+				height: 600,
 				disableDragging: true,
 				defaultView: 'agendaWeek',
 				allDayDefault: false,
@@ -107,12 +108,10 @@
 	            selectHelper: true,
 	            select: function (start, end, jsEvent,view) {
 					console.log("Creating event");
-	                $modal.modal({
-	                //    backdrop: 'static'
-	                });
-					runSelect2();
-				   	$modal.find('.modal-title').empty().prepend("Create new event "+start.year()+"-"+(start.month()+1)+"-"+start.date()+" a las "+start.hour()+":"+start.minute());
-				   	$('#event_date_time').val(start.year()+"-"+(start.month()+1)+"-"+start.date()+" "+start.hour()+":"+start.minute());
+	                $modal.find('.modal-title').empty().prepend("Create new event "+start.year()+"-"+(start.month()+1)+"-"+start.date()+" at "+start.hour()+":"+start.minute());
+				   	$('#event[event_start]').val(start.year()+"-"+(start.month()+1)+"-"+start.date()+" "+start.hour()+":"+start.minute());
+				   	$('#event[event_end]').val(end.year()+"-"+(end.month()+1)+"-"+end.date()+" "+end.hour()+":"+end.minute());
+				   	console.log ("setting event start and event end");
 	            }
 			});
 			
@@ -196,6 +195,56 @@
 	
 	</script>
 	<div id='calendar'></div>
-	
+	<div class="modal fade modal-topfull" id="event-management" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myAppointmentLabel">
+    	<div class="modal-dialog modal-topfull">
+	    	<div class="modal-content">
+	        	<div class="modal-header bg-primary">
+	          		<h4 class="modal-title" style="text-align:center;">Create Event</h4>
+          			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<br>
+					<i class="fa fa-calendar fa-4x"></i>
+					<h4 id="myAppointmentLabel" class=" ">Quick event creation</h4>
+					<p class="no-margin">You can create an event here.</p>
+					<br>
+	       		</div>
+		        <div class="modal-body">
+		          <form action="/events" method="post" target="_parent">
+	          			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label class="control-label"> Start</label>
+								<input class="form-control" type="text" name="event[event_start]" id="event[event_start]">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label class="control-label"> End</label>
+								<input class="form-control" type="text" name="event[event_end]" id="event[event_end]">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label"> Description</label>
+								<input class="form-control" type="text" name="event[description]">
+							</div>
+						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col-md-9"></div>
+							<div class="col-md-3">
+								<input class="btn btn-primary btn-block btn-embossed" name="commit" type="submit" value="Create event">
+							</div>
+							<div class="space5"></div>
+						</div>
+					</form>
+		        </div>
+		        <!-- <div class="modal-footer bg-aero"> -->
+				<div class="modal-footer">
+		          <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Close</button>
+		        </div>
+	      	</div>
+    	</div>
+	</div>
 <%end%>
 
