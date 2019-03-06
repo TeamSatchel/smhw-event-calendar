@@ -4,7 +4,7 @@ class GetDecoratedEvents < Rectify::Command
   end
 
   def call
-    create_events_array
+    broadcast(:ok, create_events_array)
   end
 
   private
@@ -13,19 +13,16 @@ class GetDecoratedEvents < Rectify::Command
 
   def create_events_array
     decorated_events = []
-    events.each do |e|
-      event="
-	  			{
-	  				id: \"#{e.id}\",
-	          title: \"#{e.description}\",
-	  				start: \"#{e.event_start.strftime("%Y-%m-%dT%H:%M:00")}\",
-	  				start: \"#{e.event_end.strftime("%Y-%m-%dT%H:%M:00")}\",
-	          editable: false
-	  			}"  
-			decorated_events.push event
+    @events.each do |e|
+      event = Hash.new
+      event[:id] = e.id.to_s
+      event[:title] = e.description.to_s
+      event[:start] = e.event_start.strftime("%Y-%m-%dT%H:%M:00")
+      event[:end] = e.event_end.strftime("%Y-%m-%dT%H:%M:00")
+      event[:editable] = false
+			decorated_events.push event.to_json
 		end
     decorated_events
-    
   end
   
 end

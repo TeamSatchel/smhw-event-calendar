@@ -54,7 +54,7 @@
 				maxTime: '22:00:00',
 				displayEventEnd: true,
 				forceEventDuration:true,
-				defaultTimedEventDuration:'00:15:00',
+				defaultTimedEventDuration:'00:30:00',
 				axisFormat: 'H:mm',
 				timeFormat: {
 					agenda: 'H:mm{ - H:mm}'
@@ -77,14 +77,17 @@
 				defaultDate: '<%=t.strftime("%Y-%m-%d")%>',
 				editable: true,
 				eventLimit: false, // allow "more" link when too many events
-				events: [
-					<%@events.each do |e|%>
-						<%=raw e%>
-						<%if e!=@events.last%>
-							,
-						<%end%>
-					<%end%>
-				],
+				//events: [
+				//],
+				eventSources: [
+				    {
+				      url: '/events', // use the `url` property
+				      type: 'GET',
+				      data: {
+     					date: '<%=Time.zone.now.to_datetime%>'
+				      }
+				    }
+			  	],
 				viewRender: function(view) {              
 					if(typeof(timelineInterval) != 'undefined'){
 					  window.clearInterval(timelineInterval); 
@@ -109,8 +112,8 @@
 	            select: function (start, end, jsEvent,view) {
 					console.log("Creating event");
 	                $modal.find('.modal-title').empty().prepend("Create new event "+start.year()+"-"+(start.month()+1)+"-"+start.date()+" at "+start.hour()+":"+start.minute());
-				   	$('#event[event_start]').val(start.year()+"-"+(start.month()+1)+"-"+start.date()+" "+start.hour()+":"+start.minute());
-				   	$('#event[event_end]').val(end.year()+"-"+(end.month()+1)+"-"+end.date()+" "+end.hour()+":"+end.minute());
+				   	$('#event_start').val(start.year()+"-"+(start.month()+1)+"-"+start.date()+" "+start.hour()+":"+start.minute());
+				   	$('#event_end').val(end.year()+"-"+(end.month()+1)+"-"+end.date()+" "+end.hour()+":"+end.minute());
 				   	console.log ("setting event start and event end");
 	            }
 			});
@@ -208,18 +211,18 @@
 					<br>
 	       		</div>
 		        <div class="modal-body">
-		          <form action="/events" method="post" target="_parent">
+		          <form action="/events" method="post" target="_parent" data-remote="true">
 	          			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 						<div class="col-md-3">
 							<div class="form-group">
 								<label class="control-label"> Start</label>
-								<input class="form-control" type="text" name="event[event_start]" id="event[event_start]">
+								<input class="form-control" type="text" name="event[event_start]" id="event_start">
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
 								<label class="control-label"> End</label>
-								<input class="form-control" type="text" name="event[event_end]" id="event[event_end]">
+								<input class="form-control" type="text" name="event[event_end]" id="event_end">
 							</div>
 						</div>
 						<div class="col-md-6">
