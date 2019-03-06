@@ -6,8 +6,12 @@ class EventsController < ApplicationController
       date = params['date']
     end
     @events = GetEvents.new(date).to_a
+    
     respond_to do |format|
-      format.html
+      format.html do 
+        @decorated_events = GetDecoratedEvents.call(@events)
+        @events = @decorated_events
+      end
       format.json {render json: @events.to.json}
     end
   end
