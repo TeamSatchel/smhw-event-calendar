@@ -33,8 +33,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'shoulda', '~> 3.6.0'
+  gem 'shoulda-matchers', '~> 3.1.3'
 end
 
 group :development do
