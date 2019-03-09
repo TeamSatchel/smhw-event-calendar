@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
 <ul>
   {{#each this.events as |event|}}
-    <li {{action "showEvent" event}}>{{event}}</li>
+    <li {{action "showEvent" event.id}}>{{event.title}}</li>
   {{/each}}
 </ul>
