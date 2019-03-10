@@ -3,6 +3,6 @@ import { underscore } from '@ember/string';
 
 export default DS.RESTSerializer.extend({
   keyForAttribute(attr, method) {
-    return underscore(attr).toUpperCase();
+    return attr;
   }
 });
