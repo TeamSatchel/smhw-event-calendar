@@ -1,4 +1,7 @@
 $('#events-modal .modal-body').html("<%= j render 'form' %>");
 $('.form_datetime').datetimepicker({
-  format: 'YYYY-MM-DD HH:mm'
+  format: 'YYYY-MM-DD HH:mm',
+  locale:  moment.locale('en', {
+    week: { dow: 1 }
+  })
 });
