@@ -32,9 +32,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.4'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'active_model_serializers', '~> 0.10.9'
+gem 'simple_form', '~> 4.0'
 
 group :development, :test do
+  gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
