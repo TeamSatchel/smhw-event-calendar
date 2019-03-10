@@ -1,0 +1,64 @@
+<h2>{{title}}</h2>
+
+<div class="layout-row">
+  {{full-calendar events = model viewName = "basicWeek" height = 350}}
+</div>
+
+<div class="layout-row">
+  {{#paper-button raised=true warn=true onClick=(action "showNewEventDialog")}}Add new event{{/paper-button}}
+</div>
+
+{{#if isDialogVisible}}
+  {{#paper-dialog fullscreen=fullscreen onClose=(action "cancelNewEventDialog") origin=dialogOrigin clickOutsideToClose=true}}
+
+    {{#paper-form onSubmit=(action "submitEventForm") as |form|}}
+      {{#paper-dialog-content}}
+        <h2 class="md-title">Please set Event details to add it to the calendar</h2>
+        <h6>
+          {{#each model.error_messages as |message|}}
+            <li>{{message}}</li>
+          {{/each}}
+        </h6>
+        {{form.input
+          label="Title"
+          placeholder="Event title"
+          required=true
+          autofocus=true
+          value=model.newItem.title onChange=(action (mut model.newItem.title))
+        }}
+        {{paper-pikaday
+          value=model.newItem.start
+          useUTC=false
+          label="Start Date"
+          useISODate=false
+          class="flex-100"
+          required=true
+          yearRange="1900,currentYear"
+          errors=model.error_messages.start_date
+          onChange=(action (mut model.newItem.start))
+        }}
+        {{paper-pikaday
+          value=model.newItem.end
+          useUTC=false
+          label="End Date"
+          useISODate=false
+          class="flex-100"
+          required=true
+          yearRange="1900,currentYear"
+          errors=model.error_messages.end_date
+          onChange=(action (mut model.newItem.end))
+        }}
+      {{/paper-dialog-content}}
+
+
+      {{#paper-dialog-actions class="layout-row"}}
+        <span class="flex"></span>
+        <div class="layout-row">
+          {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+          {{#paper-button primary=true onClick=(action "cancelNewEventDialog")}}Cancel{{/paper-button}}
+        </div>
+      {{/paper-dialog-actions}}
+
+    {{/paper-form}}
+  {{/paper-dialog}}
+{{/if}}
