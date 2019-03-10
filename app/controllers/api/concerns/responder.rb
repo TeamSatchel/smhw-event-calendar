@@ -8,7 +8,7 @@ module Api
           if object.is_a?(ActiveRecord::Relation) || object.valid?
             render_success(represent(serializer, object), code)
           else
-            render_error(422, object.errors.full_messages.join(', '))
+            render_error(422, object.errors.full_messages)
           end
         end
 

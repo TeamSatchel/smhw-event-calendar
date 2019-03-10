@@ -5,7 +5,7 @@ class Api::V1::EventsController < Api::BaseController
   end
 
   def create
-    event = Event.new(event_params)
+    event = Event.create(event_params)
     json_respond(event, Api::V1::EventRepresenter, 201)
   end
 

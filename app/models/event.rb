@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   private
 
   def start_date_is_before_or_eql
-    return if (!start_date.blank? && !end_date.blank?) && (start_date >= end_date)
+    return if (!start_date.blank? && !end_date.blank?) && (start_date <= end_date)
     errors.add(:start_date, VALIDATION_MESSAGES[:start_date])
   end
 end

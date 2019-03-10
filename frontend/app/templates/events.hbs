@@ -1,2 +1,73 @@
-{{log 'model' model.events }}
-<Event @title="Events" @events={{model.events}} />
+<h2>{{title}}</h2>
+<ul>
+  {{#each model.events as |event|}}
+    <li {{action "showEvent" event.id}}>{{event.title}}</li>
+  {{/each}}
+</ul>
+<div class="layout-row">
+  {{#paper-button raised=true warn=true onClick=(action "showNewEventDialog")}}Add new event{{/paper-button}}
+</div>
+{{full-calendar events = ( array model.events ) viewName = 'basicWeek' height = 250}}
+
+{{#if isDialogVisible}}
+  {{#paper-dialog fullscreen=fullscreen onClose=(action "cancelNewEventDialog") origin=dialogOrigin clickOutsideToClose=true}}
+
+    {{#paper-form onSubmit=(action "submitEventForm") as |form|}}
+      {{#paper-dialog-content}}
+        <h2 class="md-title">Please set Event details to add it to calendar</h2>
+        <h6>
+          {{#each model.error_messages as |message|}}
+            <li>{{message}}</li>
+          {{/each}}
+        </h6>
+        {{form.input
+          label="Title"
+          placeholder="Event title"
+          required=true
+          autofocus=true
+          value=model.newItem.title onChange=(action (mut model.newItem.title))
+        }}
+        {{form.input
+          label="Description"
+          placeholder="Event description"
+          value=model.newItem.description onChange=(action (mut model.newItem.description))
+          errors=model.error_messages.description
+        }}
+        {{paper-pikaday
+          value=model.newItem.startDate
+          useUTC=false
+          label="Start Date"
+          useISODate=false
+          class='flex-100'
+          required=true
+          format='DD-MM-YYYY'
+          yearRange='1900,currentYear'
+          errors=model.error_messages.start_date
+          onChange=(action (mut model.newItem.startDate))
+        }}
+        {{paper-pikaday
+          value=model.newItem.endDate
+          useUTC=false
+          label="End Date"
+          useISODate=false
+          class='flex-100'
+          required=true
+          format='DD-MM-YYYY'
+          yearRange='1900,currentYear'
+          errors=model.error_messages.end_date
+          onChange=(action (mut model.newItem.endDate))
+        }}
+      {{/paper-dialog-content}}
+
+
+      {{#paper-dialog-actions class="layout-row"}}
+        <span class="flex"></span>
+        <div class="layout-row">
+          {{#form.submit-button raised=true primary=true}}Submit{{/form.submit-button}}
+          {{#paper-button primary=true onClick=(action "cancelNewEventDialog")}}Cancel{{/paper-button}}
+        </div>
+      {{/paper-dialog-actions}}
+
+    {{/paper-form}}
+  {{/paper-dialog}}
+{{/if}}
