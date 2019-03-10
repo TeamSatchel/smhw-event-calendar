@@ -1,8 +1,20 @@
 <% 	event.date_start = new Date(parseInt(event.start));
     event.date_end = new Date(parseInt(event.end)); %>
-<div id = "event-meta">
-    <span><%= event.date_start.getDate() %> <%= calendar.locale["m" + event.date_start.getMonth()] %> <%= event.date_start.getFullYear() %>, at <%= event.date_start.getHours() %>:<%= event.date_start.getMinutes() %> <i class = "icon-time"></i></span> - 
-    <span><%= event.date_end.getDate() %> <%= calendar.locale["m" + event.date_end.getMonth()] %> <%= event.date_end.getFullYear() %> at <%= event.date_end.getHours() %>:<%= event.date_end.getMinutes() %> <i class = "icon-time"></i></span>
 
-    <div><%= event.description %></div>
+<div id = "event-meta">
+  <div class="row mt-1">
+    <div class="col-md-1"><i class="glyphicon glyphicon-calendar"></i></div>
+    <div class="col-md-11">
+      <span>
+        <%= moment(new Date(parseInt(event.start))).format('LLLL') %>
+      </span> -
+      <span>
+        <%= moment(new Date(parseInt(event.end))).format('LLLL') %>
+      </span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-1"><i class="glyphicon glyphicon-align-left"></i></div>
+    <div class="col-md-11"><%= event.description %></div>
+  </div>
 </div>
