@@ -1,0 +1,14 @@
+<% if @event.errors.any? %>
+  $('#events-modal .modal-body').html("<%= j render 'form' %>");
+<% else %>
+  $('#events-modal').modal('hide');
+
+  $("#calendar").calendar({
+    view: 'week',
+    events_source: <%= @events.to_json.html_safe %>,
+    tmpl_path: "/tmpls/",
+    modal: "#events-modal",
+    modal_type: "template",
+    modal_title : function (e) { return e.title },
+  });
+<% end %>

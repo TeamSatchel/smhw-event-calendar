@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= link_to 'Create event', '#', class: "btn btn-primary pull-right" %>
+    <%= link_to 'Create event', new_event_path, remote: true, 'data-toggle' => 'modal', 'data-target': '#events-modal', class: "btn btn-primary pull-right" %>
   </div>
 </div>
 
@@ -12,10 +12,10 @@
   </div>
 </div>
 
-<%= render partial: 'event_modal' %>
+<%= render partial: 'modal' %>
 
 <script type="text/javascript">
-  var calendar = $("#calendar").calendar({
+  $("#calendar").calendar({
     view: 'week',
     events_source: <%= @events.to_json.html_safe %>,
     tmpl_path: "/tmpls/",

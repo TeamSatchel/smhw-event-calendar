@@ -3,8 +3,13 @@ class EventsController < ApplicationController
     @events = ActiveModelSerializers::SerializableResource.new(Event.all)
   end
 
+  def new
+    @event = Event.new
+  end
+
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
+    @events = ActiveModelSerializers::SerializableResource.new(Event.all) if @event.save
   end
 
   private
