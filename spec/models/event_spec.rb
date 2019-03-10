@@ -14,8 +14,8 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:start_date) }
     it { should validate_presence_of(:end_date) }
     it "is not valid with invalid start or end date" do
-      event.start_date = Faker::Date.backward(14)
-      event.end_date = Faker::Date.forward(23)
+      event.start_date = Faker::Date.forward(23)
+      event.end_date = Faker::Date.backward(14)
       event.valid?
       event.errors.messages[:start_date].should include(Event::VALIDATION_MESSAGES[:start_date])
     end
