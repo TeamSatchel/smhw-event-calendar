@@ -12,10 +12,15 @@
   </div>
 </div>
 
+<%= render partial: 'event_modal' %>
+
 <script type="text/javascript">
   var calendar = $("#calendar").calendar({
     view: 'week',
     events_source: <%= @events.to_json.html_safe %>,
     tmpl_path: "/tmpls/",
+    modal: "#events-modal",
+    modal_type: "template",
+    modal_title : function (e) { return e.title },
   });
 </script>
