@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require vendor/moment
+//= require vendor/underscore-min
+//= require vendor/jstz
+//= require vendor/calendar
 //= require_tree .
