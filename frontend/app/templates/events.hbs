@@ -1,6 +1,8 @@
 <h2>{{title}}</h2>
 
-{{full-calendar events = model viewName = 'basicWeek' height = 350}}
+<div class="layout-row">
+  {{full-calendar events = model viewName = "basicWeek" height = 350}}
+</div>
 
 <div class="layout-row">
   {{#paper-button raised=true warn=true onClick=(action "showNewEventDialog")}}Add new event{{/paper-button}}

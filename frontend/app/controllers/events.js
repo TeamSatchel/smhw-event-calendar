@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import Ember from 'ember';
+import $ from 'jquery';
 
 export default Controller.extend({
   actions: {
@@ -23,14 +23,14 @@ export default Controller.extend({
         start_date: newItem.start,
         end_date: newItem.end
       }
-      Ember.$.post('api/v1/events', data, function() {
+      $.post('api/v1/events', data, function() {
       }, 'json').then(function(response) {
         if(response.data){
           store.pushPayload({event: response.data});
           newItem['id'] = response.data.id;
           parentThis.send('cleanEventForm');
           parentThis.send('cancelNewEventDialog');
-          Ember.$('.full-calendar').fullCalendar('renderEvent', newItem)
+          $('.full-calendar').fullCalendar('renderEvent', newItem)
         }else if(response.meta.message) {
           parentThis.set('model.error_messages', response.meta.message);
         }

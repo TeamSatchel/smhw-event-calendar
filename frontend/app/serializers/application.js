@@ -1,8 +1,7 @@
 import DS from 'ember-data';
-import { underscore } from '@ember/string';
 
 export default DS.RESTSerializer.extend({
-  keyForAttribute(attr, method) {
+  keyForAttribute(attr) {
     return attr;
   }
 });
