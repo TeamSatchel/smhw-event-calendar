@@ -5,7 +5,7 @@
 
   $("#calendar").calendar({
     view: 'week',
-    events_source: <%= @events.to_json.html_safe %>,
+    events_source: '/events',
     tmpl_path: "/tmpls/",
     modal: "#events-modal",
     modal_type: "template",
