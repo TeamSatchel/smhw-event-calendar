@@ -1,0 +1,23 @@
+<% 	event.date_start = new Date(parseInt(event.start));
+    event.date_end = new Date(parseInt(event.end)); %>
+
+<div id = "event-meta">
+  <div class="row mt-1">
+    <div class="col-xs-1"><i class="glyphicon glyphicon-calendar"></i></div>
+    <div class="col-xs-11">
+      <span>
+        <%= moment(new Date(parseInt(event.start))).format('LLLL') %>
+      </span> -
+      <span>
+        <%= moment(new Date(parseInt(event.end))).format('LLLL') %>
+      </span>
+    </div>
+  </div>
+  <% console.log(event) %>
+  <% if (event.description !== null) { %>
+  <div class="row mt-3">
+    <div class="col-xs-1"><i class="glyphicon glyphicon-align-left"></i></div>
+    <div class="col-xs-11"><%= event.description %></div>
+  </div>
+  <% } %>
+</div>

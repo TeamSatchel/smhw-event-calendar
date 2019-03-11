@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require vendor/moment
+//= require vendor/underscore-min
+//= require vendor/jstz
+//= require vendor/calendar
+//= require bootstrap-datetimepicker
 //= require_tree .
