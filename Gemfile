@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails'
-gem 'sqlite3'
-gem 'sassc'
-gem 'uglifier'
 gem 'jquery-rails'
+gem 'sassc-rails'
+gem 'sqlite3'
+gem 'uglifier'
 gem 'puma'
 gem 'bootsnap', require: false
 
