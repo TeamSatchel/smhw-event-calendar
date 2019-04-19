@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-
-  def index
+  private
+  def collection
+    @collection ||= Event.all
   end
-
 end
