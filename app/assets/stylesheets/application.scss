@@ -1,1 +1,10 @@
+/*
+ *= require fullcalendar
+ *= require_tree .
+ *= require_self
+ */
 @import "application/events";
+@import "font-awesome";
+@import "bootstrap";
+@import "noty/src/noty";
+@import "noty/src/themes/mint";
