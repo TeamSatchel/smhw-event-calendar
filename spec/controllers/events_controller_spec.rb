@@ -20,4 +20,10 @@ RSpec.describe EventsController, type: :controller do
 
     it { should render_template :index }
   end
+
+  describe '#index.json' do
+    before { get :index, format: :json }
+
+    it { should render_template :index }
+  end
 end

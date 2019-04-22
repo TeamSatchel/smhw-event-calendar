@@ -1,0 +1,12 @@
+/*
+ * = require bootstrap-rails
+ * = require font-awesome
+ *
+ * = require fullcalendar.core
+ * = require fullcalendar.daygrid
+ * = require fullcalendar.timegrid
+ * = require fullcalendar.bootstrap
+ *
+ * = require_tree .
+ * = require_self
+*/

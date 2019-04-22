@@ -7,6 +7,9 @@ gem 'sqlite3'
 gem 'uglifier'
 gem 'puma'
 gem 'bootsnap', require: false
+gem 'draper'
+gem 'bootstrap'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'listen'
