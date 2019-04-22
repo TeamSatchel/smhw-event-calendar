@@ -1,0 +1,24 @@
+<div id="calendar"></div>
+
+<script type="text/javascript">
+  $('#calendar').fullCalendar({
+    themeSystem: 'bootstrap4',
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    events: [
+      <% @events.each do |event| %>
+        {
+          id: "<%= event.id %>",
+          title: "<%= event.title %>",
+          start: "<%= event.start_time %>",
+          end: "<%= event.end_time %>"
+        },
+      <% end %>
+    ],
+    eventColor: '#007bff',
+    displayEventTime: true
+  });
+</script>
