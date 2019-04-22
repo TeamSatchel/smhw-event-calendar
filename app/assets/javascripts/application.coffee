@@ -1,0 +1,11 @@
+#= require rails-ujs
+#= require jquery3
+#= require popper
+#= require activestorage
+#= require bootstrap
+#= require noty/lib/noty
+#= require moment
+#= require fullcalendar
+#= require fullcalendar/locale-all
+#= require turbolinks
+#= require_tree .

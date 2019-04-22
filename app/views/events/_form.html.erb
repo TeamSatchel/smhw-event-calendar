@@ -1,0 +1,33 @@
+<%= form_with(model: @event, class: 'event-form') do |event_form| %>
+  <fieldset id="new-event" class="p-5">
+    <div class="row ">
+      <div class="col-md-4 form-event form-group">
+        <%= event_form.label :title %>
+      </div>
+      <div class="col-md-8 form-event form-group">
+        <%= event_form.text_field :title, placeholder: "event name", value: @event&.title, class: "form-control" %>
+      </div>
+      <div class="col-md-4 form-event form-group">
+        <%= event_form.label :description %>
+      </div>
+      <div class="col-md-8 form-event form-group">
+        <%= event_form.text_area :description, placeholder: "Describe event objective", value: @event&.description, class: "form-control" %>
+      </div>
+      <div class="col-md-4 form-event form-group">
+        <%= event_form.label :start_time %>
+      </div>
+      <div class="col-lg-8 form-group">
+        <%= event_form.datetime_select :start_time, {}, class: "form-control custom-select w-auto mr-1" %>
+      </div>
+      <div class="col-md-4 form-event form-group">
+        <%= event_form.label :end_time %>
+      </div>
+      <div class="col-lg-8 form-group">
+        <%= event_form.datetime_select :end_time, {}, class: "form-control custom-select w-auto mr-1" %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="modal-footer">
+    <%= event_form.submit "Save event",  class: "btn btn-create"%>
+  </div>
+<% end %>
