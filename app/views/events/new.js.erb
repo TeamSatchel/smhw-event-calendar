@@ -1,0 +1,17 @@
+$('#recordModal .modal-body').html("<%= j render partial: 'form' %>");
+$('.modal-title').text("Create a new event");
+$('#recordModal').modal('show');
+
+$('.event-form').on('ajax:success', function(e, data, status, xhr){
+    $('#recordModal').modal('hide');
+}).on('ajax:error',function(e, data, status, xhr){
+  for (var key in e.detail[0]) {
+    var label = $('label[for=event_'+key+']').text();
+    for (var i = 0; i < e.detail[0][key].length; i++) {
+      new Noty({
+        type: 'error',
+        text: label+' '+e.detail[0][key][i]
+      }).show();
+    }
+  }
+});
