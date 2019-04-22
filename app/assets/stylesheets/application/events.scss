@@ -1,3 +1,46 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.simple-calendar {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.fc-content {
+  padding: .4rem !important;
+}
+.btn-create {
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 1px rgba(42,47,69,.1), 0 2px 5px 0 rgba(42,47,69,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08), 0 0 0 0 transparent;
+  color: #4f566b !important;
+}
+.modal-footer {
+  border-top: 1px solid #dee2e6 !important;
+}
+.simple-calendar {
+  .calendar-heading {
+    margin: 2rem 0;
+    a {
+      background-color: #2A92CA;
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 6px 10px;
+      border-color: #2A92CA;
+      color: #fff;
+    }
+  }
+  .has-events {
+    font-size: 12px;
+
+    div {
+      color: #2A92CA;
+      padding: .25rem 0;
+    }
+  }
+  .calendar-title {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 51rem !important;
+  }
+}
