@@ -22,7 +22,6 @@ $(function() {
       left: '',
       center: 'title',
     },
-    themeSystem: ['bootstrap'],
-    eventClick: function(event) { console.log(event.event.id) }
+    themeSystem: ['bootstrap']
   });
 });
