@@ -10,6 +10,7 @@ gem 'bootsnap', require: false
 gem 'draper'
 gem 'bootstrap'
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 group :development do
   gem 'listen'

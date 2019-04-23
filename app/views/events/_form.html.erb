@@ -1,0 +1,13 @@
+<%= simple_form_for resource, remote: true do |f| %>
+  <%= f.input :title %>
+
+  <%= f.input :start_date %>
+
+  <%= f.input :end_date %>
+
+  <%= f.input :teacher_name %>
+
+  <%= f.input :description %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

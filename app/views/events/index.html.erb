@@ -1,26 +1,15 @@
 <h1>Events calendar</h1>
 
-<%= link_to 'Create event' %>
+<%= link_to 'Create event', [:new, :event], remote: true %>
 
 <div id="calendar"></div>
+
+<%= render 'widgets/modal' %>
 
 <%= content_for :javascripts do %>
   <%= javascript_tag do %>
     $(function() {
-      var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
-        events: '/events.json',
-        plugins: ['timeGrid', 'bootstrap'],
-        defaultView: 'timeGridWeek',
-        timeZone: 'UTC',
-        editable: false,
-        header: {
-          left: '',
-          center: 'title',
-        },
-        themeSystem: ['bootstrap']
-      });
-
-      calendar.render();
+      window.calendar.render();
     });
   <% end %>
 <% end %>

@@ -1,0 +1,5 @@
+(function(){
+  window.calendar.addEvent(JSON.parse('<%= sanitize resource.to_json %>'));
+
+  $('.modal').modal('hide');
+}());

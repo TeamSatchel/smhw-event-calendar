@@ -6,7 +6,7 @@ class EventDecorator < Draper::Decorator
       id: id,
       title: title,
       start: start_date,
-      end: end_date
+      end: end_date,
     }
   end
 end

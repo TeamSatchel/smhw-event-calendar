@@ -13,7 +13,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  #config.include Permitter
+  config.include Permitter
 
   [:controller, :view, :request].each do |type|
     config.include ::Rails::Controller::Testing::TestProcess, :type => type
