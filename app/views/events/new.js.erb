@@ -1,2 +1,7 @@
 //Creates partial for rendering new event form
 $('#new_event_container').html('<%= j render "new" %>');
+$('#new_event').modal({
+  escapeClose: false,
+  clickClose: false,
+  showClose: true
+});
