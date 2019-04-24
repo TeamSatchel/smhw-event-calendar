@@ -15,6 +15,6 @@ class EventsController < ApplicationController
   private
     #Whitelisted attributes to prevent incorrect exposing of data
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date)
+      params.require(:event).permit(:title, :description, :start_date, :end_date, :date_range, :start_time, :end_time)
     end
 end
