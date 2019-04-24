@@ -4,8 +4,10 @@
     <%= f.input :description %>
     
     <%= f.input :date_range %>
-    <%= f.input_field :start_date, as: :hidden, value: Date.today %>
-    <%= f.input_field :end_date, as: :hidden, value: Date.today %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input_field :start_date, as: :hidden %>
+    <%= f.input_field :end_date, as: :hidden %>
   </div>
   <div>
     <%= f.button :submit %>

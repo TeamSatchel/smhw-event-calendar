@@ -17,9 +17,36 @@ var create_calendar = function() {
       select: function(start, end) {
         //Calls script for creating new event
         $.getScript('/events/new', function() {
+          end = moment(end).subtract(1, 'days'); //Because fullcalendar takes 1+ day in the date
+          
+          var start_date = moment(start).format('YYYY-MM-DD HH:mm');
+          var end_date = moment(end).format('YYYY-MM-DD HH:mm');
+          
+          //Initialize date selector
+          moment(start).isSame(end) ? $('#event_date_range').val(start_date) : $('#event_date_range').val(start_date + ' to ' + end_date);
+
           //Add flatpickr functionality
           $('#event_date_range').flatpickr({
-            mode: 'range'
+            mode: 'range',
+          });
+          
+          $('#event_start_time').flatpickr({
+            noCalendar: true,
+            enableTime: true,
+            time_24hr: true,
+            dateFormat: "H:i",
+          });
+          
+          $('#event_end_time').flatpickr({
+            noCalendar: true,
+            enableTime: true,
+            time_24hr: true,
+            dateFormat: "H:i",
+          });
+
+          //Making sure to remove modal DOM when it's closed
+          $('.close-modal').click(function() {
+            $('.modal').remove();
           });
         });
       },
