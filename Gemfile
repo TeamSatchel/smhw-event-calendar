@@ -15,6 +15,11 @@ gem 'active_model_serializers'
 gem 'puma'
 
 gem 'bootsnap', require: false
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+gem 'simple_form'
+gem 'jbuilder'
+gem 'flatpickr'
 
 group :development, :test do
   gem 'rspec-rails'

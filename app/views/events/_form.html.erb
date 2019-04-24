@@ -1,0 +1,15 @@
+<%= simple_form_for @event, remote: true do |f| %>
+  <div class="fields_container">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    
+    <%= f.input :date_range %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input_field :start_date, as: :hidden %>
+    <%= f.input_field :end_date, as: :hidden %>
+  </div>
+  <div>
+    <%= f.button :submit %>
+  </div>
+<% end %>
