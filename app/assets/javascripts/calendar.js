@@ -15,7 +15,8 @@ var create_calendar = function() {
         $.getScript('/events/new', function() {
           console.log('callbak works!');
         });
-      }
+      },
+      events: '/events.json'
     });
 };
 

@@ -18,6 +18,7 @@ gem 'bootsnap', require: false
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 gem 'simple_form'
+gem 'jbuilder'
 
 group :development, :test do
   gem 'rspec-rails'
