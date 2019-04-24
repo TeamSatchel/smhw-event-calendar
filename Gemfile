@@ -17,6 +17,7 @@ gem 'puma'
 gem 'bootsnap', require: false
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails'
