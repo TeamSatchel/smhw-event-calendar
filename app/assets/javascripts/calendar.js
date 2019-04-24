@@ -1,4 +1,8 @@
+//Core calendar functionality
 //= require fullcalendar
+
+//For selecting date and time
+//= require flatpickr
 
 // Creates a new calendar based on fullcalendar
 var create_calendar = function() {
@@ -13,7 +17,10 @@ var create_calendar = function() {
       select: function(start, end) {
         //Calls script for creating new event
         $.getScript('/events/new', function() {
-          console.log('callbak works!');
+          //Add flatpickr functionality
+          $('#event_date_range').flatpickr({
+            mode: 'range'
+          });
         });
       },
       events: '/events.json',

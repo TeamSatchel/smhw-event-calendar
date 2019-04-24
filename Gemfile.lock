@@ -73,6 +73,7 @@ GEM
       factory_bot (~> 5.0.0)
       railties (>= 4.2.0)
     ffi (1.10.0)
+    flatpickr (4.5.2.0)
     fullcalendar-rails (3.9.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -223,6 +224,7 @@ DEPENDENCIES
   bootsnap
   coffee-rails
   factory_bot_rails
+  flatpickr
   fullcalendar-rails
   jbuilder
   jquery-rails

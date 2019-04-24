@@ -2,8 +2,10 @@
   <div class="fields_container">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :start_date, value: Date.today %>
-    <%= f.input :end_date, value: Date.today %>
+    
+    <%= f.input :date_range %>
+    <%= f.input_field :start_date, as: :hidden, value: Date.today %>
+    <%= f.input_field :end_date, as: :hidden, value: Date.today %>
   </div>
   <div>
     <%= f.button :submit %>
