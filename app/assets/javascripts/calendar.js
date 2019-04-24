@@ -43,7 +43,16 @@ var create_calendar = function() {
             time_24hr: true,
             dateFormat: "H:i",
           });
-
+          
+          //Get dates and times correctly
+          $('.button').click(function() {
+            var start_time = $('#event_start_time').val()!=null ? ' ' + $('#event_start_time').val() : '';
+            var end_time = $('#event_end_time').val()!=null ? ' ' + $('#event_end_time').val() : '';
+            var dates = $('#event_date_range').val().split(' to ');
+            
+            $('#event_start_date').val(dates[0] + start_time);
+            dates[1]!== undefined ? $('#event_end_date').val(dates[1] + end_time) : $('#event_end_date').val(dates[0] + end_time);
+          });
           //Making sure to remove modal DOM when it's closed
           $('.close-modal').click(function() {
             $('.modal').remove();
