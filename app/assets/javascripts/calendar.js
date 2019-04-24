@@ -16,7 +16,18 @@ var create_calendar = function() {
           console.log('callbak works!');
         });
       },
-      events: '/events.json'
+      events: '/events.json',
+      displayEventEnd: true, //Display end_date on event
+      eventLimit: true, //Shows + sign if there are many events on a day
+      eventRender: function(event, element) {
+        element.find(".fc-event-title").remove();
+        element.find(".fc-event-time").remove();
+        if(event.description) {
+          var new_description =
+            '<br/><div class="fc-title">' + event.description + '</div>';
+          element.append(new_description);
+        }
+      },
     });
 };
 
