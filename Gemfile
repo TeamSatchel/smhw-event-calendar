@@ -25,3 +25,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen'
 end
+
+group :production do
+  # Use postgresql as the database for Active Record
+  gem 'pg', '~> 0.18'
+end
