@@ -1,1 +1,7 @@
 <h2>Events</h2>
+
+<ul>
+  {{#each this.model as |event|}}
+    <li>{{event.description}}</li>
+  {{/each}}
+</ul>
