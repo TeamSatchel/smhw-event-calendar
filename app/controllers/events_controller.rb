@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
-
   def index
-  end
+    @events = Event.all
 
+    render json: @events
+  end
 end
