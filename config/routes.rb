@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :events, only: %i(index)
 
   root to: redirect('/events')
+
+  get '*frontend_path', to: 'frontend#index'
 end
