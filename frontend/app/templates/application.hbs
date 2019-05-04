@@ -1,1 +1,18 @@
+{{#bs-navbar type="dark" backgroundColor="primary" as |navbar|}}
+  <div>
+    {{navbar.toggle}}
+    {{#link-to "index" class="navbar-brand"}}satchel:{{/link-to}}
+  </div>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "index"}}Home{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "events.index"}}Events{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
+
 {{outlet}}
