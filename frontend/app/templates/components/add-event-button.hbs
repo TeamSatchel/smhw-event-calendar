@@ -1,0 +1,17 @@
+{{#bs-button type="success" onClick=(action (mut addEventModal) true)}}Add Event{{/bs-button}}
+
+{{#bs-modal open=addEventModal onSubmit=(action "submit") onHidden=(action (mut addEventModal) false) as |modal|}}
+  {{#modal.header}}
+    <h4 class="modal-title">
+      New Event
+    </h4>
+  {{/modal.header}}
+  {{#modal.body}}
+    <input type="text" autofocus="autofocus">
+  {{/modal.body}}
+  {{#modal.footer}}
+    {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
+    {{#bs-button type="danger"}}Delete{{/bs-button}}
+    {{#bs-button type="success" onClick=(action modal.submit)}}Save{{/bs-button}}
+  {{/modal.footer}}
+{{/bs-modal}}
