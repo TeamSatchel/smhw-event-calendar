@@ -1,10 +1,14 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  actions: {
-    submit() {
+  init() {
+    this._super(...arguments);
+    this.set('event', {});
+  },
 
-      console.log('submit event');
+  actions: {
+    addEvent() {
+      console.log(this.get('event'));
     }
   }
 });

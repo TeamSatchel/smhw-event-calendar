@@ -1,17 +1,29 @@
 {{#bs-button type="success" onClick=(action (mut addEventModal) true)}}Add Event{{/bs-button}}
 
-{{#bs-modal open=addEventModal onSubmit=(action "submit") onHidden=(action (mut addEventModal) false) as |modal|}}
+{{#bs-modal onHidden=(action (mut addEventModal) false) as |modal|}}
   {{#modal.header}}
     <h4 class="modal-title">
-      New Event
+      New event
     </h4>
   {{/modal.header}}
   {{#modal.body}}
-    <input type="text" autofocus="autofocus">
+    {{#bs-form model=this.event onSubmit=(action "addEvent") novalidate=true as |form|}}
+      <div class="form-row">
+        <div class="form-group col-sm-12">
+          {{form.element controlType="textarea" label="Description" placeholder="Description" property="description"}}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+          {{form.element controlType="date" label="Start date" property="startDate"}}
+        </div>
+        <div class="form-group col-sm-6">
+          {{form.element controlType="date" label="End date" property="endDate"}}
+        </div>
+      </div>
+    {{/bs-form}}
   {{/modal.body}}
   {{#modal.footer}}
-    {{#bs-button onClick=(action modal.close)}}Cancel{{/bs-button}}
-    {{#bs-button type="danger"}}Delete{{/bs-button}}
-    {{#bs-button type="success" onClick=(action modal.submit)}}Save{{/bs-button}}
+    {{#bs-button type="primary" onClick=(action modal.submit)}}Save{{/bs-button}}
   {{/modal.footer}}
 {{/bs-modal}}
