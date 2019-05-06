@@ -7,15 +7,14 @@
     </h4>
   {{/modal.header}}
   {{#modal.body}}
-    {{#bs-form model=this.event onSubmit=(action "addEvent") novalidate=true as |form|}}
-      {{#if event.errors }}
+    {{#bs-form model=this.newEvent onSubmit=(action "addEvent") novalidate=true as |form|}}
+      {{#if this.newEvent.errors}}
         <div class="alert alert-danger">
-          {{#each event.errors as |error|}}
-            {{validation-message error}}
+          {{#each this.newEvent.errors as |error|}}
+            {{error}}
           {{/each}}
         </div>
       {{/if}}
-
       <div class="form-row">
         <div class="form-group col-sm-12">
           {{form.element controlType="textarea" label="Description" property="description"}}
