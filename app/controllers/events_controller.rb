@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     if @event.save
       render json: @event, status: :created
     else
-      render json: @event.errors, status: :unprocessable_entity
+      render json: @event, status: :unprocessable_entity, serializer: ActiveModel::Serializer::ErrorSerializer
     end
   end
 

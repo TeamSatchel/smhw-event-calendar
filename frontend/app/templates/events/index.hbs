@@ -1,9 +1,9 @@
 <h2>Events</h2>
 
-<AddEventButton @create={{action "create"}} />
+<AddEventButton @event={{event}} @create={{action "create"}} />
 
 <ul>
-  {{#each this.model as |event|}}
+  {{#each events as |event|}}
     <li>{{event.description}} {{event.startDate}} {{event.endDate}}</li>
   {{/each}}
 </ul>

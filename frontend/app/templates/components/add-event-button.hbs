@@ -8,9 +8,17 @@
   {{/modal.header}}
   {{#modal.body}}
     {{#bs-form model=this.event onSubmit=(action "addEvent") novalidate=true as |form|}}
+      {{#if event.errors }}
+        <div class="alert alert-danger">
+          {{#each event.errors as |error|}}
+            {{validation-message error}}
+          {{/each}}
+        </div>
+      {{/if}}
+
       <div class="form-row">
         <div class="form-group col-sm-12">
-          {{form.element controlType="textarea" label="Description" placeholder="Description" property="description"}}
+          {{form.element controlType="textarea" label="Description" property="description"}}
         </div>
       </div>
       <div class="form-row">
