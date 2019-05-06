@@ -3,7 +3,7 @@ import Component from "@ember/component";
 export default Component.extend({
   actions: {
     addEvent() {
-      this.save().then(
+      this.save(this.get('changeset')).then(
         () => {
           this.set("addEventModal", false);
         },

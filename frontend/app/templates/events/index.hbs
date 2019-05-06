@@ -1,6 +1,6 @@
 <h2>Events</h2>
 
-<AddEventButton @newEvent={{this.newEvent}} @save={{action "save"}} />
+<AddEventButton @changeset={{changeset this.newEvent EventValidations}} @save={{action "save"}} />
 
 <ul>
   {{#each model as |event|}}

@@ -1,7 +1,10 @@
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
+import EventValidations from "../../validations/event";
 
 export default Controller.extend({
+  EventValidations,
+
   newEvent: EmberObject.create({
     description: null,
     startDate: null,
@@ -10,14 +13,14 @@ export default Controller.extend({
   }),
 
   actions: {
-    save() {
+    save(changeset) {
       const properties = ["description", "startDate", "endDate"];
-      let params = this.get("newEvent").getProperties(properties);
+      let params = changeset.getProperties(properties);
       let event = this.store.createRecord("event", params);
 
       return event.save().then(
         () => {
-          this.set("newEvent", {});
+          this.set("newEvent", EmberObject.create({}));
         },
         err => {
           this.set(
