@@ -8,7 +8,9 @@ export default Component.extend({
 
   actions: {
     addEvent() {
-      console.log(this.get('event'));
+      this.create(this.get('event')).then(() => {
+        this.set('addEventModal', false);
+      });
     }
   }
 });

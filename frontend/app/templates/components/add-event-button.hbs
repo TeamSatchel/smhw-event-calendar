@@ -1,6 +1,6 @@
 {{#bs-button type="success" onClick=(action (mut addEventModal) true)}}Add Event{{/bs-button}}
 
-{{#bs-modal onHidden=(action (mut addEventModal) false) as |modal|}}
+{{#bs-modal open=addEventModal onHidden=(action (mut addEventModal) false) as |modal|}}
   {{#modal.header}}
     <h4 class="modal-title">
       New event
