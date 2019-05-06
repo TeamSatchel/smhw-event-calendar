@@ -24,5 +24,21 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  // FullCalendar
+  app.import('node_modules/@fullcalendar/core/main.min.js', {
+    using: [
+      { transformation: 'amd', as: '@fullcalendar/core' }
+    ]
+  });
+  app.import('node_modules/@fullcalendar/core/main.min.css');
+
+  // FullCalendar DayGrid
+  app.import('node_modules/@fullcalendar/daygrid/main.min.js', {
+    using: [
+      { transformation: 'amd', as: '@fullcalendar/daygrid' }
+    ]
+  });
+  app.import('node_modules/@fullcalendar/daygrid/main.min.css');
+
   return app.toTree();
 };

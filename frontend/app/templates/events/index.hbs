@@ -1,9 +1,3 @@
-<h2>Events</h2>
-
 <AddEventButton @changeset={{changeset this.newEvent EventValidations}} @save={{action "save"}} />
 
-<ul>
-  {{#each model as |event|}}
-    <li>{{event.description}} {{event.startDate}} {{event.endDate}}</li>
-  {{/each}}
-</ul>
+<Calendar @events={{model}} />
