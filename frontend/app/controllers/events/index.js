@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
 import EventValidations from "../../validations/event";
+import { computed } from "@ember/object";
 
 export default Controller.extend({
   EventValidations,
@@ -10,6 +11,14 @@ export default Controller.extend({
     startDate: null,
     endDate: null,
     errors: null
+  }),
+
+  normalizedEvents: computed("model.[]", function() {
+    return this.model.map(event => ({
+      title: event.description,
+      start: event.startDate,
+      end: event.endDate
+    }));
   }),
 
   actions: {

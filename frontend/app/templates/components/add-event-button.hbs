@@ -10,7 +10,7 @@
     {{#bs-form model=changeset onSubmit=(action "addEvent") novalidate=true as |form|}}
       <div class="form-row">
         <div class="form-group col-sm-12">
-          {{form.element controlType="textarea" label="Description" property="description"}}
+          {{form.element controlType="textarea" label="Description" property="description" autofocus="autofocus"}}
         </div>
       </div>
       <div class="form-row">

@@ -11,17 +11,7 @@ export default Component.extend({
     let fullCalendar = new Calendar(calendarRoot, {
       plugins: [dayGridPlugin],
       defaultView: "dayGridWeek",
-      events: [
-        {
-          title: "All Day Event",
-          start: "2019-05-05"
-        },
-        {
-          title: "Long Event",
-          start: "2019-05-07",
-          end: "2019-05-11"
-        }
-      ]
+      events: this.fetchEvents.bind(this)
     });
 
     this.set("fullCalendar", fullCalendar);
@@ -33,5 +23,15 @@ export default Component.extend({
     this.fullCalendar.destroy();
 
     this._super(...arguments);
+  },
+
+  didUpdateAttrs() {
+    this._super(...arguments);
+
+    this.fullCalendar.refetchEvents();
+  },
+
+  fetchEvents(params, successCallback) {
+    successCallback(this.events);
   }
 });
