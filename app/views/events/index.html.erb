@@ -1,9 +1,18 @@
 <h1>Events calendar</h1>
-
+<%- colors = %w[red blue yellow pink] %>
 <%= link_to 'Create event', new_event_path %>
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= week_calendar number_of_weeks: 1 do |date| %>
+<%= week_calendar events: @events,
+                  number_of_weeks: 1,
+                  attribute: :start_time,
+                  end_attribute: :end_time do |date, events| %>
   <%= date %>
+
+  <% events.each_with_index do |event, i| %>
+    <%=content_tag :div, style: "background-color: #{colors[i]}" do %>
+      <%= event.title  %>
+    <% end %>
+  <% end %>
 <% end %>
 
