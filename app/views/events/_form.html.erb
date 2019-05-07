@@ -1,17 +1,19 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="modal-header">
+  <h5 class="modal-title">Create Event</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= simple_form_for @event, remote: true do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= f.input :date_range %>
+
+    <%= f.input_field :start_date, as: :hidden %>
+    <%= f.input_field :end_date, as: :hidden %>
+
+    <%= f.button :submit, class: 'btn btn-primary mt-4' %>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

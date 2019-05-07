@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'jbuilder'
+gem 'bootstrap', '~> 4.3.1'
+gem 'simple_form'
 
 gem 'active_model_serializers'
 

@@ -4,6 +4,13 @@ class EventsController < ApplicationController
     @events = Event.where(start_date: params[:start]..params[:end])
   end
 
+  def new
+    @event = Event.new
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
   # POST /events.json
   def create
     @event = Event.new(event_params)
@@ -12,7 +19,7 @@ class EventsController < ApplicationController
       if @event.save
         format.json { render :show, status: :created, location: @event }
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render layout: false }
       end
     end
   end
