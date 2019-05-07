@@ -16,6 +16,8 @@ gem 'puma'
 
 gem 'bootsnap', require: false
 
+gem "simple_calendar", "~> 2.0"
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
