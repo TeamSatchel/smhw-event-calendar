@@ -1,0 +1,23 @@
+.fc-event {
+  border: 1px solid #de9300;
+}
+
+.fc-event, .fc-event-dot {
+  background-color: #f5a200;
+}
+
+.fc-day-header > span > span {
+  display: block;
+
+  font-family: Verdana, sans-serif;
+  font-size: 0.7em;
+
+  &.day {
+    color: $gray-700;
+  }
+
+  &.date {
+    color: $gray-500;
+    font-weight: normal;
+  }
+}
