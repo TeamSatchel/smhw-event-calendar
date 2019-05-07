@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.where(start_date: params[:start]..params[:end])
   end
 
   # POST /events.json
