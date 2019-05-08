@@ -1,5 +1,6 @@
 <h1>Events calendar</h1>
 <%- colors = %w[red blue yellow pink] %>
+<%- hidden_descriptions = {} %>
 <%= link_to 'Create event', new_event_path %>
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
@@ -10,8 +11,15 @@
   <%= date %>
 
   <% events.each_with_index do |event, i| %>
+    <%- hidden_descriptions[i] ||= false %>
     <%=content_tag :div, style: "background-color: #{colors[i]}" do %>
-      <%= event.title  %>
+      <div>5</div>
+      <%- unless hidden_descriptions[i] %>
+        <strong><%= event.title  %></strong><br>
+        <strong><%= event.teacher_name  %></strong><br>
+        <%= event.desctiption  %>
+      <% end %>
+      <%- hidden_descriptions[i] = true %>
     <% end %>
   <% end %>
 <% end %>
