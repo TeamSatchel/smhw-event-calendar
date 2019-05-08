@@ -12,8 +12,8 @@
 
   <% events.each_with_index do |event, i| %>
     <%- hidden_descriptions[i] ||= false %>
-    <%=content_tag :div, style: "background-color: #{colors[i]}" do %>
-      <div>5</div>
+    <%=content_tag :div, class: 'event-cell', style: "background-color: #{colors[i]}" do %>
+      <div>-</div>
       <%- unless hidden_descriptions[i] %>
         <strong><%= event.title  %></strong><br>
         <strong><%= event.teacher_name  %></strong><br>
