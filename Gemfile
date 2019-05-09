@@ -15,6 +15,7 @@ gem 'puma'
 gem 'bootsnap', require: false
 
 group :development do
+  gem 'annotate'
   gem 'rack-cors'
   gem 'web-console'
 end
