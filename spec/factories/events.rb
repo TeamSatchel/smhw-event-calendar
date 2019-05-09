@@ -11,9 +11,12 @@
 #
 
 FactoryBot.define do
-  factory :event do
-    description { "MyText" }
-    start_date { "2019-05-04" }
-    end_date { "2019-05-04" }
+  factory :event, aliases: [:one_day_event] do
+    description { "Awesome" }
+    start_date { "2019-05-31" }
+
+    factory :long_event do
+      end_date { Date.parse(start_date) + 3.days }
+    end
   end
 end

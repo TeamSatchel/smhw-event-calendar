@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: events
@@ -12,4 +14,5 @@
 
 class Event < ApplicationRecord
   validates :description, presence: true
+  validates :start_date, presence: true
 end
