@@ -14,12 +14,16 @@ gem 'puma'
 
 gem 'bootsnap', require: false
 
+group :development do
+  gem 'rack-cors'
+  gem 'web-console'
+end
+
 group :development, :test do
   gem 'sqlite3', '~> 1.3.0'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
@@ -29,5 +33,3 @@ group :production do
   # Use postgresql as the database for Active Record
   gem 'pg', '~> 0.18'
 end
-
-gem 'rack-cors', group: :development
