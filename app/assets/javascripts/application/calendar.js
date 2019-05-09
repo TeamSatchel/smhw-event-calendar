@@ -12,9 +12,14 @@ document.addEventListener('turbolinks:load', function() {
         $('#event_date_range').daterangepicker({
           startDate: moment(start),
           endDate: moment(end),
-          locale: {
-            format: "YYYY/MM/DD"
-          }
+          locale: { format: 'DD/MM/YYYY' }
+        });
+
+        $('#new_event').on('submit', function() {
+          var startDate = moment($('#event_date_range').data('daterangepicker').startDate).format('YYYY-MM-DD');
+          var endDate = moment($('#event_date_range').data('daterangepicker').endDate).add(1, 'day').format('YYYY-MM-DD');
+          $('#event_start_date').val(startDate);
+          $('#event_end_date').val(endDate);
         });
       });
     }

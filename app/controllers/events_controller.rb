@@ -1,27 +1,21 @@
 class EventsController < ApplicationController
   # GET /events
   def index
-    @events = Event.where(start_date: params[:start]..params[:end])
+    @events = Event.where(start_date: params[:start]..params[:end]).
+      or(Event.where(end_date: params[:start]..params[:end])).
+      or(Event.where('start_date <= ? AND end_date >= ?', params[:start], params[:end]))
   end
 
   def new
     @event = Event.new
-    respond_to do |format|
-      format.js { render layout: false }
-    end
+    respond_to { |format| format.js { render layout: false } }
   end
 
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.js { render layout: false }
-      end
-    end
+    @event.save
+    respond_to { |format| format.js { render layout: false } }
   end
 
   private

@@ -58,6 +58,7 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
+    byebug (11.0.0)
     case_transform (0.2)
       activesupport
     coderay (1.1.2)
@@ -238,6 +239,7 @@ DEPENDENCIES
   active_model_serializers
   bootsnap
   bootstrap (~> 4.3.1)
+  byebug
   coffee-rails
   factory_bot_rails
   fullcalendar-rails

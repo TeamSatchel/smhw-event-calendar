@@ -1,1 +1,7 @@
-$('.modal-content').html("<%= j(render(partial: 'events/form', locals: {event: @event})) %>");
+<% if @event.persisted? %>
+  $('.modal').modal('hide');
+  $('.modal-content').html('');
+  $('#calendar').fullCalendar('refetchEvents');
+<% else %>
+  $('.modal-content').html("<%= j(render(partial: 'events/form', locals: {event: @event})) %>");
+<% end %>
