@@ -5,5 +5,5 @@ import {
 } from "ember-changeset-validations/validators";
 
 export default {
-  description: validatePresence(true)
+  description: validatePresence({ presence: true, ignoreBlank: true })
 };
