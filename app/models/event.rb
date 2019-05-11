@@ -14,5 +14,13 @@
 
 class Event < ApplicationRecord
   validates :description, presence: true
+
   validates :start_date, presence: true
+  validates :start_date, timeliness: { type: :date }
+
+  validates :end_date, timeliness: {
+    type: :date,
+    allow_nil: true,
+    on_or_after: :start_date
+  }
 end
