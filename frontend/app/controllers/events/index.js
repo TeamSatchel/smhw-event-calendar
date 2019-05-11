@@ -1,16 +1,17 @@
 import Controller from "@ember/controller";
 import EmberObject from "@ember/object";
-import EventValidations from "../../validations/event";
 import { computed } from "@ember/object";
+import Changeset from "ember-changeset";
+import EventValidations from "../../validations/event";
+import lookupValidator from "ember-changeset-validations";
 
 export default Controller.extend({
-  EventValidations,
-
-  newEvent: EmberObject.create({
-    description: null,
-    startDate: null,
-    endDate: null,
-    errors: null
+  newEvent: computed(function() {
+    return new Changeset(
+      EmberObject.create({}),
+      lookupValidator(EventValidations),
+      EventValidations
+    );
   }),
 
   normalizedEvents: computed("model.[]", function() {
@@ -22,23 +23,21 @@ export default Controller.extend({
   }),
 
   actions: {
-    save(changeset) {
+    save(newEvent) {
       const properties = ["description", "startDate", "endDate"];
-      let params = changeset.getProperties(properties);
+      let params = newEvent.getProperties(properties);
       let event = this.store.createRecord("event", params);
 
       return event.save().then(
         () => {
-          this.set("newEvent", EmberObject.create({}));
+          newEvent.rollback();
         },
         err => {
-          this.set(
-            "newEvent.errors",
-            event.errors.map(error => {
-              return `${error.attribute} ${error.message}`;
-            })
-          );
+          event.errors.forEach(error => {
+            newEvent.pushErrors(error.attribute, error.message);
+          });
           event.unloadRecord();
+
           throw err;
         }
       );
