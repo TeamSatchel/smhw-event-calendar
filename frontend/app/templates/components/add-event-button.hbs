@@ -1,6 +1,6 @@
-{{#bs-button type="success" onClick=(action (mut addEventModal) true)}}Add Event{{/bs-button}}
+{{#bs-button id="add_event_btn" type="success" onClick=(action (mut addEventModal) true)}}+{{/bs-button}}
 
-{{#bs-modal open=addEventModal onHidden=(action (mut addEventModal) false) as |modal|}}
+{{#bs-modal id="add_event_modal" open=addEventModal onHidden=(action (mut addEventModal) false) as |modal|}}
   {{#modal.header}}
     <h4 class="modal-title">
       New event
@@ -15,7 +15,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-sm-6">
-          {{form.element controlType="date" label="Start date" property="startDate"}}
+          {{form.element id="start_date" controlType="date" label="Start date" property="startDate"}}
         </div>
         <div class="form-group col-sm-6">
           {{form.element controlType="date" label="End date" property="endDate"}}
