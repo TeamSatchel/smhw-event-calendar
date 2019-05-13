@@ -69,6 +69,11 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
 
+            echo "Currently in:"
+            echo "$(pwd)"
+            echo "Going to run those specs:"
+            echo $TEST_FILES
+
             echo "Testing backend"
 
             bundle exec rspec \
