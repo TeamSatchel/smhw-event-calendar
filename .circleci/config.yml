@@ -46,7 +46,6 @@ jobs:
       - run:
           name: NPM Install
           command: |
-            sudo npm install -g ember-cli
             cd frontend
             npm install
             cd ..
@@ -56,6 +55,9 @@ jobs:
           key: calendar-demo-npm-v1-{{ checksum "frontend/package-lock.json" }}
           paths:
             - frontend/node_modules
+
+      # Install ember-cli globally
+      - run: sudo npm install -g ember-cli
 
       # Database setup
       - run: bundle exec rake db:create
