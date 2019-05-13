@@ -24,6 +24,7 @@ end
 group :development, :test do
   gem 'sqlite3', '~> 1.3.0'
   gem 'rspec-rails'
+  gem "rspec_junit_formatter"
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'listen'
