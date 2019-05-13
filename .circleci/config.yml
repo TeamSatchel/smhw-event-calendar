@@ -46,6 +46,7 @@ jobs:
       - run:
           name: NPM Install
           command: |
+            sudo npm install -g ember-cli
             cd frontend
             npm install
 
