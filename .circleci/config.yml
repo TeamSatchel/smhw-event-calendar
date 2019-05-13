@@ -66,22 +66,13 @@ jobs:
           name: run tests
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            echo "Currently in:"
-            echo "$(pwd)"
-            echo "Going to run those specs:"
-            echo $TEST_FILES
 
             echo "Testing backend"
 
-            bundle exec rspec \
+            bundle exec rspec spec \
               --format progress \
               --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
 
             echo "Testing frontend"
 
