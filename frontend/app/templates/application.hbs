@@ -1,10 +1,15 @@
 {{#bs-navbar type="dark" backgroundColor="primary" as |navbar|}}
-  <div>
-    {{navbar.toggle}}
+  <div class="d-flex flex-grow-1">
+    <span class="w-100 d-lg-none d-block">{{! hidden spacer to center brand on mobile }}</span>
     {{#link-to "index" class="navbar-brand"}}satchel:{{/link-to}}
+
+    <div class="w-100 text-right">
+      {{navbar.toggle}}
+    </div>
   </div>
-  {{#navbar.content}}
-    {{#navbar.nav as |nav|}}
+
+  {{#navbar.content class="flex-grow-1 text-right"}}
+    {{#navbar.nav class="ml-auto flex-nowrap" as |nav|}}
       {{#nav.item}}
         {{#nav.link-to "index"}}Home{{/nav.link-to}}
       {{/nav.item}}

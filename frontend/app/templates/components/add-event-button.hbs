@@ -1,4 +1,4 @@
-{{#bs-button id="add_event_btn" type="success" onClick=(action (mut addEventModal) true)}}+{{/bs-button}}
+{{#bs-button id="add_event_btn" class="btn-block" type="success" onClick=(action (mut addEventModal) true)}}+{{/bs-button}}
 
 {{#bs-modal id="add_event_modal" open=addEventModal onHidden=(action (mut addEventModal) false) as |modal|}}
   {{#modal.header}}
