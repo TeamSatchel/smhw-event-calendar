@@ -9,7 +9,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'responders'
+gem 'jbuilder'
 
 gem 'active_model_serializers'
 

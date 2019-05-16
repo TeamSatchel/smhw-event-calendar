@@ -1,7 +1,11 @@
 <h1>Events calendar</h1>
 
-<%= link_to 'Create event', new_event_path, remote: true %>
+<%= link_to 'Create event', new_event_path, remote: true, class: 'btn btn-info' %>
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<div id='calendar'></div>
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <div id='calendar'></div>
+  </div>
+</div>
 <div id="remote_container"></div>
