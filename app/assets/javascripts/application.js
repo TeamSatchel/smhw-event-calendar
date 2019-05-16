@@ -3,6 +3,7 @@
 // require rails-ujs
 //= require moment
 //= require fullcalendar/main
+//= require fullcalendar/daygrid
 //= require activestorage
 //= require turbolinks
 //= require_tree ./application
