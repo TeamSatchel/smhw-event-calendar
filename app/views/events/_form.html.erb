@@ -1,6 +1,6 @@
 <%= form_for event, remote: true do |f| %>
-  <%= f.hidden_field :start_at, Date.today %>
-  <%= f.hidden_field :end_at, Date.today %>
+  <%= f.hidden_field :start_at, value: Date.today %>
+  <%= f.hidden_field :end_at, value: Date.today %>
 
   <div class="form-inputs">
     <div class="form-group">
