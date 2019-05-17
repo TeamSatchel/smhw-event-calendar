@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
+  $('#calendar').fullCalendar({
     plugins: ['dayGrid'],
     header: {
         left: '',
@@ -8,6 +7,4 @@ $(document).on('turbolinks:load', function () {
       },
     events: '/events.json',
   });
-
-  calendar.render();
 });
