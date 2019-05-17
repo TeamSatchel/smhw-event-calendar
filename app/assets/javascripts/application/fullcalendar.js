@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function () {
   $('#calendar').fullCalendar({
-    plugins: ['dayGrid'],
     header: {
-        left: '',
-        center: 'title'
-      },
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
     events: '/events.json',
   });
 });
