@@ -17,11 +17,14 @@ gem 'puma'
 
 gem 'bootsnap', require: false
 
+group :development do
+  gem 'web-console'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
