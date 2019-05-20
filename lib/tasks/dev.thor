@@ -24,4 +24,14 @@ class Dev < Thor
       Event::Create.new(user: user, event: { title: "Event #{i}", start_date: start_date, end_date: end_date, description: 'lorem ipsum dolor' }).call
     end
   end
+
+  desc "deploy", "Deploy code"
+  def deploy
+    run('git push heroku gonzalo-rodriguez:master')
+    run("heroku pg:reset DATABASE --confirm satchel-example")
+    run("heroku run rake db:migrate")
+    run("heroku run thor dev:populate")
+  end
+
+
 end
