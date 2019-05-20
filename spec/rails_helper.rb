@@ -38,21 +38,11 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, :type => :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.define_derived_metadata(file_path: %r{spec/interactors}) do |metadata|
+    metadata[:type] ||= :interactor
+  end
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
@@ -61,3 +51,5 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 end
+
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
