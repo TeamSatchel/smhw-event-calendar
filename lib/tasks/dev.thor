@@ -15,5 +15,7 @@ class Dev < Thor
   def populate
     require './config/environment'
     raise StandardError.new('DO NOT POPULATE PRODUCTION') if Rails.env.production? && !ENV['STAGING']
+
+    result = User::Create.new(user: { name: 'Carl Jung', email: 'carl.jung@test.com' }).call.user
   end
 end
