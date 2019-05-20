@@ -15,6 +15,8 @@ gem 'hanami-utils'
 gem 'sorcery'
 gem 'slim-rails'
 gem 'bootstrap'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 gem 'active_model_serializers'
 
