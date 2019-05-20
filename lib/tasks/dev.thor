@@ -16,6 +16,13 @@ class Dev < Thor
     require './config/environment'
     raise StandardError.new('DO NOT POPULATE PRODUCTION') if Rails.env.production? && !ENV['STAGING']
 
-    result = User::Create.new(user: { name: 'Carl Jung', email: 'carl.jung@test.com' }).call.user
+    user = User::Create.new(user: { name: 'Carl Jung', email: 'carl.jung@test.com' }).call.user
+
+    5.times do |i|
+      start_date = Date.current.advance(days: (0..3).to_a.sample, hours: (0..23))
+      end_date   = start_date.advance(days: (0..3).to_a.sample, hours: (0..23))
+
+      Event::Create.new(user: user, event: { title: "Event #{i}", start_date: start_date, end_date: end_date, description: 'lorem ipsum dolor' }).call
+    end
   end
 end
