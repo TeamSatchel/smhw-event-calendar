@@ -1,0 +1,10 @@
+= simple_form_for(@event, remote: true) do |f|
+  .row
+    .col
+      = f.input :description, as: :text
+
+  .datetimerange.row
+    .col-md-6
+      = f.input :start_date, as: :datetime_picker
+    .col-md-6
+      = f.input :end_date, as: :datetime_picker

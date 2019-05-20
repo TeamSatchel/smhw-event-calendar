@@ -1,7 +1,7 @@
-$(document).on('turbolinks:load', function(){
+$(document).on('click', "button[data-submit='modal-form']", function(){
+  $('.modal-body:visible form').submit()
+})
 
-  $("button[data-submit='modal-form']").on('click', function(){
-    $('.modal-body:visible form').submit()
-  })
+$(document).on('turbolinks:load', function(){
 
 });
