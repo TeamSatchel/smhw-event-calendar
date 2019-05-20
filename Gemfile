@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'hanami-utils'
 gem 'sorcery'
+gem 'slim-rails'
 
 gem 'active_model_serializers'
 
