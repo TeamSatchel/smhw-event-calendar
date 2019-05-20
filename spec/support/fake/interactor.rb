@@ -5,7 +5,7 @@ RSpec.shared_context "Interactor Stuff", type: :interactor do
   end
 
   let(:user) do
-    result = User::Create.new(user: user_params).call.user
+    User::Create.new(user: user_params).call.user
   end
 
   let(:event_params) do
