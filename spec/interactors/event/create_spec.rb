@@ -14,6 +14,7 @@ describe Event::Create do
     expect(event.start_date).to eq(Date.current)
     expect(event.end_date).to eq(Date.current.advance(days: 2))
     expect(event.description).to eq('lorem ipsum dolor')
+    expect(event.title).to eq('Awesome event')
     expect(event.user).to eq(user)
   end
 
