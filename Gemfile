@@ -17,6 +17,7 @@ gem 'slim-rails'
 gem 'bootstrap'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'simple_form'
 
 gem 'active_model_serializers'
 
