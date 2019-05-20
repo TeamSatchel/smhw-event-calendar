@@ -82,6 +82,8 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.0)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     fullcalendar-rails (3.9.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -267,6 +269,7 @@ DEPENDENCIES
   bootstrap
   coffee-rails
   factory_bot_rails
+  font-awesome-rails
   fullcalendar-rails
   hanami-utils
   jquery-rails

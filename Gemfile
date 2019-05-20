@@ -18,6 +18,7 @@ gem 'bootstrap'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'simple_form'
+gem 'font-awesome-rails'
 
 gem 'active_model_serializers'
 
