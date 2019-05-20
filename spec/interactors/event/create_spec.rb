@@ -5,7 +5,7 @@ describe Event::Create do
   it 'Create an event' do
     Timecop.freeze
 
-    result = Event::Create.new(event: { start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }).call
+    result = Event::Create.new(user: user, event: { start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }).call
 
     expect(result).to ok_interaction
 
@@ -14,11 +14,12 @@ describe Event::Create do
     expect(event.start_date).to eq(Date.current)
     expect(event.end_date).to eq(Date.current.advance(days: 2))
     expect(event.description).to eq('lorem ipsum dolor')
+    expect(event.user).to eq(user)
   end
 
   context 'Validations' do
     it 'requires start_date' do
-      result = Event::Create.new(event: event_params.except(:start_date)).call
+      result = Event::Create.new(user: user, event: event_params.except(:start_date)).call
 
       expect(result).to fail_interaction
 
@@ -26,7 +27,7 @@ describe Event::Create do
     end
 
     it 'requires end_date' do
-      result = Event::Create.new(event: event_params.except(:end_date)).call
+      result = Event::Create.new(user: user, event: event_params.except(:end_date)).call
 
       expect(result).to fail_interaction
 

@@ -35,7 +35,8 @@ CREATE TABLE public.events (
     end_date timestamp without time zone,
     description text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    user_id bigint NOT NULL
 );
 
 
@@ -148,6 +149,13 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- Name: index_events_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_events_on_user_id ON public.events USING btree (user_id);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -162,6 +170,7 @@ SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20190520101635'),
-('20190520105711');
+('20190520105711'),
+('20190520110524');
 
 
