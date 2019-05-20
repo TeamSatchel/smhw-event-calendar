@@ -9,12 +9,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
-    if @event.save
-      head :created
-    else
-      head 422
-    end
+    @event.save
   end
 
   private
