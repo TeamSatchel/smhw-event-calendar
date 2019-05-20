@@ -5,7 +5,7 @@ describe Event::Create do
   it 'Create an event' do
     Timecop.freeze
 
-    result = Event::Create.new(user: user, event: { start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }).call
+    result = Event::Create.new(user: user, event: { title: 'Awesome event', start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }).call
 
     expect(result).to ok_interaction
 
@@ -32,6 +32,14 @@ describe Event::Create do
       expect(result).to fail_interaction
 
       expect(result.event.errors[:end_date]).to be
+    end
+
+    it 'requires title' do
+      result = Event::Create.new(user: user, event: event_params.except(:title)).call
+
+      expect(result).to fail_interaction
+
+      expect(result.event.errors[:title]).to be
     end
   end
 

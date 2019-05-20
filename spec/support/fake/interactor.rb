@@ -9,7 +9,7 @@ RSpec.shared_context "Interactor Stuff", type: :interactor do
   end
 
   let(:event_params) do
-    { start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }
+    { title: 'Awesome event', start_date: Date.current, end_date: Date.current.advance(days: 2), description: 'lorem ipsum dolor' }
   end
 
   let(:event) do

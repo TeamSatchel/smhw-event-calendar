@@ -36,7 +36,8 @@ CREATE TABLE public.events (
     description text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    user_id bigint NOT NULL
+    user_id bigint NOT NULL,
+    title character varying NOT NULL
 );
 
 
@@ -171,6 +172,7 @@ SET search_path TO "$user", public;
 INSERT INTO "schema_migrations" (version) VALUES
 ('20190520101635'),
 ('20190520105711'),
-('20190520110524');
+('20190520110524'),
+('20190520134305');
 
 
