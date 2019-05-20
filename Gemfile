@@ -30,3 +30,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen'
 end
+
+group :test do
+  gem 'timecop'
+end
