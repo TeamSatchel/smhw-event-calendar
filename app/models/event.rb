@@ -4,4 +4,12 @@ class Event < ActiveRecord::Base
 
   validates :user_id, :start_date, :end_date, presence: true
 
+  def as_json_for_calendar
+    {
+      title: 'Example',
+      start: start_date,
+      end: end_date
+    }
+  end
+
 end

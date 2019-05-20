@@ -6,7 +6,8 @@ $(document).on('turbolinks:load', function(){
 
     $(this).fullCalendar({
       defaultView: 'basicWeek',
-      firstDay: 1
+      firstDay: 1,
+      events: '/events.json'
     });
   })
 

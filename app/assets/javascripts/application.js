@@ -9,4 +9,5 @@
 //= require fullcalendar
 //= require bootstrap-datetimejs
 //= require pickers
+//= require general_utils
 //= require_tree ./application
