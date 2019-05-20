@@ -12,6 +12,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'hanami-utils'
+gem 'sorcery'
 
 gem 'active_model_serializers'
 
