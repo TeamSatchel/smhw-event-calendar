@@ -41,6 +41,14 @@ describe Event::Create do
 
       expect(result.event.errors[:title]).to be
     end
+
+    it 'requires user' do
+      result = Event::Create.new(user: nil, event: event_params).call
+
+      expect(result).to fail_interaction
+
+      expect(result.event.errors[:user_id]).to be
+    end
   end
 
 end

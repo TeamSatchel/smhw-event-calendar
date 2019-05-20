@@ -9,7 +9,7 @@ class Event::Create
   end
 
   def call
-    @event = Event.new(@event_params.merge(user_id: @user.id))
+    @event = Event.new(@event_params.merge(user_id: @user.try(:id)))
 
     validate(@event)
 
