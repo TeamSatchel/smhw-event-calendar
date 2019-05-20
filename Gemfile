@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'hanami-utils'
 gem 'sorcery'
 gem 'slim-rails'
+gem 'bootstrap'
 
 gem 'active_model_serializers'
 

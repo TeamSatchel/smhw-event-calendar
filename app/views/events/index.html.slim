@@ -1,7 +1,14 @@
-h1 Events calendar
+.card
+  .card-header
+    h5.card-title Events calendar
+  .card-body
+    .btn-toolbar
+      = link_to 'Create event', new_event_path, class: 'btn btn-outline-dark'
 
-= link_to 'Create event'
+    hr
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-= image_tag 'events_calendar', width: '100%'
+
+    <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
+    = image_tag 'events_calendar', width: '100%'
+
 
