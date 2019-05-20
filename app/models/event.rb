@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
     {
       title: title,
       start: start_date,
+      description: description,
+      user_name: user.name,
       end: end_date
     }
   end
