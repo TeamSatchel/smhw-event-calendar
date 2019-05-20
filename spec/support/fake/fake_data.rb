@@ -1,4 +1,4 @@
-RSpec.shared_context "Interactor Stuff", type: :interactor do
+RSpec.shared_context "Fake data" do
 
   let(:user_params) do
     { name: 'Carl Jung', email: 'carl.jung@test.com' }

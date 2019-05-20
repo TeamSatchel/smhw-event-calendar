@@ -37,6 +37,8 @@ group :development, :test do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :test do
