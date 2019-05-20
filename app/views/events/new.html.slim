@@ -1,0 +1,19 @@
+.card
+  .card-header
+    h5.card-title New event
+  .card-body
+    = simple_form_for(@event) do |f|
+      .row
+        .col = f.input :title, as: :string
+        .col = f.input :description, as: :text
+
+      .datetimerange.row
+        .col-md-6
+          = f.input :start_date, as: :datetime_picker
+        .col-md-6
+          = f.input :end_date, as: :datetime_picker
+
+      .btn-toolbar
+        .btn-group
+          = f.button :submit
+

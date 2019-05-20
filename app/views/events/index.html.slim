@@ -1,0 +1,27 @@
+.card
+  .card-header
+    h5.card-title Events calendar
+  .card-body
+    .btn-toolbar
+      = link_to 'Create event', new_event_path, class: 'btn btn-outline-dark', data: { remote: true }
+
+    hr
+
+    #weekly-calendar
+
+hr
+
+
+- if !Rails.env.production?
+  br
+  br
+  br
+  br
+
+  h1 Example
+
+  <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
+
+  = image_tag 'events_calendar', width: '100%'
+
+
