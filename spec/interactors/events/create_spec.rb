@@ -16,4 +16,22 @@ describe Event::Create do
     expect(event.description).to eq('lorem ipsum dolor')
   end
 
+  context 'Validations' do
+    it 'requires start_date' do
+      result = Event::Create.new(event: event_params.except(:start_date)).call
+
+      expect(result).to fail_interaction
+
+      expect(result.event.errors[:start_date]).to be
+    end
+
+    it 'requires end_date' do
+      result = Event::Create.new(event: event_params.except(:end_date)).call
+
+      expect(result).to fail_interaction
+
+      expect(result.event.errors[:end_date]).to be
+    end
+  end
+
 end
