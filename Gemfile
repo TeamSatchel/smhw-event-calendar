@@ -4,7 +4,7 @@ ruby '2.6.2'
 
 gem 'rails'
 
-gem 'sqlite3'
+gem 'pg'
 
 gem 'sass-rails'
 gem 'uglifier'
