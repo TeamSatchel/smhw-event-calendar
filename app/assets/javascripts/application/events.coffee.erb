@@ -1,0 +1,40 @@
+<% self.class.include Rails.application.routes.url_helpers %>
+
+document.addEventListener 'DOMContentLoaded', ->
+  calendarEl = document.getElementById('calendar')
+  `calendar = new FullCalendar.Calendar(calendarEl, {
+     plugins: ['dayGrid', 'interaction'],
+     selectable: true,
+     events: '/events.json',
+     select: function(e) {
+       var description;
+       description = prompt('Create an event from ' + e.startStr + ' to ' + e.endStr + ' (excl).\nEnter a description:');
+       (description || e.view.type.match(/^timeGrid/)) && calendar.unselect();
+       return description && makeAjaxCall(URL, 'POST', e, description).then(function() {
+         calendar.addEvent({
+           title: description,
+           start: e.start,
+           end: e.end
+         });
+       }).catch(function(error) {
+         alert('Error in processing your request - ' + error.statusText);
+       })
+     }
+   });`
+  calendar.render()
+  return
+
+URL = '<%= events_path %>'
+
+makeAjaxCall = (url, methodType, event, description) ->
+  data =
+    event:
+      start_date: event.start
+      end_date: event.end
+      description: description
+  $.ajax
+    url: url
+    data: data
+    method: methodType
+    dataType: 'json'
+
