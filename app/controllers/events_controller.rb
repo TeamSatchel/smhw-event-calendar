@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     event.save!
 
     respond_to do |format|
-      format.js { head :ok }
+      format.js# { head :ok }
     end
   end
 
