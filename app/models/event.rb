@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  composed_of :start_date, class_name: 'RequiredDate', mapping: %w[start_date date]
   validates :start_date, presence: true
 
   def as_json(*)
