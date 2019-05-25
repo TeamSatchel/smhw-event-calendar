@@ -667,6 +667,23 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@fullcalendar/core@^4.1.0", "@fullcalendar/core@~4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.1.0.tgz#9f09c4c35e308a81a97e4d62c05f64548d0e5666"
+  integrity sha512-pyBRbNnppQH5iPnhENrNIkvOxjPdR46o7HMuSx3M+OlGVZLygbb97sKg5XuJx6Bn3hFP0EJXKmA9/GCfeP9PPQ==
+
+"@fullcalendar/daygrid@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.1.0.tgz#058b02585d17a63f448e2ab42f65db7bacca2296"
+  integrity sha512-y2w+js+cr0SFC3f88QIS91V8LeZ5TEG/W6hX+CcokP+KTZdepW0uCjPzf9QwVE0LM904tZ2kjCe209hZGfSNGg==
+
+"@fullcalendar/vue@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/vue/-/vue-4.1.1.tgz#1ca4564591708e2fb9eb2a74d16e95dfaa19761a"
+  integrity sha512-c4giqm8xusjomh6r87+/nKjkFaU0SjEAGXVYNqZuGiAasZLWdvyGUnTwKvz/K9mn6gNNr//dWVQlGjGEsTr2Ww==
+  dependencies:
+    "@fullcalendar/core" "~4.1.0"
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
