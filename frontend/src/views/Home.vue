@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-container fluid>
+    <v-layout row wrap>
+      <v-flex d-flex xs12 sm4 md4>
+        <add-event-form/>
+      </v-flex>
+      <v-flex d-flex xs12 sm8 md8>
+        <event-calendar/>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import AddEventForm from '@/components/AddEventForm'
+import EventCalendar from '@/components/EventCalendar'
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
+    AddEventForm,
+    EventCalendar
   }
 }
+
 </script>
