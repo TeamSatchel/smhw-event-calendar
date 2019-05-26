@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -6,9 +8,7 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server 'event-calendar.dhampik.com', user: 'rubyist', roles: %w(app web db)
-
-
+server 'event-calendar.dhampik.com', user: 'rubyist', roles: %w[app web db]
 
 # role-based syntax
 # ==================
@@ -21,11 +21,9 @@ server 'event-calendar.dhampik.com', user: 'rubyist', roles: %w(app web db)
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w(rubyist@event-calendar.dhampik.com)
-role :web, %w(rubyist@event-calendar.dhampik.com)
-role :db, %w(rubyist@event-calendar.dhampik.com)
-
-
+role :app, %w[rubyist@event-calendar.dhampik.com]
+role :web, %w[rubyist@event-calendar.dhampik.com]
+role :db, %w[rubyist@event-calendar.dhampik.com]
 
 # Configuration
 # =============
@@ -40,10 +38,13 @@ set :branch, 'master'
 
 set :rails_env, 'production'
 
-set :bundle_without, %w(development test).join(' ')
+set :bundle_without, %w[development test].join(' ')
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/var/www/event-calendar.dhampik.com'
+
+# Default value for :linked_files is []
+append :linked_files, 'db/production.sqlite3'
 
 # Custom SSH Options
 # ==================

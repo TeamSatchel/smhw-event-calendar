@@ -1,8 +1,10 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+# frozen_string_literal: true
 
-set :application, "event-calendar.dhampik.com"
-set :repo_url, "git@gitlab.dhampik.ru:dhampik/smhw-event-calendar.git"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.11.0'
+
+set :application, 'event-calendar.dhampik.com'
+set :repo_url, 'git@gitlab.dhampik.ru:dhampik/smhw-event-calendar.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,7 +26,7 @@ set :repo_url, "git@gitlab.dhampik.ru:dhampik/smhw-event-calendar.git"
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,3 +42,14 @@ set :rvm_ruby_version, '2.6.3'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+  before :publishing, :build_frontend do
+    on roles(:all) do
+      within release_path.join('frontend') do
+        execute :yarn, 'install'
+        execute :yarn, 'run', 'build'
+      end
+    end
+  end
+end

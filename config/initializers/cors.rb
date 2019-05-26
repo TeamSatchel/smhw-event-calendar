@@ -9,10 +9,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    if Rails.env.production?
-      # Need to change to production url here
-      origins '*'
-    else
+    unless Rails.env.production?
+      # Allow all requests in non-production
       origins '*'
     end
 
