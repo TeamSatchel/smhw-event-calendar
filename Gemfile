@@ -39,6 +39,13 @@ group :development do
   # Make Spring watch the filesystem for changes using Listen rather than by polling the filesystem
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # Autodeploy
+  gem 'capistrano', '~> 3.11.0'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-bundler', '~> 1.3'
+  gem 'capistrano-rvm', '~> 0.1'
+  gem 'capistrano-passenger', '~> 0.2'
+
   # N+1 queries detector
   gem 'bullet', '~> 6'
 
