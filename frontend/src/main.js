@@ -9,8 +9,9 @@ import axios from 'axios'
 
 Vue.config.productionTip = false
 
-// TODO: configure production url here
-axios.defaults.baseURL = 'http://localhost:3000'
+if (process.env.NODE_ENV !== 'production') {
+  axios.defaults.baseURL = 'http://localhost:3000'
+}
 
 new Vue({
   router,

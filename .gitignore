@@ -26,5 +26,8 @@
 
 .byebug_history
 
+# Ignore frontend auto build
+/public/*
+
 # Ignore master key for decrypting credentials and more.
 # /config/master.key
