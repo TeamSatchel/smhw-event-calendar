@@ -49,4 +49,19 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response 204
   end
+
+  test 'should validate event' do
+    @event.end_date = @event.start_date - 1.day
+    assert_difference('Event.count', 0) do
+      post events_url, params: {
+          event: {
+              description: @event.description,
+              end_date: @event.end_date,
+              start_date: @event.start_date
+          }
+      }, as: :json
+    end
+
+    assert_response 422
+  end
 end
