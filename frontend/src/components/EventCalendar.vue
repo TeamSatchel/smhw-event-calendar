@@ -49,7 +49,7 @@ export default {
         return {
           title: event.description,
           start: event.start_date,
-          end: event.end_date
+          end: moment(event.end_date).add(1, 'days').format('YYYY-MM-DD')
         }
       })
     }
