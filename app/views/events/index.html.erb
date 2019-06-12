@@ -1,7 +1,12 @@
 <h1>Events calendar</h1>
 
 <%= link_to 'Create event' %>
+<%= form_with model: @event, html: { id: "new_comment" } do |form| %>
+ <%= form.text_field :title %>
+ <%= form.text_field :description %>
+ <%= form.text_field :start_date, class: 'datepicker', data: { date_format:"dd-mm-yyyy" }, autocomplete: 'off' %>
+ <%= form.text_field :end_date, class: 'datepicker', data: { date_format:"dd-mm-yyyy" }, autocomplete: 'off' %>
+ <%= form.submit %>
+<% end %>
 
 <div id="calendar"></div>
-
-
