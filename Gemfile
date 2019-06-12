@@ -9,6 +9,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'active_model_serializers'
 
