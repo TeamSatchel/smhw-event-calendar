@@ -9,7 +9,6 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-#gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 
@@ -23,6 +22,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 gem 'jbuilder'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'rspec-rails'

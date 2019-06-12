@@ -10,3 +10,7 @@ $(document).on('turbolinks:load', function(){
   eventCalendar();
 });
 $(document).on('turbolinks:before-cache', clearCalendar);
+
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});

@@ -4,6 +4,7 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require moment
+//= require bootstrap-datepicker
 //= require fullcalendar
 //= require calendar
 //= require_tree ./application
