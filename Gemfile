@@ -16,6 +16,9 @@ gem 'puma'
 
 gem 'bootsnap', require: false
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
