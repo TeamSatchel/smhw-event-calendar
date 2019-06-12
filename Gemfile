@@ -19,10 +19,13 @@ gem 'bootsnap', require: false
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+gem 'jbuilder'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'byebug'
   gem 'web-console'
   gem 'listen'
   gem 'spring'
