@@ -11,6 +11,13 @@
 
 $( document ).ready(function() {
   $('#calendar').fullCalendar({
-    events: '/events.json'
+    header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+    },
+    events: '/events.json',
+    defaultView: 'basicWeek',
+    aspectRatio: 1.5
   });
 });
