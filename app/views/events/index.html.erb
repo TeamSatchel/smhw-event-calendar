@@ -1,9 +1,10 @@
 <h1>Events calendar</h1>
-
 <%#= link_to 'Create event' %>
-<h3>Create event</h3>
+<div class="form-group">
+  <h3>Create event</h3>
+</div>
 <div id='create_event'>
   <%= render partial: 'create_event', locals: { event: @event } %>
 </div>
 
-<div id="calendar"></div>
+<div id="calendar"></div><br/><br/>
