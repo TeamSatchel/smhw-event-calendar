@@ -1,0 +1,6 @@
+$('#create_event').html("<%= j render partial: 'create_event', locals: { event: @event.valid? ? Event.new : @event } %>");
+$('#calendar').fullCalendar(
+  'renderEvent',
+  $.parseJSON("<%=j render(@event, format: :json).html_safe if @event.valid? %>"),
+  true
+);
