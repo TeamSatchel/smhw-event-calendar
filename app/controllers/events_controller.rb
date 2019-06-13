@@ -7,7 +7,9 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
+    if @event.valid?
+      @event.save
+    end
   end
 
   private
