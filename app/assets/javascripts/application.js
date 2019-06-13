@@ -12,12 +12,11 @@
 $( document ).ready(function() {
   $('#calendar').fullCalendar({
     header: {
-        left: 'prev,next today',
+        left: 'prev, next, today',
         center: 'title',
         right: 'month,basicWeek,basicDay'
     },
     events: '/events.json',
-    defaultView: 'basicWeek',
-    aspectRatio: 1.5
+    defaultView: 'basicWeek'
   });
 });
