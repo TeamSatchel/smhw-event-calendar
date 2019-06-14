@@ -9,6 +9,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'webpacker'
+gem 'react-rails'
 
 gem 'active_model_serializers'
 
