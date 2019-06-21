@@ -22,8 +22,12 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+end
+
+gem 'web-console', group: :development
+
+group :development, :test do
   gem 'pry-rails'
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
