@@ -17,8 +17,9 @@ gem 'active_model_serializers'
 gem 'puma'
 
 gem 'bootsnap', require: false
-
-group :development, :test do
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
