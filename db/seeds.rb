@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+['blue', 'green', 'red', 'purple'].each do |color|
+  Calendar.create(name: color.capitalize, color: color)
+end
