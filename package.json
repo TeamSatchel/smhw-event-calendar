@@ -3,12 +3,17 @@
     "@babel/preset-react": "^7.0.0",
     "@fullcalendar/core": "^4.2.0",
     "@fullcalendar/daygrid": "^4.2.0",
+    "@fullcalendar/interaction": "^4.2.0",
     "@fullcalendar/react": "^4.2.0",
     "@rails/webpacker": "^4.0.7",
+    "axios": "^0.19.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-responsive-modal": "^4.0.1",
     "react_ujs": "^2.5.0"
   },
   "devDependencies": {
