@@ -13,3 +13,11 @@ Candidates may use any gems/plugins when building your solution. However, we wil
 Please commit changes to git often with descriptive messages. These messages and the granularity of commits will be examined.
 
 You should fork this project, and then when you have completed the work to your satisfaction, please raise a pull request for our attention.
+
+## Getting started
+1. `yarn install` to install js packages
+2. `bundle install` to install required gems
+3. `rake db:create && rake db:migrate && rake db:seed` to prepare database and calendars data
+
+## Tests
+Run `rspec` to run all specs
